@@ -142,3 +142,9 @@ Dưới đây là transcript của [1–5] video cùng một kênh. Hãy phân t
 ```
 
 Kết quả là một phiên bản prompt "đo ni đóng giày" để dùng lâu dài.
+
+---
+
+## BƯỚC TIẾP THEO: HÌNH ẢNH
+
+Khi đã có kịch bản, dùng `PROMPT_HINH_ANH_STORYBOARD.md` để tạo bảng nhân vật, character sheet và storyboard từng shot khớp với lời dẫn.
