@@ -1,128 +1,150 @@
 # PROMPT: Tạo hình nhân vật + Storyboard phối cảnh theo phong cách "IN 16 MINUTES"
 
 > Nguồn tham khảo: 3 video của kênh **Unknown Frequencies**
-> - The ENTIRE Story of GREEK MYTHOLOGY Explained — `7_yCBtjpqCg`
-> - The ENTIRE History of The Vietnam War Explained — `79PHRzE9pDU`
-> - The ENTIRE History of CANADA Explained — `CG4rE6Aw9HM`
+> - The ENTIRE Story of GREEK MYTHOLOGY Explained — `7_yCBtjpqCg` (16:13)
+> - The ENTIRE History of The Vietnam War Explained — `79PHRzE9pDU` (18:06)
+> - The ENTIRE History of CANADA Explained — `CG4rE6Aw9HM` (16:18)
 >
-> ⚠️ Ghi chú trung thực: YouTube chặn tải video và phụ đề từ máy chủ, nên phần phân tích dựa trên **12 khung hình thật**: thumbnail và 3 khung hình tự động (ở khoảng 25%, 50% và 75% thời lượng) của mỗi video. Đây là mẫu nhỏ: những gì thấy rõ trong khung hình được ghi là quan sát; nhịp cắt cảnh và chuyển động là suy luận theo thể loại, có ghi chú riêng.
->
-> File này dùng **cùng với** `PROMPT_KE_CHUYEN.md`: prompt đó tạo kịch bản và lời dẫn, prompt này biến kịch bản thành nhân vật, bối cảnh và storyboard.
+> **Dữ liệu phân tích:** khoảng **300 khung hình thật** lấy từ storyboard của YouTube (mỗi video gần 100 khung, cách nhau khoảng 10 giây, phủ từ đầu đến cuối video), cộng với 3 thumbnail. Không tải được phụ đề vì YouTube yêu cầu token xác thực mà máy chủ không tạo được. Vì vậy phần phân tích nói về **hình ảnh**; còn lời dẫn khớp với hình như thế nào thì suy ra từ chữ hiện trên màn hình.
 
 ---
 
 ## PHẦN 1: PHÂN TÍCH HÌNH ẢNH TỪ 3 VIDEO
 
-### 1.1. Tạo hình nhân vật (quan sát được)
+### 1.1. Hai "chế độ" hình xen kẽ nhau (phát hiện quan trọng nhất)
 
-| Yếu tố | Đặc điểm | Thấy ở đâu |
+Video **không** vẽ cảnh đầy đủ ở mọi khung. Hình xen kẽ giữa hai chế độ:
+
+| Chế độ | Trông như thế nào | Dùng khi |
 |---|---|---|
-| **Đầu** | To, tròn hoặc hình hạt đậu, mặt **trắng trơn**, viền đen dày. Đầu chiếm khoảng 1/3 đến 1/2 chiều cao cơ thể. | Mọi khung hình |
-| **Mặt** | Tối giản: 2 mắt chấm đen, lông mày ngắn (nghiêng xuống là giận, cong lên là lo), miệng là 1 nét. Cảm xúc nằm gần như hoàn toàn ở **lông mày và miệng**. | Zeus/Poseidon/Hades, cảnh "PEACE?" |
-| **Thân & tay chân** | Tay chân là **que đen mảnh** như người que. Thân là một khối trang phục đơn giản (áo choàng, quân phục, toga). Bàn tay nhỏ hoặc không có. | Cảnh cầu hôn, cảnh mê cung |
-| **Nhận diện** | Mặt mọi người giống nhau; nhân vật được nhận ra nhờ **tóc/râu + mũ + trang phục + màu chủ đạo + 1 đạo cụ riêng**. Ví dụ: Zeus có râu bạc và tia sét, Poseidon có đinh ba, Hermes có mũ cánh, Athena có mũ giáp đỏ và khiên tròn, Ariadne có vòng chỉ đỏ. | Thumbnail Greek, cảnh mê cung |
-| **Hai cấp độ vẽ** | **Bản thumbnail** chi tiết hơn: tóc có texture, có đổ bóng, tay "găng tay" tròn. **Bản trong video** phẳng hơn, màu đặc, nét đơn. | So sánh thumbnail với khung hình trong video |
-| **Nhân vật "người cờ"** | Phe phái hoặc quốc gia được nhân hóa: đầu là **lá cờ tròn**, thân là các khối màu của cờ, tay chân que. Thường đứng đối xứng trái và phải. | Cảnh Mỹ và Việt Nam ("AIR MOBILITY AND FIREPOWER") |
-| **Linh vật dẫn chuyện** | Một **bộ xương** đội mũ hoặc mặc đồ hợp thời đại (mũ cối với dây đạn ở Việt Nam, mũ lông chim với áo gilet ở Canada). Miệng há như đang nói, đứng **ở góc dưới khung hình**, nhìn thẳng người xem, bình luận và phản ứng. Đây là chữ ký của kênh. | Vietnam 1 & 3, Canada 1 |
-| **Vai phụ / đám đông** | Chỉ là **nét viền màu nhạt, không tô**, đặt ở hậu cảnh để không tranh chỗ nhân vật chính. | Cảnh đám cưới |
-| **Người thật** | **Ảnh đen trắng thật** đặt trong khung viền đen, có nhãn chữ (VD "DIED IN 1969") hoặc tên bên dưới. Cạnh đó là **phiên bản hoạt hình** của cùng người đó trong một huy hiệu tròn. | Hồ Chí Minh, René Lévesque |
+| **NỀN TRẮNG** | Nhân vật trên nền trắng trơn hoặc kem nhạt, cộng chữ. Không bối cảnh. | Hội thoại, giới thiệu nhân vật, giải thích, câu đùa, con số. Đây là chế độ **mặc định**: chiếm nhiều nhất ở video thần thoại, ít hơn ở video lịch sử. |
+| **CẢNH VẼ ĐẦY ĐỦ** | Bối cảnh vẽ kỹ, có ánh sáng, texture, chiều sâu (đền, mê cung, chiến trường, Nhà Trắng, Quốc hội Ottawa). | Mở video, mở chương, sự kiện lớn, khoảnh khắc cảm xúc, cao trào. |
 
-### 1.2. Bối cảnh và màu sắc
+Nhịp này giúp video **rẻ để sản xuất**: phần lớn shot chỉ cần nhân vật tách nền, còn cảnh vẽ kỹ là "phần thưởng" thị giác đặt ở chỗ quan trọng.
 
-- **Nhân vật đơn giản, bối cảnh chi tiết.** Bối cảnh được vẽ kỹ (cột đá, núi xa, tường đá mê cung, văn phòng đầy sách) với texture và ánh sáng. Sự tương phản này giúp nhân vật luôn nổi bật.
-- **Màu theo cảm xúc và thời đại:**
-  - Ban ngày, yên bình: trời xanh, cỏ xanh, màu tươi (cảnh cầu hôn, cảnh bờ sông "PEACE?").
-  - Kịch tính, bí mật: **xanh đêm** cùng một nguồn sáng ấm (đuốc, đèn) (cảnh mê cung, cảnh mưa ở Ottawa).
-  - Quá khứ xa, thời thuộc địa: **sepia đơn sắc**. Chỉ linh vật dẫn chuyện và các ô phóng to được giữ màu (văn phòng thực dân Pháp).
-  - Chiến tranh: xanh rêu và nâu đất, tối, có khói.
-- **Màu nhấn có chủ đích:** một vật mang ý nghĩa cốt truyện được tô màu nổi duy nhất trong khung (vòng chỉ đỏ của Ariadne trên nền xanh đêm, vùng Quebec đỏ trên bản đồ xám).
-- **Bản đồ là sân khấu:** bản đồ phong cách hóa, màu đặc có texture, đường biên sáng. Nhân vật đứng **trước** bản đồ, vùng quan trọng được tô đỏ. Có dạng **chia đôi màn hình** so sánh hai mốc thời gian (1497 với TODAY).
+### 1.2. Tạo hình nhân vật
 
-### 1.3. Lồng ghép đạo cụ (quan sát được)
-
-1. **Đạo cụ nhận diện**: mỗi nhân vật chính có một vật đi theo suốt video (tia sét, đinh ba, mũ cánh).
-2. **Đạo cụ kể chuyện**: một vật duy nhất tóm cả sự kiện, đặt ở **trung tâm khung hình**:
-   - Cái bát với 3 lá thăm trên bàn: "rút thăm chia thế giới".
-   - Chiếc nhẫn giữa hai bàn tay: "cầu hôn".
-   - Cuộn chỉ đỏ: "lời giải thoát khỏi mê cung".
-   - Lá cờ trắng: "cầu hòa".
-3. **Ô phóng to tròn (inset callout)**: hình tròn viền trắng dày nổi trên cảnh, phóng to đạo cụ để **giải thích khái niệm** mà lời dẫn đang nhắc. Ví dụ: tẩu thuốc phiện với cục nhựa, thúng tre với hũ muối, nói về độc quyền thuốc phiện và thuế muối.
-4. **Chữ trong cảnh để định vị**: biển hiệu ("OFFICE PRIVÉ…", "LZ X-RAY", cọc "OTTAWA"/"HULL, QUEBEC"), giấy tờ đọc được ("RÉCLAMATION SUR L'IMPÔT DU SEL"), cờ trên cột để chỉ phe. Người xem biết **ở đâu, ai, bối cảnh gì** mà lời dẫn không cần nói.
-5. **Đạo cụ kể tính cách**: nhân vật thực dân gác chân lên bàn, cầm xấp tiền, bên cạnh là ly rượu vang, đồng xu và hộp xì gà. Đạo cụ làm phần châm biếm.
-
-### 1.4. Chữ trên màn hình
-
-| Loại | Cách làm |
+| Yếu tố | Đặc điểm (quan sát) |
 |---|---|
-| **Tiêu đề chương** | Băng giấy cuộn (parchment scroll) ngang đầu khung hình. Font hợp thời đại (VD kiểu Hy Lạp cổ). |
-| **Câu chốt (kinetic text)** | Chữ **vàng, viết tay, đậm**, có bóng tối, hiện theo từng cụm đúng lúc lời dẫn đọc ("AND UNWIND IT AS YOU GO", "FIGHT AT CLOSE RANGE"). Có thể chồng lớp chữ cũ mờ phía sau. |
-| **Lời thoại ngắn** | 1 đến 2 từ, chữ đen to, có một **nét ngoằn ngoèo nhỏ** làm đuôi chỉ về người nói ("PEACE?"). Không dùng bóng thoại. |
-| **Mốc năm** | Chữ trắng viết tay ở góc trên bên trái ("1995"). |
-| **Con số** | Số rất to, nằm trong cảnh ("54,288 VOTES", "1%"). |
-| **Nhãn** | Hộp đen chữ trắng ("1497", "TODAY") hoặc nhãn giấy viền đen. |
+| **Đầu** | To, tròn/hạt đậu, mặt **trắng trơn**, viền đen dày. Đầu chiếm khoảng 1/3 cơ thể. |
+| **Mặt** | 2 mắt chấm, lông mày ngắn, miệng 1 nét. Cảm xúc nằm ở **lông mày + miệng**. Mắt đặc biệt chỉ dùng cho khoảnh khắc mạnh: mắt đỏ phát sáng (Heracles nổi điên), băng đỏ che mắt (Eros "mù quáng"), mắt kính râm. |
+| **Thân & tay chân** | Tay chân **que đen mảnh**. Thân là một khối trang phục đơn giản. |
+| **Nhận diện** | Mặt giống nhau; nhận diện bằng **tóc/râu + mũ + trang phục + màu chủ đạo + đạo cụ**: Zeus tóc vàng với toga xanh, Hades đen với vương miện, Heracles với da sư tử, Medusa với tóc rắn, Gaia với vòng lá và áo xanh rêu; lính Pháp đội kepi, Việt Minh đội mũ cối có sao, lính Mỹ đội mũ M1. |
+| **Nhân vật lặp lại nhiều lần** | Cùng một nhân vật được dùng **nhất quán cả video** ở nhiều tư thế (Zeus xuất hiện hơn 10 lần, luôn cùng màu áo và kiểu tóc). |
+| **Người thật** | Vẽ hoạt hình với **đặc điểm nhận dạng phóng đại** (kính, kiểu tóc, nếp nhăn: Johnson, McNamara, Nixon) và có **nhãn tên kèm mũi tên** khi xuất hiện lần đầu. Một số lần dùng thêm **ảnh thật đen trắng** trong khung (Hồ Chí Minh, René Lévesque), tranh cổ có gắn mắt hoạt hình (Erasmus), hoặc ảnh tư liệu nhỏ (địa đạo Củ Chi, hội nghị Genève). |
+| **"Người cờ"** | Quốc gia/phe được nhân hóa: đầu là lá cờ tròn, thân mang màu cờ (Mỹ, Pháp, Trung Quốc, Nhật, Việt Nam). Dùng cho **quan hệ quốc tế** và câu đùa chính trị. |
+| **Nhân hóa vùng/tổ chức** | Một nhân vật người mặc trang phục biểu tượng của vùng đó (Newfoundland mặc áo mưa vàng của dân chài, Quebec đứng cạnh "Church"). |
+| **Đám đông** | Thường là **nhiều nhân vật nhỏ tô màu đầy đủ** đứng chen nhau để thể hiện con số (70.000 người Công giáo Pháp, 500.000 người ở Ba Đình, Quốc hội Mỹ). Bóng đen đặc dùng cho người vô danh hoặc cái chết. Nét viền không tô chỉ thấy ở vài cảnh. |
 
-### 1.5. Bố cục và phối cảnh
+### 1.3. Linh vật dẫn chuyện (chữ ký của kênh)
 
-- **Khung 16:9, góc máy ngang tầm mắt, cỡ cảnh trung**: nhân vật đứng trên một đường mặt đất, thấy toàn thân hoặc từ gối trở lên, thường quay mặt về phía người xem.
-- **Đối đầu đối xứng**: hai phe đứng hai bên trái/phải, thông tin (bản đồ, chữ) ở giữa (Mỹ và Việt Nam; thumbnail Kennedy và Hồ Chí Minh).
-- **Bộ ba (triptych)**: ô trái, ảnh thật ở giữa, ô phải, được nối bằng một con sông hoặc con đường để kể **hai sự kiện xảy ra song song** (Ottawa họp hội nghị trong khi đoàn Quebec ngủ ở Hull).
-- **Nhóm ba người quanh một đạo cụ trung tâm** (Zeus, Poseidon, Hades quanh cái bát).
-- **Ba lớp chiều sâu**: tiền cảnh là linh vật dẫn chuyện ở góc, trung cảnh là nhân vật chính, hậu cảnh là bối cảnh chi tiết hoặc đám đông nét mảnh.
-- **Kiến trúc đóng khung**: cột đá, khung cửa, vòm hoa ôm lấy nhân vật.
+- Một **bộ xương** dẫn chuyện, **đổi trang phục theo chủ đề video**:
+  - Thần thoại Hy Lạp: vòng nguyệt quế và toga viền hoa văn Hy Lạp.
+  - Chiến tranh Việt Nam: mũ M1 xanh rêu và dây đạn chéo ngực.
+  - Canada: mũ rộng vành có lông chim, áo khoác nâu, áo gilet.
+- Có mặt ở **khoảng 30–40% khung hình**. Vị trí: nửa người ở mép trái hoặc phải, đứng trước bản đồ, hoặc to ở giữa.
+- **Kỹ thuật "làm tối + bật linh vật"** (lặp lại rất nhiều lần): cảnh đang chiếu bị **làm tối khoảng 60%**, rồi linh vật bật lên to ở tiền cảnh để bình luận, mỉa mai hoặc tóm ý, sau đó quay lại cảnh.
+- Linh vật **đi bộ trên bản đồ** hoặc **đứng trong cảnh** như một người quan sát (đứng cạnh con ngựa thành Troy, đứng trên giàn hỏa của Heracles).
+- Cầm đạo cụ hỗ trợ: que chỉ, ngón tay giơ lên ("lưu ý"), nhún vai.
 
-### 1.6. Thumbnail (quan sát được)
+### 1.4. Đạo cụ và cách lồng ghép
 
-- Công thức: **2 nhân vật to ở hai mép trái/phải** (đối thủ, hoặc "xưa với nay") + **bản đồ màu đậm ở giữa** + **chữ trắng viền đen dày** "[CHỦ ĐỀ] IN [N] MINUTES" hoặc một câu hỏi "HOW?".
-- Chủ đề thần thoại dùng **ảnh tập thể**: cả nhóm nhân vật xếp thành kim tự tháp trên nền mây.
-- Nhân vật ở thumbnail vẽ chi tiết hơn trong video, biểu cảm gắt (lông mày nghiêng mạnh).
+1. **Đạo cụ nhận diện** đi theo nhân vật cả video (lưỡi hái của Gaia/Kronos, đinh ba, khiên, súng trường).
+2. **Đạo cụ kể chuyện** đặt ở **trung tâm** để tóm sự kiện: bát rút thăm, quả táo vàng "KALLISTI", ngựa gỗ thành Troy, thùng Agent Orange, chiếc bình của Pandora, cây "Last Spike" đường sắt.
+3. **Đạo cụ ẩn dụ** biến khái niệm trừu tượng thành vật: cái cân (vùng đất lạnh với đảo đường), lá phong mọc rễ (sự hy sinh của Canada), ổ khóa xích trên bản đồ (hiến pháp bị "khóa"), quân domino bằng cờ các nước (thuyết domino), thùng phiếu đặt lên vùng đất (trưng cầu dân ý), cần gạt "WAR" (quyền tuyên chiến).
+4. **Đạo cụ có tính cách**: tờ New York Times đeo kính râm, hồ sơ có nhãn "LIE".
+5. **Tài liệu và văn bản thật** dùng làm đạo cụ: Tuyên ngôn Độc lập, sắc lệnh 1867, lịch tháng 9/1939 khoanh ngày 10, hồ sơ NSA. Chúng **có chữ đọc được** và mở to chiếm nửa khung.
+6. **Cảnh cận cảnh chèn (góc từ trên xuống)**: video Việt Nam kết bằng góc nhìn từ trên bàn xuống trang hồi ký "WE WERE WRONG, TERRIBLY WRONG". Kết thúc bằng **một đạo cụ**.
+7. **Ký hiệu chỉ dẫn** vẽ đè lên hình: dấu **X đỏ** gạch bỏ (Zeus, Hanoi, các phương án thất bại), **mũi tên** có nhãn, **khoanh tròn đỏ** trên bản đồ, **con dấu đỏ** ("FAILED 1", "FAILED 2", "TREASON"), **danh sách có ô tick** (Ngô Đình Diệm: Catholic, Corrupt, Authoritarian), tick đỏ trên người lính để đánh dấu hậu quả.
+8. **Ô phóng to tròn** và **khung ảnh nhỏ** đặt đè lên cảnh để giải thích hoặc đưa bằng chứng.
 
-### 1.7. Flow dùng hình ảnh (suy luận từ khung hình và thể loại)
+### 1.5. Bản đồ
 
-Mỗi ý trong lời dẫn được gán **một loại hình** theo chức năng của nó:
+- Bản đồ là loại hình chính của video lịch sử (Canada gần như **1/3** số khung).
+- **Phong cách bản đồ khớp với thời đại:** thời thuộc địa dùng **bản đồ giấy da cũ** có la bàn, chữ viết tay và cờ cắm; thời hiện đại dùng **bản đồ phẳng màu sáng**, mỗi tỉnh một màu pastel.
+- Thứ được vẽ đè lên bản đồ: vùng tô màu thể hiện mở rộng lãnh thổ qua từng năm, **mũi tên di chuyển** (xanh lá cho tiến quân, đỏ cho đổ bộ), **vụ nổ** đánh dấu nơi bị tấn công (Tết Mậu Thân "36 OF 44"), **ghim**, **đường nứt** chia đôi lãnh thổ, **thuyền và người tí hon** đang di chuyển, và **ảnh minh họa nhỏ** gắn tại địa điểm.
+- Có tiêu đề hộp như chú thích bản đồ ("THE EXPANSION OF NEW FRANCE", "MINIMAP OF THE DEEP WOODS", "NORMANDY COAST INSET").
 
-| Lời dẫn đang… | Loại hình |
+### 1.6. Chữ trên màn hình
+
+| Loại | Cách làm (quan sát) |
 |---|---|
-| nói **ở đâu / khi nào** | Bản đồ + mốc năm |
-| nói **ai làm gì** | Cảnh nhân vật + đạo cụ kể chuyện |
-| giải thích **khái niệm** | Ô phóng to tròn đè lên cảnh |
-| đưa ra **bằng chứng / người thật** | Ảnh thật trong khung + nhãn |
-| nói **câu chốt / con số** | Chữ vàng động hoặc số to |
-| **so sánh hai phe / hai thời** | Đối xứng trái-phải hoặc chia đôi |
-| **hai việc xảy ra cùng lúc** | Bộ ba (triptych) |
-| **mỉa mai, bình luận** | Linh vật xương xuất hiện ở góc |
-| **mở chương mới** | Băng cuộn tiêu đề chương |
+| **Mốc thời gian** | Góc trên bên trái, chữ in hoa đậm ("SEPTEMBER 2ND", "JULY 1954", "APRIL 30TH, 1975"). Xuất hiện ở **hầu hết** shot lịch sử. Có lúc là một **thẻ trắng chỉ có ngày tháng** dùng làm nhịp chuyển. |
+| **Tiêu đề chương / chiến dịch** | Dải chữ trên cùng ("OPERATION ROLLING THUNDER", "THE ARGONAUTS"), băng giấy cuộn (Hy Lạp), hoặc thẻ đen trắng. |
+| **Lời thoại** | **Chữ thường viết tay, không bóng thoại**, đặt cạnh người nói kèm một nét nhỏ chỉ về họ. Từ khóa trong câu được tô **đỏ gạch hoặc cam** ("to **stop communism**… **not the same thing**"). |
+| **Con số** | Rất to, dày, màu đỏ gạch trên nền sáng hoặc vàng/cam trên nền tối ("416 TO 0", "11 MILLION GALLONS", "2,200 FRENCH SOLDIERS WERE DEAD", "60,000 MEN"). |
+| **Câu chốt** | Chữ vàng hoặc trắng to trên cảnh tối ("THE DEADLIEST WAR IN THE ANCIENT…", "TOMORROW'S PROBLEM"). |
+| **Nhãn tên** | Tên + mũi tên chỉ vào nhân vật ("OEDIPUS", "General Vo Nguyen Giap", "PROMETHEUS"). |
+| **Phương trình / so sánh** | "BONES = STONES", "English Protestants" và "French Catholics" đặt hai bên. |
 
-> Ước tính nhịp (suy luận, chưa đo trên video): video 16 đến 18 phút đổi hình khoảng **mỗi 4 đến 7 giây**, tức khoảng 1 hình cho mỗi 1 hoặc 2 câu lời dẫn. Khoảng 150 đến 250 hình cho một video. Chuyển động chủ yếu là zoom/pan chậm trên ảnh tĩnh, chữ bật lên và nhân vật nhún nhẹ.
+**Bảng màu chữ:** đen + **đỏ gạch** trên nền trắng; **vàng/cam** + trắng trên nền tối. Font tiêu đề là chữ in hoa hẹp. Thần thoại dùng font kiểu Hy Lạp cổ.
+
+### 1.7. Bố cục và phối cảnh
+
+- **16:9, ngang tầm mắt, cỡ trung**: nhân vật thấy toàn thân hoặc nửa người.
+- **Hai người đối thoại**: mỗi người một mép trái/phải, **chữ thoại ở giữa**. Đây là bố cục nền trắng phổ biến nhất.
+- **Xây dần trên cùng một khung**: giữ nguyên bố cục, chỉ **thêm hoặc đổi lớp phủ** theo lời dẫn. Ví dụ "Operation Rolling Thunder" giữ 3 khung liền (khoảng 30 giây) với cùng nền, lần lượt hiện "300,000 bombing sorties", rồi "864,000 tons". Hay số quân Mỹ tăng dần 8,000, rồi 1966 510,000, rồi 1969 543,000 trên cùng một bố cục.
+- **Cảnh rộng, rồi cận**: cảnh đầy đủ (Theseus và Ariadne trước mê cung), sau đó cùng cảnh có thêm chữ thoại, sau đó cắt sang nền trắng để nói chuyện.
+- **Ghép khung truyện tranh**: nhiều ô hình chữ nhật trên nền trắng để kể nhiều việc trong cùng một năm ("1965": máy bay ném bom, nổ, hố bom).
+- **Bộ ba**: hai cảnh song song nối bằng con sông, ảnh thật ở giữa (Ottawa và Hull).
+- **Bối cảnh trong nhà để kể chính trị**: Phòng Bầu dục với đèn bàn và bản đồ trên tường, phòng radar trên tàu, tòa án.
+- **Cảnh màn hình TV** (khung TV cũ) cho các sự kiện truyền hình (Cronkite, LBJ).
+
+### 1.8. Màu sắc theo cảm xúc
+
+- **Trắng/kem**: kể chuyện bình thường, hội thoại.
+- **Ngày tươi sáng**: hòa bình, khởi đầu (Theseus ở sân vận động, bờ sông "PEACE?").
+- **Đêm xanh với ánh đuốc**: âm mưu, nguy hiểm (mê cung, ngựa thành Troy trong đêm).
+- **Tím sẫm với mây**: thần linh, quyền lực (Kronos trên ngai mây).
+- **Sepia**: quá khứ thuộc địa (ruộng bậc thang, đồn điền).
+- **Xanh rêu, nâu, khói lửa**: chiến tranh. **Đỏ lửa**: cao trào hủy diệt (thành phố cháy, Heracles bốc cháy).
+- **Mưa đêm xanh đậm**: bi kịch chính trị (Ottawa, Hiến chương 1982).
+- **Màu nhấn duy nhất**: một vật hoặc vùng mang ý nghĩa được tô đỏ/vàng nổi giữa khung (cuộn chỉ đỏ, Quebec đỏ, quả táo vàng).
+
+### 1.9. Cấu trúc hình ảnh của cả video
+
+| Đoạn | Hình ảnh (quan sát) |
+|---|---|
+| **Mở (0:00 đến khoảng 0:40)** | Cảnh **vẽ đầy đủ và kịch tính nhất** (thành phố cháy, B-52 trên rừng mưa, bản đồ cả nước) cùng linh vật và câu chốt to ("THE DEADLIEST WAR…", "416 TO 0"). Có thể chiếu trước cảnh kết. |
+| **Tài trợ (khoảng 1:00 đến 2:30)** | Ngay sau phần mở là đoạn quảng cáo quay màn hình, có linh vật chèn vào chuyển cảnh. |
+| **Thân bài** | Xen kẽ nền trắng, cảnh vẽ, bản đồ và số liệu. Mỗi chương mở bằng mốc năm và một cảnh hoặc bản đồ. |
+| **Cao trào** | Nhiều cảnh vẽ tối, lửa, mưa; số liệu thương vong to. |
+| **Kết** | (a) Một **đạo cụ cận cảnh** chốt bài học (trang hồi ký), hoặc (b) **dòng thời gian tóm tắt**: thanh mốc năm chạy dọc đáy màn hình trong khi linh vật đi trên bản đồ, các biểu tượng lần lượt bị gạch. Cảnh cuối thường **quay lại bản đồ đầu video** (vòng tròn khép kín). Màn hình kết là linh vật trên nền tối kiểu bản vẽ kỹ thuật, kèm gợi ý video khác. |
+
+**Nhịp hình (đo được):** storyboard lấy mẫu khoảng 10 giây một khung, và **gần như mọi khung liền nhau đều là hình khác nhau**. Như vậy hình đổi **dưới 10 giây một lần**, ước khoảng **4 đến 8 giây**. Có những đoạn **giữ cùng một nền 20–30 giây** nhưng lớp chữ, số và mũi tên thay đổi liên tục. Một video 16 phút cần khoảng **150 đến 220 khung hình**, nhưng chỉ cần khoảng **40 đến 70 cảnh vẽ đầy đủ**, vì phần còn lại là nền trắng, bản đồ dùng lại hoặc biến thể lớp phủ.
 
 ---
 
 ## PHẦN 2: STYLE BIBLE (khối dán đầu mọi prompt tạo ảnh)
 
-Prompt tạo ảnh nên viết bằng **tiếng Anh** vì phần lớn mô hình ảnh (Midjourney, Flux, Ideogram, GPT-Image, Nano Banana, Leonardo…) hiểu tiếng Anh tốt hơn. Chữ hiển thị trong ảnh có thể là tiếng Việt, nhưng nên **thêm chữ ở bước dựng video** (CapCut, Premiere) thay vì để AI vẽ chữ, vì AI hay viết sai dấu tiếng Việt.
+Prompt ảnh viết bằng **tiếng Anh** vì phần lớn mô hình ảnh hiểu tốt hơn. **Chữ tiếng Việt thêm ở bước dựng** (CapCut, Premiere), không để AI vẽ vì hay sai dấu.
 
 ```
-STYLE: hand-drawn 2D cartoon illustration, educational history YouTube style.
-Characters: big round white bean-shaped heads with blank white faces, tiny black dot eyes,
-short expressive eyebrows, single-line mouth, thick clean black outlines,
-thin black stick-figure arms and legs, simple block-shaped costumes with flat colors,
-small or no hands. Characters are SIMPLE and FLAT.
-Backgrounds are MORE DETAILED than characters: painterly illustrated environments
-with subtle texture, soft lighting, muted natural palette, clear depth.
-Composition: 16:9, eye-level medium shot, characters standing on a clear ground line,
-readable silhouettes, generous negative space at the top for titles.
-Line: uniform bold black ink line on characters, thinner lines on background.
-No photorealism, no 3D, no anime, no gradients on characters, no text unless specified.
+STYLE: hand-drawn 2D cartoon, educational history YouTube explainer.
+CHARACTERS: big round white bean-shaped heads (about 1/3 of body height) with blank white faces,
+tiny black dot eyes, short expressive black eyebrows, single-line mouth,
+thick clean black outlines, thin black stick-figure arms and legs,
+simple block-shaped period costumes with flat colors and minimal shading.
+Identity comes from hair/beard, headwear, costume color and one signature prop.
+BACKGROUNDS (only when specified): detailed painterly illustrated environments,
+subtle texture, cinematic lighting, clear depth, more detailed than the characters.
+COMPOSITION: 16:9, eye-level medium shot, readable silhouettes,
+empty space reserved for on-screen text.
+No photorealism, no 3D, no anime, no text unless specified.
 ```
 
-**Biến thể màu (thêm vào cuối khi cần):**
+**Biến thể nền (thêm vào cuối):**
 
 ```
-[DAY]        bright daylight, clear blue sky, fresh greens, cheerful mood
-[NIGHT]      deep navy night palette, single warm light source (torch/lamp) casting orange glow, suspense
-[SEPIA]      entire scene in monochrome sepia/beige like an old photograph, except [ELEMENT] kept in full color
-[WAR]        muted olive green and earth brown, smoke haze, overcast sky, tense mood
-[RAIN]       dark stormy blue, diagonal rain streaks, lit windows glowing warm
-[MAP]        stylized political map, flat textured color fills, thin glowing white borders, deep blue ocean
+[WHITE]   plain pure white background, no environment, character(s) only, soft tiny ground shadow
+[DAY]     bright daylight, clear blue sky, fresh greens, calm mood
+[NIGHT]   deep navy night, single warm torch/lamp light with orange glow, suspense
+[DIVINE]  dark purple sky with swirling clouds and stars, ominous power
+[SEPIA]   monochrome sepia/beige like an old photograph
+[WAR]     muted olive and earth brown, smoke haze, fires, overcast
+[RAIN]    dark stormy blue, diagonal rain streaks, warm lit windows
+[OLDMAP]  antique parchment map, hand-lettered labels, compass rose, small flags and tiny figures
+[MAP]     clean modern flat map, pastel region fills, white borders, bright blue ocean
 ```
 
 ---
@@ -134,33 +156,31 @@ No photorealism, no 3D, no anime, no gradients on characters, no text unless spe
 Dán vào ChatGPT/Claude/Gemini **sau khi** đã có kịch bản từ `PROMPT_KE_CHUYEN.md`:
 
 ```
-Bạn là character designer cho kênh YouTube hoạt hình 2D kể chuyện lịch sử/truyện, phong cách:
-đầu tròn mặt trắng trơn, mắt chấm, lông mày biểu cảm, tay chân que, trang phục khối màu phẳng,
-bối cảnh vẽ chi tiết hơn nhân vật.
+Bạn là character designer cho kênh YouTube hoạt hình 2D giải thích lịch sử/truyện. Phong cách:
+đầu tròn mặt trắng trơn, mắt chấm, lông mày biểu cảm, tay chân que, trang phục khối màu phẳng.
 
 Đọc kịch bản dưới đây và lập BẢNG NHÂN VẬT (CHARACTER BIBLE).
 
-QUY TẮC THIẾT KẾ:
-1. Vì mọi khuôn mặt đều giống nhau, mỗi nhân vật phải nhận ra được NGAY qua bóng đen (silhouette) nhờ 4 "chìa khóa":
+QUY TẮC:
+1. Mặt mọi người giống nhau, nên mỗi nhân vật phải nhận ra NGAY qua 4 chìa khóa:
    (a) tóc/râu (kiểu + màu), (b) mũ/vật trên đầu, (c) trang phục + 1 MÀU CHỦ ĐẠO riêng,
-   (d) 1 ĐẠO CỤ NHẬN DIỆN gắn với vai trò trong truyện.
+   (d) 1 ĐẠO CỤ NHẬN DIỆN gắn với vai trò.
 2. Không có 2 nhân vật chính nào trùng màu chủ đạo hoặc trùng kiểu đầu.
-3. Màu chủ đạo mang nghĩa: phe ta / phe địch / trung lập phải phân biệt rõ.
-4. Trang phục đúng thời đại và vùng miền, nhưng giản lược thành khối lớn.
-5. Phe phái, quốc gia hoặc tổ chức trừu tượng thì thiết kế dạng "NGƯỜI CỜ":
-   đầu là biểu tượng/lá cờ tròn, thân là các khối màu của biểu tượng.
-6. Thiết kế 1 LINH VẬT DẪN CHUYỆN xuất hiện ở góc khung hình để bình luận, đổi trang phục theo thời đại của mỗi chương.
-   Linh vật phải KHÁC kênh tham khảo (không dùng bộ xương). Gợi ý: một con vật, một bóng ma, một ông đồ…, có 1 đặc điểm không đổi.
-7. Vai phụ và đám đông: chỉ vẽ nét viền màu nhạt, không tô màu.
+3. Người có thật: giữ 1–2 đặc điểm nhận dạng PHÓNG ĐẠI (kính, kiểu tóc, râu, nếp nhăn) và ghi nhãn tên lần đầu xuất hiện.
+4. Quốc gia/phe phái trong quan hệ quốc tế: thiết kế "NGƯỜI CỜ" (đầu là lá cờ tròn, thân mang màu cờ).
+5. Vùng đất/tổ chức cần nhân hóa: một người mặc trang phục biểu tượng của nơi đó.
+6. LINH VẬT DẪN CHUYỆN: 1 nhân vật cố định của kênh, có MỘT đặc điểm không đổi
+   và một LỚP TRANG PHỤC ĐỔI THEO CHỦ ĐỀ của video này. Phải KHÁC kênh tham khảo (không dùng bộ xương).
+7. Với mỗi nhân vật, chỉ định cảnh nào cần mắt đặc biệt (mắt đỏ giận dữ, khóc, kính râm…).
 
 ĐẦU RA cho MỖI nhân vật:
-- Tên | Vai trò | Xuất hiện ở chương nào
-- 4 chìa khóa nhận diện (a)(b)(c)(d)
-- Mã màu HEX chủ đạo + màu phụ
-- 4 biểu cảm cần vẽ (tên cảm xúc + mô tả lông mày/miệng)
-- 3 tư thế cần vẽ (gắn với cảnh cụ thể trong kịch bản)
-- Nếu là người có thật: ghi chú "cần ảnh thật đen trắng + nhãn" và nhãn đề xuất
-- PROMPT TIẾNG ANH để tạo character sheet (theo khuôn ở mục 3.2)
+- Tên | Vai trò | Xuất hiện ở chương nào | Số lần xuất hiện ước tính
+- 4 chìa khóa (a)(b)(c)(d) + mã màu HEX chủ đạo và phụ
+- 5 biểu cảm cần có (tên + mô tả lông mày/miệng)
+- 4 tư thế cần có (gắn với cảnh cụ thể trong kịch bản)
+- Nhãn tên lần đầu (nếu cần)
+- Người có thật: có cần ảnh tư liệu đen trắng không, nguồn gợi ý
+- PROMPT TIẾNG ANH cho character sheet (khuôn 3.2)
 
 Cuối cùng: bảng so sánh silhouette để kiểm tra không có 2 nhân vật nào dễ nhầm.
 
@@ -168,45 +188,44 @@ KỊCH BẢN:
 [DÁN KỊCH BẢN]
 ```
 
-### 3.2. Khuôn prompt ảnh: character sheet (tạo trước tiên, dùng làm ảnh tham chiếu)
+### 3.2. Khuôn prompt ảnh: character sheet (tạo trước tiên, làm ảnh tham chiếu)
 
 ```
-[STYLE BIBLE]
-Character reference sheet on plain light-gray background, 16:9.
+[STYLE BIBLE] [WHITE]
+Character reference sheet, 16:9.
 Character: [NAME], [role], [era/region].
-Head: big round white bean head, blank white face, tiny black dot eyes, [eyebrow default].
-Hair/beard: [style + color].
-Headwear: [hat/helmet/crown/none].
+Head: big round white bean head, blank white face, tiny black dot eyes.
+Hair/beard: [style + color]. Headwear: [hat/helmet/crown/wreath/none].
 Costume: [garment], main color [#HEX], accent [#HEX], simple flat blocks.
-Signature prop: [prop], always held in [left/right] hand.
-Show: front view, 3/4 view, side view, back view in a row (same scale, same ground line);
-below: 4 facial expressions close-up: [neutral], [angry: eyebrows slanted down], [worried: eyebrows tilted up], [smug: half-closed eyes, small smirk].
-Consistent proportions: head = 40% of total height. Thin black stick limbs.
+Signature prop: [prop].
+Row 1: front, 3/4, side, back full-body views, same scale, same ground line.
+Row 2: five head close-ups: neutral, angry (eyebrows slanted down), worried (eyebrows tilted up),
+shocked (open mouth), smug (half-closed eyes, small smirk).
 ```
 
-### 3.3. Khuôn prompt ảnh: "người cờ" (phe phái/quốc gia)
+### 3.3. Khuôn prompt ảnh: "người cờ"
 
 ```
-[STYLE BIBLE]
-Personified faction character: the head is a perfect circle filled with the [FLAG/EMBLEM] design,
-thick black outline, no facial features OR [tiny dot eyes + eyebrows],
-body is a simple tall rounded rectangle split into the flag's colors [colors],
-thin black stick arms and legs. Pose: [hands on hips / gesturing / pointing].
-Full body, plain background, front view.
+[STYLE BIBLE] [WHITE]
+Personified nation character: the head is a perfect circle filled with the [FLAG] design,
+thick black outline, [no face / tiny dot eyes and eyebrows],
+body is a simple tall rounded shape in the flag's colors [colors],
+thin black stick arms and legs. Pose: [hands on hips / pointing / arms crossed / shrugging].
+Full body, front view.
 ```
 
 ### 3.4. Khuôn prompt ảnh: linh vật dẫn chuyện
 
 ```
-[STYLE BIBLE]
-Narrator mascot: [DESCRIPTION, e.g. "a small round ghost with a scholar's black khăn đóng hat"],
-always drawn from the waist up, mouth open mid-sentence, looking directly at the viewer,
-one hand raised in a casual explaining gesture.
-Era costume layer: [costume for this chapter].
-Isolated on transparent / plain white background for compositing in a corner of the frame.
+[STYLE BIBLE] [WHITE]
+Narrator mascot: [FIXED DESCRIPTION, e.g. "a small round ghost with a scholar's black khăn đóng hat"].
+Theme costume for this video: [e.g. "laurel wreath and white toga with Greek key border" / "olive helmet and ammo belt"].
+Waist-up, mouth open mid-sentence, looking directly at the viewer.
+Pose sheet in one image: talking with open hand, pointing to the side, index finger raised,
+shrugging, shocked, smug grin, holding a pointer stick.
 ```
 
-> **Mẹo:** tạo linh vật ở 6 tư thế cố định (nói, chỉ tay, nhún vai, sốc, cười đểu, khoanh tay) trên nền trơn, tách nền một lần rồi **tái sử dụng cả video** bằng cách ghép vào góc khung hình ở bước dựng. Linh vật sẽ luôn đồng nhất mà tiết kiệm công tạo ảnh.
+> **Mẹo tiết kiệm:** tạo linh vật một lần với 7 tư thế, tách nền, rồi **ghép vào mọi shot ở bước dựng**. Linh vật xuất hiện ở 30–40% số khung, nên đây là chỗ tiết kiệm công nhiều nhất.
 
 ---
 
@@ -215,157 +234,183 @@ Isolated on transparent / plain white background for compositing in a corner of 
 ### 4.1. Prompt chính cho LLM: từ kịch bản ra storyboard
 
 ```
-Bạn là storyboard artist kiêm đạo diễn hình ảnh cho video YouTube hoạt hình 2D kể chuyện
-(phong cách: nhân vật đầu tròn mặt trắng tay que, bối cảnh chi tiết, bản đồ, chữ vàng động,
-ô phóng to tròn, ảnh thật trong khung, linh vật dẫn chuyện ở góc).
+Bạn là storyboard artist kiêm đạo diễn hình ảnh cho video YouTube hoạt hình 2D giải thích
+(phong cách: nhân vật đầu tròn mặt trắng tay que; nền trắng xen cảnh vẽ đầy đủ; bản đồ;
+chữ mốc thời gian, con số to, lời thoại không bóng; linh vật dẫn chuyện).
 
 ĐẦU VÀO:
 - Kịch bản có lời dẫn (🎙) và gợi ý hình (🎬): [DÁN]
 - Bảng nhân vật (Character Bible): [DÁN]
 - Thời lượng mục tiêu: [X phút]; tốc độ đọc ~145 từ/phút
 
-NHIỆM VỤ: chia lời dẫn thành các SHOT, mỗi shot 4–7 giây (≈ 10–17 từ, 1–2 câu).
-Một câu dài có hai ý thì tách thành hai shot.
+NHIỆM VỤ: chia lời dẫn thành SHOT, mỗi shot 4–8 giây (≈ 10–19 từ).
+Một câu có hai ý thì tách thành hai shot.
+Nhóm các shot dùng chung nền thành một CẢNH (scene ID) để tái sử dụng ảnh.
 
-BƯỚC 1. Với mỗi câu lời dẫn, xác định CHỨC NĂNG rồi chọn LOẠI SHOT tương ứng:
+BƯỚC 1. Chọn LOẠI SHOT theo chức năng của câu:
 | Chức năng câu | Loại shot |
-| ở đâu / khi nào | MAP: bản đồ + mốc năm, vùng liên quan tô đỏ |
-| ai làm gì | SCENE: cảnh nhân vật + đạo cụ kể chuyện ở trung tâm |
-| giải thích khái niệm | SCENE + INSET: 1–2 ô tròn viền trắng phóng to đạo cụ |
-| người có thật / bằng chứng | PHOTO: ảnh thật đen trắng trong khung + nhãn, kèm huy hiệu hoạt hình |
-| câu chốt / con số | TEXT: chữ vàng viết tay hoặc số to đè lên cảnh tối |
-| so sánh 2 phe / 2 thời | VERSUS: đối xứng trái-phải hoặc chia đôi màn hình |
-| 2 việc song song | TRIPTYCH: ô trái, giữa, ô phải nối bằng sông/đường |
-| mỉa mai / bình luận | MASCOT: linh vật xuất hiện ở góc dưới |
-| mở chương | CHAPTER: băng giấy cuộn tiêu đề chương trên cảnh mở màn |
+| hội thoại, giới thiệu nhân vật, giải thích, câu đùa | WHITE: nhân vật trên nền trắng + chữ thoại/nhãn tên |
+| mở chương, sự kiện lớn, cảm xúc mạnh | SCENE: cảnh vẽ đầy đủ + đạo cụ kể chuyện ở trung tâm |
+| ở đâu / di chuyển / lãnh thổ | MAP: bản đồ hợp thời đại + mũi tên/vùng tô/ghim/vụ nổ |
+| con số, thống kê | STATS: số to; nếu số thay đổi theo thời gian thì giữ bố cục, chỉ đổi số |
+| khái niệm trừu tượng | METAPHOR: đạo cụ ẩn dụ (cân, khóa, domino, cần gạt…) |
+| tính chất/đặc điểm của ai đó | CHECKLIST: nhân vật + danh sách có ô tick |
+| bình luận, mỉa mai, tóm ý | DIM+MASCOT: làm tối cảnh hiện tại ~60%, linh vật bật lên tiền cảnh |
+| bằng chứng, tài liệu | DOCUMENT: văn bản/ảnh tư liệu mở to, có chữ đọc được |
+| nhiều việc trong cùng một giai đoạn | PANELS: 2–4 khung truyện tranh trên nền trắng |
+| hai việc song song | TRIPTYCH: hai cảnh nối bằng sông/đường, ảnh hoặc nhân vật ở giữa |
+| sự kiện trên truyền hình/báo | MEDIA: khung TV cũ hoặc tờ báo |
+| chuyển thời gian | DATE: thẻ trắng chỉ có ngày tháng |
+| kết bài | INSERT (cận đạo cụ góc từ trên xuống) hoặc RECAP (dòng thời gian chạy đáy màn hình + linh vật đi trên bản đồ đầu video) |
 
-BƯỚC 2. LUẬT PHỐI CẢNH:
-- Không quá 3 shot cùng loại liên tiếp. Cứ khoảng 30 giây phải có 1 shot MAP, TEXT hoặc INSET để đổi nhịp.
-- Khung 16:9, góc ngang tầm mắt, cỡ trung là mặc định. Chỉ dùng cận mặt (lông mày + miệng) ở khoảnh khắc cảm xúc then chốt;
-  toàn cảnh rộng khi giới thiệu địa điểm mới.
-- Nhân vật đứng trên đường mặt đất, chừa 1/4 trên cùng trống để đặt chữ.
-- Phe A luôn đứng BÊN TRÁI, phe B luôn BÊN PHẢI trong suốt video (giữ trục 180°).
-- 3 lớp chiều sâu: tiền cảnh (linh vật/đạo cụ), trung cảnh (nhân vật), hậu cảnh (bối cảnh chi tiết, đám đông nét mảnh).
-- Dùng kiến trúc (cột, cửa, vòm, cây) để đóng khung nhân vật.
-- Màu theo cảm xúc: [DAY] bình yên, [NIGHT] âm mưu/hồi hộp, [SEPIA] hồi tưởng/quá khứ xa, [WAR] xung đột, [RAIN] bi kịch.
-- Mỗi cảnh có 1 vật mang nghĩa được tô MÀU NHẤN duy nhất (đỏ hoặc vàng) để mắt người xem đi thẳng tới đó.
+BƯỚC 2. LUẬT NHỊP:
+- WHITE là chế độ mặc định. SCENE dành cho mở video, mở chương, sự kiện lớn và cao trào:
+  khoảng 1 cảnh vẽ đầy đủ cho mỗi 3–4 shot.
+- Không quá 3 shot liên tiếp cùng loại, TRỪ chuỗi "xây dần" (cùng nền, lớp phủ đổi) được kéo tới 30 giây.
+- Cứ khoảng 20–30 giây có 1 lần linh vật xuất hiện (DIM+MASCOT hoặc linh vật đứng trong cảnh/bản đồ).
+- Mỗi chương mới bắt đầu bằng mốc thời gian (DATE, hoặc mốc năm góc trên trái của shot đầu chương).
+- Cảnh rộng, rồi cùng cảnh có thêm chữ, rồi cắt sang WHITE để đối thoại (tiết kiệm ảnh).
 
-BƯỚC 3. LUẬT ĐẠO CỤ:
-- Nhân vật chính luôn cầm hoặc mang đạo cụ nhận diện của mình (theo Character Bible).
-- Mỗi sự kiện có 1 ĐẠO CỤ KỂ CHUYỆN tóm cả sự kiện, đặt ở trung tâm khung hình.
-- Dùng biển hiệu, giấy tờ, cờ trên cột, cọc chỉ đường để cho người xem biết ở đâu, ai, phe nào mà không cần lời.
-- Đạo cụ phụ trên bàn hoặc quanh nhân vật dùng để kể tính cách (tham lam: tiền, rượu; nghèo: bát vỡ; học giả: sách).
-- Một đạo cụ đã gieo (foreshadow) ở đầu video phải xuất hiện lại ở cao trào.
+BƯỚC 3. LUẬT PHỐI CẢNH:
+- 16:9, ngang tầm mắt, cỡ trung là mặc định. Cận mặt chỉ cho khoảnh khắc cảm xúc then chốt.
+- Đối thoại: hai người ở hai mép trái/phải, chữ thoại ở giữa.
+- Phe A luôn BÊN TRÁI, phe B luôn BÊN PHẢI suốt video.
+- Chừa góc trên bên trái cho mốc thời gian, dải trên cùng cho tiêu đề.
+- Bản đồ đúng thời đại: [OLDMAP] cho trước thế kỷ 20, [MAP] cho hiện đại.
+- Màu theo cảm xúc: [WHITE] kể bình thường, [DAY] yên bình, [NIGHT] âm mưu, [DIVINE] quyền lực siêu nhiên,
+  [SEPIA] quá khứ thuộc địa, [WAR] chiến tranh, [RAIN] bi kịch.
+- Mỗi cảnh chỉ có 1 MÀU NHẤN (đỏ/vàng) cho vật mang ý nghĩa.
+
+BƯỚC 4. LUẬT ĐẠO CỤ VÀ KÝ HIỆU:
+- Nhân vật chính luôn mang đạo cụ nhận diện.
+- Mỗi sự kiện có 1 đạo cụ kể chuyện ở trung tâm.
+- Khái niệm trừu tượng thì biến thành đạo cụ ẩn dụ.
+- Gạch bỏ = X đỏ. Thất bại/phán quyết = con dấu đỏ. Di chuyển = mũi tên. Chỗ quan trọng = khoanh tròn đỏ.
+  Danh tính = nhãn tên + mũi tên.
+- Một đạo cụ gieo ở đầu video phải quay lại ở cao trào hoặc kết.
 
 ĐẦU RA: bảng theo đúng cột sau:
-| # | Thời gian (mm:ss–mm:ss) | Lời dẫn (nguyên văn đoạn tương ứng) | Loại shot | Mô tả khung hình (bố cục trái/giữa/phải, tiền/trung/hậu cảnh) | Nhân vật + biểu cảm + tư thế | Đạo cụ (nhận diện / kể chuyện / màu nhấn) | Chữ trên màn hình | Bảng màu | Chuyển động / chuyển cảnh | PROMPT ẢNH (tiếng Anh) |
+| # | Scene ID | Thời gian (mm:ss–mm:ss) | Lời dẫn (nguyên văn) | Loại shot | Bố cục (trái/giữa/phải, tiền/trung/hậu cảnh) | Nhân vật + biểu cảm + tư thế | Đạo cụ / ký hiệu | Chữ trên màn hình (mốc thời gian / tiêu đề / thoại / số, ghi rõ màu) | Nền/màu | Linh vật (tư thế, nếu có) | Chuyển động | PROMPT ẢNH (tiếng Anh, hoặc "REUSE <Scene ID>") |
 
-QUY TẮC CHO CỘT "PROMPT ẢNH":
-- Bắt đầu bằng: "[STYLE BIBLE] + [biến thể màu]".
-- Gọi nhân vật bằng tên và nhắc lại đủ 4 chìa khóa nhận diện mỗi lần (vì mô hình ảnh không nhớ).
-- Ghi rõ vị trí: "on the left third", "center", "on the right third", "foreground bottom-left corner".
-- KHÔNG yêu cầu AI vẽ chữ dài; chỉ ghi "leave empty space at top for title". Chữ sẽ thêm ở bước dựng.
-- Riêng shot PHOTO: ghi "[REAL PHOTO: tên người + nguồn gợi ý, VD Wikimedia Commons]", không tạo ảnh giả người thật.
-- Riêng linh vật: ghi "[MASCOT POSE: tên tư thế]" để ghép từ thư viện tư thế có sẵn, không tạo lại.
+QUY TẮC CỘT "PROMPT ẢNH":
+- Bắt đầu bằng "[STYLE BIBLE] + [biến thể nền]".
+- Gọi nhân vật bằng tên và nhắc lại đủ 4 chìa khóa nhận diện mỗi lần.
+- Ghi vị trí rõ: "left third", "center", "right third", "foreground".
+- Không yêu cầu AI vẽ chữ; ghi "leave empty space top-left for date / top for title".
+- Shot dùng lại nền: ghi "REUSE <Scene ID> + overlay: …", không tạo ảnh mới.
+- Ảnh tư liệu người thật: ghi "[ARCHIVE PHOTO: … + nguồn gợi ý]", không tạo ảnh giả.
+- Linh vật: ghi "[MASCOT POSE: …]" để ghép từ thư viện tư thế.
 
-Sau bảng, liệt kê:
-A. Danh sách bối cảnh (location) cần tạo một lần rồi tái sử dụng, kèm prompt tiếng Anh cho từng bối cảnh trống (không nhân vật).
-B. Danh sách đạo cụ cần tạo riêng để ghép (nền trong suốt).
-C. Danh sách ảnh thật cần tìm + gợi ý nguồn có giấy phép phù hợp.
-D. 2 phương án thumbnail theo công thức: 2 nhân vật đối lập to ở hai mép, bản đồ hoặc đạo cụ màu đậm ở giữa,
-   chữ trắng viền đen dày tối đa 4 từ (VD "[CHỦ ĐỀ] TRONG 15 PHÚT" hoặc một câu hỏi "VÌ SAO?"). Nhân vật thumbnail vẽ chi tiết hơn, có đổ bóng, biểu cảm gắt.
+SAU BẢNG, liệt kê:
+A. Danh sách SCENE cần vẽ đầy đủ (mỗi cái 1 prompt nền trống, không nhân vật), số shot dùng lại mỗi scene.
+B. Danh sách bản đồ cần tạo (bản gốc + các phiên bản tô vùng theo năm).
+C. Danh sách đạo cụ/ký hiệu cần tạo riêng để ghép (nền trong suốt).
+D. Danh sách ảnh tư liệu cần tìm + nguồn có giấy phép phù hợp.
+E. Thống kê: tổng shot, số WHITE / SCENE / MAP / khác, số lần linh vật xuất hiện.
+F. 2 phương án thumbnail: 2 nhân vật đối lập vẽ chi tiết, to ở hai mép; bản đồ màu đậm hoặc cảnh tập thể ở giữa;
+   chữ trắng viền đen dày tối đa 4 từ, hoặc dạng so sánh "[NĂM] với HÔM NAY" + "VÌ SAO?".
 ```
 
 ### 4.2. Khuôn prompt ảnh theo từng loại shot
 
 Thay `[...]` rồi dán vào công cụ tạo ảnh. Luôn đặt **STYLE BIBLE** ở đầu.
 
-**SCENE: cảnh nhân vật + đạo cụ kể chuyện**
+**WHITE: đối thoại trên nền trắng**
 ```
-[STYLE BIBLE] [DAY/NIGHT/...]
-Scene: [location], framed by [columns / doorway / arch / trees].
-Left third: [CHARACTER A + 4 keys], [pose], [expression].
-Center: [STORY PROP] on [table/ground], the only [red/yellow] accent in the frame.
-Right third: [CHARACTER B + 4 keys], [pose], [expression].
-Background: detailed [environment], faint uncolored outline-only crowd figures far behind.
-Empty space at the top quarter. 16:9, eye-level medium shot.
+[STYLE BIBLE] [WHITE]
+Left third: [CHARACTER A + 4 keys], facing right, [pose], [expression].
+Right third: [CHARACTER B + 4 keys], facing left, [pose], [expression].
+Wide empty white space in the center and top for handwritten dialogue text.
 ```
 
-**SCENE + INSET: giải thích khái niệm**
+**SCENE: cảnh vẽ đầy đủ**
 ```
-[STYLE BIBLE] [SEPIA except insets]
-Scene: [CHARACTER + 4 keys] in [location], [pose showing personality], surrounded by personality props: [props].
-Overlaid: two circular magnifier insets with thick white borders, floating upper-center and right,
-each showing a detailed full-color close-up of [OBJECT 1] and [OBJECT 2].
-Readable sign / document in the scene: [short text, optional].
-```
-
-**MAP: bản đồ + nhân vật đứng trước**
-```
-[MAP] Stylized map of [region] in [year], flat textured color fills, glowing thin borders, deep blue ocean.
-[TARGET AREA] highlighted in bright red; other areas desaturated dark gray.
-Foreground right: [CHARACTER or MASCOT] waist-up, looking at the viewer, gesturing toward the map.
-Top-left corner reserved for a hand-written year label.
+[STYLE BIBLE] [DAY/NIGHT/DIVINE/WAR/RAIN/SEPIA]
+Detailed environment: [location], framed by [columns / doorway / window / trees].
+Left: [CHARACTER A + 4 keys], [pose], [expression].
+Center: [STORY PROP], the only [red/gold] accent in the frame.
+Right: [CHARACTER B + 4 keys], [pose], [expression].
+Depth: detailed background [details], small background figures.
+Empty space top-left for a date label.
 ```
 
-**VERSUS: đối đầu / so sánh**
+**MAP: bản đồ**
+```
+[STYLE BIBLE] [OLDMAP or MAP]
+Map of [region] around [year], no labels except [allowed labels].
+[AREA] filled in [color]; [arrows/route/explosions/pins] at [places];
+tiny cartoon figures/boats/flags placed at [places].
+Right third left clear for the narrator mascot; top-left clear for the date.
+```
+
+**STATS: con số (thường tái dùng nền)**
+```
+REUSE [Scene ID], darkened 50%  →  overlay big number "[NUMBER]" + subtitle "[UNIT]"
+(bright orange/yellow on dark, or brick red on white), optional small prop icon: [icon].
+```
+
+**METAPHOR: đạo cụ ẩn dụ**
+```
+[STYLE BIBLE] [WHITE]
+Single centered symbolic object: [e.g. an antique balance scale; left pan holds a snowy
+mountain with a maple-leaf flag, right pan holds a small tropical island].
+Clean, readable, nothing else in frame.
+```
+
+**DIM+MASCOT: linh vật bình luận**
+```
+(composite at edit) previous shot darkened ~60%  +  [MASCOT POSE: …] large in foreground center/right
++ optional short text.
+```
+
+**PANELS: khung truyện tranh**
+```
+[STYLE BIBLE] [WHITE]
+Three rectangular comic panels with thin black borders arranged on a white page:
+panel 1: [moment], panel 2: [moment], panel 3: [moment]. Top-left space for a year label.
+```
+
+**DOCUMENT / INSERT: tài liệu, cận cảnh kết**
 ```
 [STYLE BIBLE]
-Symmetrical composition. Far left: [SIDE A character or flag-person], facing right, [pose].
-Far right: [SIDE B character or flag-person], facing left, [pose].
-Center background: [battlefield / map / split-screen [YEAR 1] vs [YEAR 2] divided by a thin white vertical line].
-Large empty center area for big text.
+Top-down view of a wooden desk: [document/book/letter] in the center,
+a pen held by a cartoon hand, [lamp / coffee cup / old book] at the edges.
+Leave the page blank for text added in editing.
 ```
 
-**TRIPTYCH: hai sự kiện song song**
+**RECAP: dòng thời gian kết**
 ```
-[STYLE BIBLE] [RAIN/NIGHT]
-Wide landscape with a [river/road] running from bottom center into the distance.
-Left side: [landmark A] with a rectangular inset panel showing [event A, small characters].
-Right side: [landmark B] with a rectangular inset panel showing [event B].
-Center: empty vertical rectangle reserved for a black-and-white portrait photo.
-Small wooden signposts labeled at bottom left and bottom right.
+REUSE [opening map]  +  timeline bar along the bottom with year ticks [years]
++ [MASCOT POSE: walking] moving left-to-right + small icons for each era popping up then crossed with red X.
 ```
-
-**CHAPTER: mở chương**
-```
-[STYLE BIBLE] [DAY]
-Establishing shot of [location] with [characters of the chapter] in their default poses.
-A blank parchment scroll banner stretched across the top of the frame (no text).
-```
-
-**TEXT: câu chốt**
-```
-[STYLE BIBLE] [NIGHT/WAR]
-Same scene as previous shot but darkened 40%, characters small and dim,
-leaving the center and top clear for large hand-lettered yellow text.
-```
-> Shot TEXT thường **không cần tạo ảnh mới**: lấy ảnh shot trước, giảm sáng và đè chữ vàng ở bước dựng.
 
 ---
 
-## PHẦN 5: QUY TRÌNH SẢN XUẤT ĐỂ GIỮ ĐỒNG NHẤT
+## PHẦN 5: QUY TRÌNH SẢN XUẤT
 
-1. **Kịch bản** → `PROMPT_KE_CHUYEN.md`.
-2. **Character Bible** → prompt 3.1.
-3. **Character sheet** cho từng nhân vật chính (3.2, 3.3) và **thư viện tư thế linh vật** (3.4). Chọn bản đẹp nhất làm **ảnh tham chiếu cố định** (character reference / `--cref` / "reference image" / "consistent character" tùy công cụ).
-4. **Bối cảnh trống** (không nhân vật) cho mỗi địa điểm, tạo một lần và tái sử dụng nhiều shot.
-5. **Storyboard** → prompt 4.1. Duyệt bảng trước khi tạo ảnh: kiểm tra nhịp và loại shot.
-6. **Tạo ảnh từng shot** bằng khuôn 4.2 + ảnh tham chiếu nhân vật + ảnh bối cảnh. Ưu tiên chỉnh sửa ảnh (image-to-image / inpainting) trên bối cảnh có sẵn thay vì tạo mới hoàn toàn.
-7. **Ghép và dựng**: thêm linh vật ở góc, ô phóng to, ảnh thật, chữ tiêu đề chương, chữ vàng, mốc năm. Thêm chuyển động: zoom chậm 105–110%, pan nhẹ, chữ bật lên theo lời dẫn, nhân vật nhún nhẹ.
-8. **Thumbnail** vẽ riêng ở chất lượng cao hơn (chi tiết, đổ bóng), không cắt từ video.
+1. **Kịch bản**: dùng `PROMPT_KE_CHUYEN.md`.
+2. **Character Bible**: dùng prompt 3.1.
+3. **Character sheet** cho từng nhân vật chính, người cờ, và **thư viện tư thế linh vật**. Chọn bản đẹp nhất làm **ảnh tham chiếu cố định** (character reference / `--cref` / "consistent character" tùy công cụ).
+4. **Storyboard**: dùng prompt 4.1. Duyệt bảng thống kê (mục E): nếu SCENE quá nhiều thì đổi bớt sang WHITE.
+5. **Vẽ nền**: các SCENE (nền trống) và bản đồ gốc, mỗi cái một lần.
+6. **Tạo nhân vật theo shot** trên nền trắng: dễ tách nền, dễ ghép vào SCENE hoặc MAP.
+7. **Ghép và dựng**: đặt nhân vật lên nền, thêm linh vật, ký hiệu (X đỏ, mũi tên, con dấu), mốc thời gian, tiêu đề, thoại và số. Chuyển động: zoom chậm 105–110%, pan nhẹ, chữ và số bật lên đúng lúc lời dẫn đọc tới, làm tối nền khi linh vật bình luận, vùng bản đồ "lan" màu theo năm.
+8. **Thumbnail**: vẽ riêng, chi tiết hơn trong video (tóc có texture, đổ bóng, biểu cảm gắt).
 
 ---
 
 ## PHẦN 6: KIỂM TRA TRƯỚC KHI XUẤT
 
-- [ ] Che mặt đi, vẫn nhận ra từng nhân vật chính qua silhouette?
-- [ ] Mỗi nhân vật chính luôn có đạo cụ nhận diện của mình?
+- [ ] Che mặt đi, vẫn nhận ra từng nhân vật qua tóc, mũ, màu áo, đạo cụ?
+- [ ] Nhân vật giữ nguyên màu áo và kiểu tóc ở mọi lần xuất hiện?
+- [ ] Nền trắng là mặc định, cảnh vẽ đầy đủ dành cho mở bài, mở chương, sự kiện lớn và cao trào?
+- [ ] Hình đổi khoảng 4–8 giây; đoạn giữ nền lâu hơn có lớp phủ thay đổi?
+- [ ] Linh vật xuất hiện khoảng mỗi 20–30 giây?
+- [ ] Mỗi chương mở bằng mốc thời gian?
 - [ ] Phe A luôn bên trái, phe B luôn bên phải?
-- [ ] Mỗi sự kiện có 1 đạo cụ kể chuyện ở trung tâm và 1 màu nhấn duy nhất?
-- [ ] Không có quá 3 shot cùng loại liên tiếp; có MAP/TEXT/INSET khoảng mỗi 30 giây?
-- [ ] Bảng màu đổi theo cảm xúc (ngày, đêm, sepia, chiến tranh)?
-- [ ] Mọi người có thật dùng ảnh thật có nguồn hợp lệ, không dùng ảnh AI giả?
-- [ ] Chữ tiếng Việt thêm ở bước dựng, không để AI vẽ (tránh sai dấu)?
-- [ ] Linh vật dẫn chuyện và tạo hình là **của riêng kênh bạn** (lấy cảm hứng, không sao chép kênh tham khảo)?
-- [ ] Đạo cụ gieo ở đầu có quay lại ở cao trào?
+- [ ] Khái niệm khó được biến thành đạo cụ ẩn dụ hoặc ký hiệu (X, mũi tên, con dấu, ô tick)?
+- [ ] Bản đồ đúng phong cách thời đại?
+- [ ] Ảnh người thật là ảnh tư liệu có nguồn hợp lệ, không phải ảnh AI giả?
+- [ ] Chữ tiếng Việt thêm ở bước dựng (tránh sai dấu)?
+- [ ] Kết bài quay về hình ảnh mở đầu, hoặc chốt bằng một đạo cụ cận cảnh?
+- [ ] Linh vật và tạo hình là **của riêng kênh bạn** (lấy cảm hứng, không sao chép)?
