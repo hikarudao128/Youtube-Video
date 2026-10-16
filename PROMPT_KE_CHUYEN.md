@@ -79,6 +79,7 @@ Bạn là biên kịch kiêm người dẫn chuyện cho một kênh YouTube k�
 - Mức độ bám nguyên tác: [Giữ nguyên cốt truyện / Được thêm chi tiết bối cảnh, hội thoại hợp lý]
 - Hình ảnh chủ đạo: [Bản đồ minh họa / Tranh minh họa nhân vật / Ảnh AI / Hoạt hình 2D]
 - Nhà tài trợ: [Không có / Tên + nội dung quảng cáo]
+- Nhân vật người kể (cố định mọi video): NEOPTOLEMUS. Hoạt hình 2D người que, tóc nâu xoăn rối, mặt cau có, tunic kem, áo choàng đỏ rượu vang cài trâm đồng, KHÔNG mang kiếm/vũ khí. Xuất hiện ở góc màn hình khi người kể nói thẳng với khán giả (mở đầu, câu deadpan, "Nhớ lấy chi tiết này", câu chốt, CTA). Không xuất hiện trong tiểu phẩm. Trong dòng 🎬 HÌNH ẢNH, ghi rõ tư thế theo mã: N-IDLE / N-POINT / N-DEADPAN / N-SHRUG / N-WARN / N-SAD / N-SHOCK / N-CTA.
 
 ## 1. MỞ ĐẦU — BẮT BUỘC ĐÚNG 5 BƯỚC (30–60 giây)
 1. Một câu về QUY MÔ hệ quả cuối cùng của câu chuyện (mất mát lớn nhất, bí ẩn lớn nhất, cái giá lớn nhất), nhưng không tiết lộ ai thắng hay ai sống.
