@@ -206,5 +206,6 @@ Xuất phần LỜI DẪN và TIỂU PHẨM thành văn bản đọc liền mạ
 ---
 
 ## Ghi chú
+- Thiết kế, bảng màu, bộ tư thế và prompt tạo ảnh của nhân vật người kể Neoptolemus: xem [`NHAN_VAT_NGUOI_KE.md`](NHAN_VAT_NGUOI_KE.md).
 - Transcript được tải bằng `yt-dlp` (client iOS) và chỉ dùng để phân tích, không lưu vào repo.
 - Các cụm tiếng Anh trích trong Phần 1 là những đoạn rất ngắn để minh họa kỹ thuật; prompt yêu cầu AI **tự viết mới**, không sao chép lời kênh gốc.
