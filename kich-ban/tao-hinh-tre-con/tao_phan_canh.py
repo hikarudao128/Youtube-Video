@@ -15,6 +15,7 @@ import os
 import re
 import subprocess
 import sys
+import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -72,17 +73,25 @@ def build_prompt(style, sc, dest):
             f"Do not create any other files.")
 
 
+QUOTA_HIT = threading.Event()
+
+
 def run_one(style, sc, overwrite=False, retries=1):
     dest = out_path(sc["id"])
     if os.path.exists(dest) and not overwrite:
         return sc["id"], "bỏ qua (đã có)"
-    if os.path.exists(dest):
-        os.remove(dest)
+    if QUOTA_HIT.is_set():
+        return sc["id"], "LỖI (hết quota Codex, bỏ qua)"
+    # Vẽ ra file tạm; chỉ thay ảnh cũ khi đã có ảnh mới.
+    tmp = dest[:-4] + "_moi.png"
+    if os.path.exists(tmp):
+        os.remove(tmp)
     codes = sc["refs"] or STYLE_ONLY
     images = ",".join(SHEETS[c] for c in codes)
-    prompt = build_prompt(style, sc, dest)
+    prompt = build_prompt(style, sc, tmp)
     log = os.path.join(LOG_DIR, f"canh_{sc['id'].replace('.', '_')}.log")
     for attempt in range(retries + 1):
+        start = os.path.getsize(log) if os.path.exists(log) else 0
         with open(log, "a", encoding="utf-8") as lf:
             lf.write(f"\n===== attempt {attempt + 1} =====\n")
             try:
@@ -93,8 +102,14 @@ def run_one(style, sc, overwrite=False, retries=1):
                     timeout=900)
             except subprocess.TimeoutExpired:
                 lf.write("TIMEOUT\n")
-        if os.path.exists(dest) and os.path.getsize(dest) > 10_000:
+        if os.path.exists(tmp) and os.path.getsize(tmp) > 10_000:
+            os.replace(tmp, dest)
             return sc["id"], f"xong (lần {attempt + 1})"
+        with open(log, encoding="utf-8", errors="ignore") as lf:
+            lf.seek(start)
+            if "usage limit" in lf.read().lower():
+                QUOTA_HIT.set()
+                return sc["id"], "LỖI (hết quota Codex, xem log)"
     return sc["id"], "LỖI (xem log)"
 
 

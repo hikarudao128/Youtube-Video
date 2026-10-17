@@ -41,7 +41,7 @@ Simple close-up of two plain dark ceramic bowls side by side on the low bamboo t
 Lời dẫn: A rich man's dish. And rượu. A lot of rượu.
 Tham chiếu: 01, 09
 ```text
-Medium shot at the table: the father (sheet 01) proudly pours clear rice liquor from his small brown clay bottle into a row of small clay cups; the three guests (sheet 09: Guest 1 tall thin with drooping mustache and black headwrap, Guest 2 short round bald with red cheeks, Guest 3 with wispy goatee and tall black turban) each hold out their cup eagerly, big happy open-mouthed grins. Two more full clay liquor bottles stand on the table beside the covered pot and the two dark bowls. Exactly four men. Festive, slightly over-the-top mood, warm light.
+Medium shot at the table: the father (sheet 01) proudly pours clear rice liquor from his small brown clay bottle into a row of small clay cups; the three guests (sheet 09: Guest 1 tall thin with drooping mustache and black headwrap, Guest 2 short round bald with red cheeks, Guest 3 with wispy goatee and tall black turban) each hold out their cup eagerly, big happy open-mouthed grins. Two more full clay liquor bottles stand on the table beside the covered pot and the two dark bowls. Exactly four men, sitting side by side with a little space between them. ANATOMY: every man has exactly two arms ending in white oval hands; arms never cross or overlap a neighbour's body; no extra or floating limbs. Festive, slightly over-the-top mood, warm light.
 ```
 
 #### CẢNH 4.7 · 5:37–5:43

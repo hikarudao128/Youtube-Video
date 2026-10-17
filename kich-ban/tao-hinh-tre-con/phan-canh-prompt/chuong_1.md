@@ -60,7 +60,7 @@ Stiff, formal "family portrait" composition, straight-on, in front of the thatch
 Lời dẫn: Here's the problem. The father loves two things: rượu, which is cheap rice liquor, and gambling. He does not love working.
 Tham chiếu: 01
 ```text
-Medium shot inside the hut: the father (exactly as on his sheet: messy black hair, stubble, round pink nose, rosy cheeks, open patched dark grey-blue shirt, round belly, patched dark brown trousers) sits cross-legged on the floor, lovingly hugging a brown clay rice-liquor jug in one arm like a baby, and in the other hand fondly holding up a small round ceramic bowl and plate used for a coin-tossing gambling game, with a dreamy, blissful face. Behind him in the corner, a farming hoe leans against the wall covered in cobwebs, clearly unused for a long time. Warm, comedic lighting.
+Medium shot inside the hut: the father (exactly as on his sheet: messy black hair, stubble, round pink nose, rosy cheeks, open patched dark grey-blue shirt, round belly, patched dark brown trousers) sits cross-legged on the floor, lovingly hugging a brown clay rice-liquor jug in one arm like a baby, and in the other hand fondly holding up the xóc đĩa gambling set: a plain rice bowl turned UPSIDE DOWN on top of a flat plate, with three old round copper coins with square holes balanced on his palm next to it (it must NOT look like a teacup and saucer), with a dreamy, blissful face. Behind him in the corner, a farming hoe leans against the wall covered in cobwebs, clearly unused for a long time. Warm, comedic lighting.
 ```
 
 #### CẢNH 1.10 · 1:25–1:30
