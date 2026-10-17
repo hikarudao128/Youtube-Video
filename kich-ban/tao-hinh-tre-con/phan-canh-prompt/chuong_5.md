@@ -25,7 +25,7 @@ In the smoky kitchen corner with the clay stove and straw on the floor, cái Gá
 Lời dẫn: Holding it up. Making them wait. Like a big sister does.
 Tham chiếu: 02, 03, 04, 05, 06
 ```text
-Low-angle shot in the kitchen corner: cái Gái (sheet 03) stands on tiptoe, holding the round wooden tray high above her head with both hands, laughing teasingly. Her three little brothers, cu Nhớn (sheet 04), cu Nhỡ (sheet 05) and tiny cu Con (sheet 06), jump and stretch their thin arms up toward the tray, grinning with excitement. The tray's contents cannot be seen from below. In the background by the clay stove, the mother (sheet 02: dark head scarf, brown patched jacket, long black skirt) sits watching with a faint tired smile. Warm golden firelight, the happiest colors of the chapter. Exactly four children plus the mother.
+Low-angle shot in the kitchen corner: cái Gái (sheet 03) stands on tiptoe with both feet on the floor, holding the solid round wooden tray (flat wooden board with a raised rim, exactly like the tray on her sheet, not a woven basket or sieve) above her head with both hands, arms of normal length, laughing teasingly. Her three little brothers, cu Nhớn (sheet 04), cu Nhỡ (sheet 05) and tiny cu Con (sheet 06), jump and stretch their thin arms up toward the tray, grinning with excitement. The tray's contents cannot be seen from below. In the background by the clay stove, the mother (sheet 02, drawn exactly like her sheet: thin worn face with big solid black oval eyes, round pink-orange bulb nose, dark brown head scarf, brown patched jacket, long black skirt) sits watching with a faint tired smile. Warm golden firelight, the happiest colors of the chapter. Exactly four children plus the mother.
 ```
 
 #### CẢNH 5.5 · 7:23–7:26
@@ -46,7 +46,7 @@ Slow-motion feel: the round wooden tray is being lowered by cái Gái's white ov
 Lời dẫn: Empty bowls.
 Tham chiếu: không
 ```text
-Top-down overhead shot looking straight down at the round wooden tray resting on the straw-covered dirt floor of the kitchen. On the tray: several empty, used clay bowls, scraped clean, a few pairs of bamboo chopsticks lying scattered, and a few small plain bare bones (generic, unidentifiable). No food left at all, no meat, no animal shape. No people in this shot. Cold, dim, desaturated light; the tray fills the center of the frame.
+Top-down overhead shot looking straight down at the round wooden tray resting on the straw-covered dirt floor of the kitchen. The tray is a solid flat wooden tray with a plain, clean, smooth wooden surface (no marks, no scratches, no scribbles, no symbols). On the tray: several empty, used clay bowls, scraped clean, a few pairs of bamboo chopsticks lying scattered, and two or three tiny irregular broken scraps of bone, small and plain like pebbles (NOT the classic cartoon bone icon with knobs on both ends). No food left at all, no meat, no animal shape. No people in this shot. Cold, dim, desaturated light; the tray fills the center of the frame.
 ```
 
 #### CẢNH 5.8 · 7:33–7:37

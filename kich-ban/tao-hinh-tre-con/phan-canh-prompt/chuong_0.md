@@ -39,7 +39,7 @@ Wide shot of a dark, smoky kitchen corner of a thatched hut: a low clay stove wi
 Lời dẫn: And then the tray comes down from the table.
 Tham chiếu: 03
 ```text
-Low-angle medium shot from inside the dim kitchen looking up toward a doorway filled with bright daylight. The oldest girl Cái Gái (short black hair tied at the back with a cloth, short-sleeved beige-brown tunic with a patch, dark shorts, barefoot) steps through the doorway carrying a round wooden tray with both hands, held high so that the top of the tray and its contents cannot be seen from below. She is backlit, her face solemn. Dust floats in the light. Dramatic, suspenseful framing, the tray as the focal point.
+Low-angle medium shot from inside the dim kitchen looking up toward a doorway filled with bright daylight. The oldest girl Cái Gái (short black hair tied at the back with a cloth, short-sleeved beige-brown tunic with a patch, dark shorts, and BOTH legs drawn identically as thin black stick legs ending in bare feet, exactly like her sheet) steps through the doorway carrying a round wooden tray with both hands, held high so that the top of the tray and its contents cannot be seen from below. She is backlit, her face solemn. Dust floats in the light. Dramatic, suspenseful framing, the tray as the focal point.
 ```
 
 #### CẢNH 0.7 · 0:33–0:45
