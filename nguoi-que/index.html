@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Người Que Cử Động</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Be+Vietnam+Pro:wght@400;600&display=swap">
+<style>
+  /* Layout: một sân khấu canvas giấy kẻ ô ở giữa, bảng nút dạng vẽ tay bên dưới */
+  :root {
+    --paper: #f3f5f0;
+    --grid: #dfe5da;
+    --ink: #1f2a24;
+    --ink-soft: #7d8a80;
+    --accent: #d1495b;
+    --panel: #ffffff;
+    --line: #cdd5c9;
+    --font-display: "Patrick Hand", "Comic Sans MS", cursive;
+    --font-body: "Be Vietnam Pro", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1d2a24; --grid: #263730; --ink: #eef2e8; --ink-soft: #8fa396;
+      --accent: #ff8a7a; --panel: #23332c; --line: #344a40; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #1d2a24; --grid: #263730; --ink: #eef2e8; --ink-soft: #8fa396;
+    --accent: #ff8a7a; --panel: #23332c; --line: #344a40; color-scheme: dark;
+  }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 15px/1.5 var(--font-body);
+    padding-block: 16px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .wrap { max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+  header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; }
+  h1 { font: 2.1rem/1 var(--font-display); margin: 0; text-wrap: balance; }
+  .state { font: 1.2rem var(--font-display); color: var(--accent); }
+  .stage {
+    position: relative; width: 100%; aspect-ratio: 16 / 9; max-width: 100%;
+    border: 2px solid var(--ink); border-radius: 6px; overflow: hidden; touch-action: none;
+  }
+  canvas { display: block; width: 100%; height: 100%; cursor: crosshair; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; }
+  button {
+    font: 1.15rem var(--font-display); color: var(--ink); background: var(--panel);
+    border: 2px solid var(--ink); border-radius: 8px; padding: 6px 14px; cursor: pointer;
+    box-shadow: 2px 2px 0 var(--ink); transition: transform .08s, box-shadow .08s;
+  }
+  button:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 var(--ink); }
+  button:active, button.on { transform: translate(2px, 2px); box-shadow: 0 0 0 var(--ink); }
+  button.on { background: var(--accent); color: var(--paper); }
+  button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  kbd {
+    font: 0.8rem var(--font-body); border: 1px solid var(--line); border-bottom-width: 2px;
+    border-radius: 4px; padding: 0 5px; background: var(--panel); color: var(--ink);
+  }
+  .help { color: var(--ink-soft); margin: 0; font-size: 0.9rem; }
+  .pad { display: none; gap: 8px; }
+  .pad button { flex: 1; font-size: 1.5rem; padding: 10px 0; touch-action: none; user-select: none; }
+  @media (pointer: coarse) { .pad { display: flex; } }
+  @media (max-width: 480px) { .help .keys { display: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Người Que Cử Động</h1>
+    <span class="state" id="state">Đang đứng</span>
+  </header>
+
+  <div class="stage"><canvas id="cv" aria-label="Sân khấu người que"></canvas></div>
+
+  <div class="pad" aria-label="Điều khiển cảm ứng">
+    <button id="padL" aria-label="Đi trái">◀</button>
+    <button id="padJ" aria-label="Bật nhảy">⤒</button>
+    <button id="padR" aria-label="Đi phải">▶</button>
+  </div>
+
+  <div class="controls" id="controls">
+    <button id="b-idle" data-mode="idle">Đứng</button>
+    <button id="b-walk" data-mode="walk">Đi bộ</button>
+    <button id="b-run" data-mode="run">Chạy</button>
+    <button id="b-wave" data-mode="wave">Vẫy tay</button>
+    <button id="b-dance" data-mode="dance">Nhảy múa</button>
+    <button id="b-kick" data-action="kick">Đá chân</button>
+    <button id="b-bow" data-action="bow">Cúi chào</button>
+    <button id="b-jump" data-action="jump">Bật nhảy</button>
+  </div>
+
+  <p class="help">
+    <span class="keys"><kbd>←</kbd> <kbd>→</kbd> đi, giữ <kbd>Shift</kbd> để chạy, <kbd>Space</kbd> bật nhảy,
+    <kbd>1</kbd>–<kbd>5</kbd> đổi động tác, <kbd>K</kbd> đá, <kbd>B</kbd> cúi chào. </span>
+    Bấm vào sân khấu để người que chạy tới chỗ đó.
+  </p>
+</div>
+
+<script>
+(() => {
+  const cv = document.getElementById('cv');
+  const ctx = cv.getContext('2d');
+  const stateEl = document.getElementById('state');
+
+  // Chiều dài các đoạn xương (px ở thang 1)
+  const L = { torso: 58, neck: 8, head: 15, upperArm: 32, foreArm: 30, thigh: 40, shin: 40 };
+  const STAND = L.thigh + L.shin;
+
+  // Tư thế = tập hợp góc (radian). Góc chân/tay tính từ phương thẳng đứng hướng xuống,
+  // dương = về phía trước mặt. Gối gập ra sau, khuỷu tay gập ra trước.
+  const JOINTS = ['lean', 'headTilt', 'lThigh', 'lKnee', 'rThigh', 'rKnee', 'lArm', 'lElbow', 'rArm', 'rElbow'];
+  const pose = Object.fromEntries(JOINTS.map(k => [k, 0]));
+
+  const fig = {
+    x: 0, dir: 1, vx: 0,
+    h: 0, vy: 0, grounded: true,
+    reach: STAND, // khoảng cách từ hông tới bàn chân thấp nhất (đã làm mượt)
+    mode: 'idle', action: null, actionT: 0, landT: 0,
+    phase: 0, target: null,
+  };
+
+  const NAMES = { idle: 'Đang đứng', walk: 'Đang đi bộ', run: 'Đang chạy', wave: 'Đang vẫy tay',
+    dance: 'Đang nhảy múa', kick: 'Đá chân!', bow: 'Cúi chào', jump: 'Bật nhảy!' };
+
+  // ---------- Các động tác ----------
+  const S = Math.sin, C = Math.cos, pos = v => Math.max(0, v);
+
+  function idle(t) {
+    const b = S(t * 2); // nhịp thở
+    return { lean: 0.02 * b, headTilt: 0.03 * b, lThigh: 0.06, lKnee: 0.06, rThigh: -0.06, rKnee: 0.06,
+      lArm: 0.12 + 0.03 * b, lElbow: 0.18, rArm: -0.1 - 0.03 * b, rElbow: 0.18 };
+  }
+  function walk(p) {
+    return { lean: 0.07, headTilt: 0.02 * S(p * 2),
+      lThigh: 0.45 * S(p), lKnee: 0.08 + 0.85 * pos(C(p)),
+      rThigh: -0.45 * S(p), rKnee: 0.08 + 0.85 * pos(-C(p)),
+      lArm: -0.42 * S(p), lElbow: 0.3 + 0.15 * pos(-S(p)),
+      rArm: 0.42 * S(p), rElbow: 0.3 + 0.15 * pos(S(p)) };
+  }
+  function run(p) {
+    return { lean: 0.26, headTilt: -0.1,
+      lThigh: 0.8 * S(p) + 0.15, lKnee: 0.25 + 1.5 * pos(C(p)),
+      rThigh: -0.8 * S(p) + 0.15, rKnee: 0.25 + 1.5 * pos(-C(p)),
+      lArm: -0.85 * S(p), lElbow: 1.5,
+      rArm: 0.85 * S(p), rElbow: 1.5 };
+  }
+  function wave(t) {
+    return { ...idle(t), headTilt: -0.12, rArm: 2.55, rElbow: 0.35 + 0.45 * S(t * 11), lArm: 0.08 };
+  }
+  function dance(t) {
+    const s = S(t * 4), d = Math.abs(S(t * 4));
+    return { lean: 0.14 * s, headTilt: 0.2 * S(t * 4 + 0.6),
+      lThigh: 0.25 + 0.2 * s, lKnee: 0.25 + 0.5 * d,
+      rThigh: -0.25 + 0.2 * s, rKnee: 0.25 + 0.5 * d,
+      lArm: 2.3 + 0.55 * S(t * 8), lElbow: 0.6,
+      rArm: 2.3 + 0.55 * S(t * 8 + Math.PI), rElbow: 0.6 };
+  }
+  function kick(k) { // k: tiến độ 0..1
+    const up = S(Math.min(1, k * 1.25) * Math.PI);   // nhấc chân lên rồi hạ xuống
+    const snap = pos(S((k - 0.25) * Math.PI * 1.6));  // duỗi cẳng chân lúc đá
+    return { lean: -0.25 * up, headTilt: -0.05,
+      lThigh: -0.1 * up, lKnee: 0.15 * up,
+      rThigh: 1.75 * up, rKnee: 1.5 * up * (1 - snap),
+      lArm: 0.9 * up, lElbow: 1.0, rArm: -0.7 * up, rElbow: 0.4 };
+  }
+  function bow(k, t) {
+    const b = S(k * Math.PI);
+    return { ...idle(t), lean: 1.05 * b, headTilt: 0.3 * b,
+      lThigh: -0.15 * b, rThigh: -0.25 * b, lKnee: 0.06, rKnee: 0.06,
+      lArm: 0.15 + 0.6 * b, lElbow: 0.2, rArm: 1.2 * b, rElbow: 1.3 * b };
+  }
+  function air() {
+    const rising = fig.vy > 0;
+    return { lean: 0.1, headTilt: rising ? -0.15 : 0.1,
+      lThigh: 0.75, lKnee: 1.55, rThigh: 0.35, rKnee: 1.15,
+      lArm: rising ? 2.4 : 1.6, lElbow: 0.5, rArm: rising ? 2.1 : 1.3, rElbow: 0.5 };
+  }
+
+  const ACTIONS = { kick: { dur: 0.7, fn: kick }, bow: { dur: 1.4, fn: bow } };
+
+  function targetPose(t) {
+    if (!fig.grounded) return air();
+    if (fig.action) {
+      const a = ACTIONS[fig.action];
+      return a.fn(Math.min(1, fig.actionT / a.dur), t);
+    }
+    const speed = Math.abs(fig.vx);
+    let p;
+    if (speed > 260) p = run(fig.phase);
+    else if (speed > 20) p = walk(fig.phase);
+    else if (fig.mode === 'wave') p = wave(t);
+    else if (fig.mode === 'dance') p = dance(t);
+    else p = idle(t);
+    if (fig.landT > 0) { // nhún gối khi tiếp đất
+      const q = fig.landT / 0.18;
+      p = { ...p, lThigh: p.lThigh + 0.7 * q, rThigh: p.rThigh + 0.5 * q,
+        lKnee: p.lKnee + 1.3 * q, rKnee: p.rKnee + 1.1 * q, lean: p.lean + 0.3 * q };
+    }
+    return p;
+  }
+
+  // ---------- Động học thuận: góc -> toạ độ khớp ----------
+  function seg(from, ang, len, dir) {
+    return { x: from.x + S(ang) * len * dir, y: from.y + C(ang) * len };
+  }
+  function skeleton(hip, p, dir) {
+    const neck = { x: hip.x + S(p.lean) * L.torso * dir, y: hip.y - C(p.lean) * L.torso };
+    const hAng = p.lean + p.headTilt;
+    const head = { x: neck.x + S(hAng) * (L.neck + L.head) * dir, y: neck.y - C(hAng) * (L.neck + L.head) };
+    const sh = seg(neck, Math.PI + p.lean, 4, dir); // vai nằm ngay dưới cổ
+    const lKnee = seg(hip, p.lThigh, L.thigh, dir), lFoot = seg(lKnee, p.lThigh - p.lKnee, L.shin, dir);
+    const rKnee = seg(hip, p.rThigh, L.thigh, dir), rFoot = seg(rKnee, p.rThigh - p.rKnee, L.shin, dir);
+    const lElb = seg(sh, p.lArm, L.upperArm, dir), lHand = seg(lElb, p.lArm + p.lElbow, L.foreArm, dir);
+    const rElb = seg(sh, p.rArm, L.upperArm, dir), rHand = seg(rElb, p.rArm + p.rElbow, L.foreArm, dir);
+    return { hip, neck, head, sh, lKnee, lFoot, rKnee, rFoot, lElb, lHand, rElb, rHand };
+  }
+
+  // ---------- Điều khiển ----------
+  const keys = { left: false, right: false, shift: false };
+  function setMode(m) { fig.mode = m; fig.target = null; syncButtons(); }
+  function doAction(a) {
+    if (a === 'jump') return jump();
+    if (!fig.grounded || fig.action) return;
+    fig.action = a; fig.actionT = 0; syncButtons();
+  }
+  function jump() {
+    if (!fig.grounded) return;
+    fig.grounded = false; fig.vy = 560; fig.action = null; syncButtons();
+  }
+  function syncButtons() {
+    document.querySelectorAll('#controls button').forEach(b => {
+      b.classList.toggle('on', b.dataset.mode === fig.mode || (!!b.dataset.action && b.dataset.action === fig.action));
+    });
+  }
+
+  document.getElementById('controls').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.mode) setMode(b.dataset.mode);
+    if (b.dataset.action) doAction(b.dataset.action);
+  });
+
+  addEventListener('keydown', e => {
+    keys.shift = e.shiftKey;
+    const k = e.key.toLowerCase();
+    if (k === 'arrowleft' || k === 'a') { keys.left = true; fig.target = null; }
+    else if (k === 'arrowright' || k === 'd') { keys.right = true; fig.target = null; }
+    else if (k === ' ' || k === 'arrowup' || k === 'w') jump();
+    else if ('12345'.includes(k) && k.length === 1) setMode(['idle', 'walk', 'run', 'wave', 'dance'][+k - 1]);
+    else if (k === 'k') doAction('kick');
+    else if (k === 'b') doAction('bow');
+    else return;
+    e.preventDefault();
+  });
+  addEventListener('keyup', e => {
+    keys.shift = e.shiftKey;
+    const k = e.key.toLowerCase();
+    if (k === 'arrowleft' || k === 'a') keys.left = false;
+    if (k === 'arrowright' || k === 'd') keys.right = false;
+  });
+  addEventListener('blur', () => { keys.left = keys.right = false; });
+
+  function hold(id, on, off) {
+    const el = document.getElementById(id);
+    el.addEventListener('pointerdown', e => { e.preventDefault(); on(); });
+    ['pointerup', 'pointerleave', 'pointercancel'].forEach(t => el.addEventListener(t, off));
+  }
+  hold('padL', () => { keys.left = true; fig.target = null; }, () => { keys.left = false; });
+  hold('padR', () => { keys.right = true; fig.target = null; }, () => { keys.right = false; });
+  hold('padJ', jump, () => {});
+
+  cv.addEventListener('pointerdown', e => {
+    const r = cv.getBoundingClientRect();
+    fig.target = (e.clientX - r.left) / r.width * view.w;
+  });
+
+  // ---------- Canvas & màu theo theme ----------
+  const view = { w: 960, h: 540, dpr: 1, scale: 1 };
+  function resize() {
+    const r = cv.getBoundingClientRect();
+    if (!r.width) return;
+    view.dpr = Math.min(2, devicePixelRatio || 1);
+    cv.width = Math.round(r.width * view.dpr);
+    cv.height = Math.round(r.height * view.dpr);
+    view.scale = Math.max(0.55, Math.min(1.4, r.height / 380));
+    view.w = r.width / view.scale; view.h = r.height / view.scale;
+    if (!fig.x) fig.x = view.w / 2;
+  }
+  new ResizeObserver(resize).observe(cv);
+  resize();
+
+  const colors = {};
+  function readColors() {
+    const s = getComputedStyle(document.documentElement);
+    for (const k of ['paper', 'grid', 'ink', 'ink-soft', 'accent']) colors[k] = s.getPropertyValue('--' + k).trim();
+  }
+  readColors();
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', readColors);
+  new MutationObserver(readColors).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  // ---------- Vòng lặp chính ----------
+  let last = performance.now(), t = 0;
+  function step(now) {
+    const dt = Math.min(0.05, (now - last) / 1000); last = now; t += dt;
+    const ground = view.h - 70;
+
+    // Vận tốc ngang mong muốn
+    let want = 0;
+    if (keys.left !== keys.right) want = (keys.right ? 1 : -1) * (keys.shift || fig.mode === 'run' ? 380 : 150);
+    else if (fig.target != null) {
+      const d = fig.target - fig.x;
+      if (Math.abs(d) < 8) fig.target = null;
+      else want = Math.sign(d) * (Math.abs(d) > 220 ? 380 : 150);
+    } else if (fig.mode === 'walk') want = fig.dir * 150;
+    else if (fig.mode === 'run') want = fig.dir * 380;
+    if (fig.action) want = 0;
+
+    fig.vx += (want - fig.vx) * (1 - Math.exp(-dt * (fig.grounded ? 10 : 2)));
+    if (want) fig.dir = Math.sign(want);
+    fig.x += fig.vx * dt;
+    if (fig.x < -40) fig.x = view.w + 40; // ra khỏi mép này thì vào lại từ mép kia
+    if (fig.x > view.w + 40) fig.x = -40;
+
+    const speed = Math.abs(fig.vx);
+    fig.phase += dt * speed / (speed > 260 ? 30 : 22);
+
+    // Trọng lực
+    if (!fig.grounded) {
+      fig.vy -= 1500 * dt; fig.h += fig.vy * dt;
+      if (fig.h <= 0) { fig.h = 0; fig.vy = 0; fig.grounded = true; fig.landT = 0.18; }
+    }
+    fig.landT = Math.max(0, fig.landT - dt);
+
+    if (fig.action) {
+      fig.actionT += dt;
+      if (fig.actionT >= ACTIONS[fig.action].dur) { fig.action = null; syncButtons(); }
+    }
+
+    // Nội suy mượt từ tư thế hiện tại tới tư thế đích
+    const tp = targetPose(t);
+    const k = 1 - Math.exp(-dt * (fig.action === 'kick' ? 30 : 14));
+    for (const j of JOINTS) pose[j] += (tp[j] - pose[j]) * k;
+
+    // Đặt hông sao cho bàn chân thấp nhất luôn chạm đất
+    const probe = skeleton({ x: 0, y: 0 }, pose, 1);
+    const footReach = fig.grounded ? Math.max(probe.lFoot.y, probe.rFoot.y) : STAND;
+    fig.reach += (footReach - fig.reach) * (1 - Math.exp(-dt * 30));
+
+    const label = !fig.grounded ? 'jump' : fig.action || (speed > 260 ? 'run' : speed > 20 ? 'walk' : fig.mode);
+    if (stateEl.dataset.k !== label) { stateEl.dataset.k = label; stateEl.textContent = NAMES[label]; }
+
+    draw(ground);
+    requestAnimationFrame(step);
+  }
+
+  function draw(ground) {
+    const { w, h, dpr, scale } = view;
+    ctx.setTransform(dpr * scale, 0, 0, dpr * scale, 0, 0);
+    ctx.fillStyle = colors.paper; ctx.fillRect(0, 0, w, h);
+
+    // Giấy kẻ ô
+    ctx.strokeStyle = colors.grid; ctx.lineWidth = 1;
+    ctx.beginPath();
+    for (let x = 0; x < w; x += 24) { ctx.moveTo(x, 0); ctx.lineTo(x, h); }
+    for (let y = 0; y < h; y += 24) { ctx.moveTo(0, y); ctx.lineTo(w, y); }
+    ctx.stroke();
+
+    // Mặt đất
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.strokeStyle = colors.ink; ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(0, ground); ctx.lineTo(w, ground); ctx.stroke();
+    ctx.strokeStyle = colors['ink-soft']; ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    for (let x = 6; x < w; x += 40) { ctx.moveTo(x, ground + 10); ctx.lineTo(x + 14, ground + 10); }
+    ctx.stroke();
+
+    // Bóng thu nhỏ khi nhảy cao
+    const sh = Math.max(0.3, 1 - fig.h / 260);
+    ctx.fillStyle = colors['ink-soft']; ctx.globalAlpha = 0.35;
+    ctx.beginPath(); ctx.ellipse(fig.x, ground + 2, 34 * sh, 6 * sh, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.globalAlpha = 1;
+
+    const sk = skeleton({ x: fig.x, y: ground - fig.reach - fig.h }, pose, fig.dir);
+    const line = (...pts) => {
+      ctx.beginPath(); ctx.moveTo(pts[0].x, pts[0].y);
+      for (const p of pts.slice(1)) ctx.lineTo(p.x, p.y);
+      ctx.stroke();
+    };
+
+    ctx.lineWidth = 6;
+    // Tay chân phía xa vẽ nhạt hơn để tạo chiều sâu
+    ctx.strokeStyle = colors['ink-soft'];
+    line(sk.hip, sk.lKnee, sk.lFoot);
+    line(sk.sh, sk.lElb, sk.lHand);
+    // Thân và tay chân phía gần
+    ctx.strokeStyle = colors.ink;
+    line(sk.hip, sk.neck);
+    line(sk.hip, sk.rKnee, sk.rFoot);
+    line(sk.sh, sk.rElb, sk.rHand);
+
+    // Đầu, mắt và miệng quay theo hướng đang nhìn
+    ctx.lineWidth = 5; ctx.fillStyle = colors.paper;
+    ctx.beginPath(); ctx.arc(sk.head.x, sk.head.y, L.head, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = colors.ink;
+    ctx.beginPath(); ctx.arc(sk.head.x + 6 * fig.dir, sk.head.y - 3, 2.4, 0, Math.PI * 2); ctx.fill();
+    const happy = fig.mode === 'dance' || fig.mode === 'wave' || !fig.grounded;
+    ctx.strokeStyle = colors.accent; ctx.lineWidth = 2.5;
+    ctx.beginPath(); ctx.arc(sk.head.x + 5 * fig.dir, sk.head.y + 4, happy ? 5 : 3.5, 0.15 * Math.PI, 0.85 * Math.PI);
+    ctx.stroke();
+  }
+
+  syncButtons();
+  requestAnimationFrame(step);
+})();
+</script>
+</body>
+</html>
