@@ -1,4 +1,4 @@
-# PROMPT: Kể chuyện theo phong cách kênh "Unknown Frequencies"
+# PROMPT: Kể chuyện tiếng Anh theo phong cách kênh "Unknown Frequencies"
 
 > Phân tích từ transcript (phụ đề tiếng Anh) của 5 video thuộc kênh **Unknown Frequencies** (@unknownfrequencies-tv):
 > - The Entire Story of The Trojan War & Iliad Explained — `X3_q5A18qfc` (~13 phút, ~2.400 từ)
@@ -7,201 +7,185 @@
 > - The Reason Germany Failed at the Battle of the Bulge — `PXxir5GIqKU` (~12 phút, ~2.000 từ)
 > - The ENTIRE History of WW2 Explained — `Nlu6Fe-vbYQ` (~14 phút, ~2.200 từ)
 >
-> Nhịp đọc gốc: khoảng **165–185 từ/phút**, tức nhanh và dồn dập. Không có câu nào "thừa".
+> **Cách dùng:** Phần 1 giải thích phong cách (tiếng Việt, để bạn hiểu). Phần 2–4 viết hoàn toàn bằng **tiếng Anh**. Hãy copy nguyên khối prompt vào ChatGPT, Claude hoặc Gemini; kịch bản trả về sẽ bằng tiếng Anh. Truyện gốc bạn dán vào có thể là tiếng Việt hoặc tiếng Anh, AI sẽ tự chuyển thể.
+>
+> Nhịp đọc của kênh: khoảng **165–185 từ/phút**, nên prompt lấy mốc **~170 từ tiếng Anh / phút video**.
 
 ---
 
 ## PHẦN 1 — PHÂN TÍCH PHONG CÁCH (rút ra từ transcript thật)
 
-### 1. Công thức mở đầu (giống hệt nhau ở cả 5 video)
-Phần mở dài 30–60 giây, đi theo đúng 5 bước:
-
-1. **Sự thật "khủng" về quy mô.** Ví dụ: chiến tranh nổi tiếng nhất lịch sử, 70 triệu người chết, quốc gia rộng thứ 2 thế giới.
-2. **Cú đảo "nhưng tất cả bắt đầu chỉ vì…"**: một nguyên nhân nhỏ đến vô lý. Ví dụ: một người không được mời dự đám cưới; một sinh viên mỹ thuật bị từ chối; tên nước đặt theo một hiểu lầm.
-3. **Câu xác nhận ngắn, giọng đời thường**, như "Yeah, seriously." hay "Yeah, a forest." Người kể tự "nháy mắt" với khán giả vì chuyện nghe vô lý.
-4. **Liên tiếp 3–4 "teaser" nghịch lý**, mỗi cái một câu: một người cha hy sinh con gái chỉ để thuyền ra khơi; một đội quân làm bằng cao su và gỗ dán; một vị tướng trả lời tối hậu thư bằng đúng một chữ. Tất cả đều là chi tiết *sẽ được kể lại* trong video.
-5. **Câu hỏi trung tâm**, luôn theo khuôn *"So, how did [nguyên nhân nhỏ] lead to [hệ quả khổng lồ]?"*, rồi chuyển ngay sang *"Let's start with…"*.
-
-(Nếu có nhà tài trợ, đoạn quảng cáo được chèn **ngay sau câu hỏi trung tâm**, rồi quay lại bằng *"All right, back to…"*.)
-
-### 2. Cấu trúc thân bài
-- **Tuyến tính theo thời gian**, chuyển mốc bằng một cụm cố định: *"Now, it's 1941…"*, *"Now, it's 1975…"*. Cụm này xuất hiện 5–8 lần mỗi video, đóng vai trò "tiêu đề chương" bằng lời.
-- **Câu hỏi mở chương**: mỗi đoạn lớn mở bằng một câu hỏi kiểu *"So, why did…?"*, *"So, what stopped them?"*, rồi trả lời ngay.
-- **Neo vào bản đồ**: liên tục *"right here"*, *"up here"*, *"down here"*, *"over here"*. Lời dẫn được viết **đồng bộ với hình ảnh trên màn hình**; mỗi địa danh mới đều có một cú "chỉ tay".
-- **Chuỗi nhân – quả**: mỗi sự kiện được nối bằng "vì thế / nhưng / và rồi". Không bao giờ liệt kê sự kiện rời rạc.
-
-### 3. "Tiểu phẩm" hội thoại: đặc sản của kênh
-- Cứ 1–2 phút lại có một **đoạn hội thoại dựng lại** giữa các nhân vật lịch sử: 4–10 lượt lời, rất ngắn, **giọng hiện đại, đời thường**, thường kết bằng một câu "chốt" gây cười hoặc gây đau.
-- Kiểu hài: nhân vật nói thẳng điều lẽ ra phải giấu (vua mua đất rẻ mạt rồi bảo "để mai tính"; chỉ huy hứa hão "không vấn đề gì"). Hài vì **sự trơ tráo và đánh giá sai**, không vì chọc cười.
-- Ở khoảnh khắc bi kịch, tiểu phẩm chuyển sang **nghiêm túc, xúc động** (người cha già xin lại xác con; tổng thống thú nhận không có lối thoát).
-- Sau tiểu phẩm, người kể quay lại bằng một câu thực tế phũ phàng, **lặp lại nguyên văn lời hứa của nhân vật rồi phủ định nó**.
-
-### 4. Giọng người kể
-- **Câu ngắn**, nhiều câu chỉ 2–5 chữ: *"Troy burned."*, *"He was right."*, *"It didn't work."*
-- **Bình luận "tỉnh queo" (deadpan)** ngay sau sự kiện: *"Spoiler, …"*, *"That was deliberate."*, *"He had not reached Asia."*
-- **Từ ngữ đời thường**: *basically, yeah, seriously, a guy who…, not exactly popular*. Kể như đang nói chuyện, không như đọc sách giáo khoa.
-- **Lặp cấu trúc để tạo nhịp**: cùng một câu ("…did nothing.") lặp lại sau mỗi sự kiện; hoặc cặp câu song song "Every year, … Every year, …".
-- **Phép đối / nghịch lý ở câu chốt**: "Thắng gần như mọi trận mà vẫn thua"; "Kẻ hứa một đế chế ngàn năm chỉ trụ được 12 năm"; "Kẻ phá hủy thành Troy không sống nổi qua đêm đầu tiên ở nhà."
-
-### 5. Báo trước và gọi lại (foreshadowing & callback)
-- Báo trước công khai, nói thẳng với người xem: *"Remember that. It matters later."*, sau đó gọi lại đúng lúc chi tiết ấy phát nổ.
-- Báo trước bằng hình ảnh: một lời thề "nằm im chờ ngày phá hỏng cuộc đời mọi người"; "khoảng cách đó sắp quyết định tất cả"; "không ai trong hai người sống để thấy điều gì đến tiếp theo".
-- Teaser ở phần mở luôn được "trả" trong thân bài.
-
-### 6. Cách đưa con số
-- Con số **chính xác, cụ thể** (54.288 phiếu; 94 tấn/ngày so với lời hứa 300 tấn), rồi **dịch sang so sánh đời thường** ngay lập tức: "6 tiếng, chưa bằng một ca làm việc"; "nhỏ hơn cả bang California"; "rẻ hơn một chiếc chiến hạm"; "ít hơn dân số một thị trấn".
-- Thường đặt con số cạnh một con số khác để tạo tương phản (60.000 vs 1,5 triệu → "tỷ lệ 25 chọi 1").
-
-### 7. Khoảnh khắc con người
-- Giữa dòng sự kiện lớn, kể chậm lại về **một người cụ thể với một chi tiết nhỏ**: hai lính cuối cùng tử trận mới đến nơi chưa đầy 2 tuần; công nhân bị xóa khỏi bức ảnh lịch sử; phi công đáp trực thăng chắn giữa lính và dân làng.
-- Câu bình luận đi kèm rất ngắn và nặng (kiểu "Nó mới chỉ là một đứa trẻ.").
-
-### 8. Trung thực và phá huyền thoại
-- Thừa nhận nguồn mâu thuẫn: "các nguồn cổ không thống nhất…", "dù tự nguyện hay bị bắt, truyền thuyết kể khác nhau".
-- Đính chính chuyện ai cũng tưởng đúng (gót chân Achilles là do một nhà thơ La Mã thêm vào hơn ngàn năm sau). Điều này làm người kể đáng tin.
-
-### 9. Kết thúc (công thức 4 nhịp)
-1. **Bảng tổng kết thiệt hại / con số** cuối cùng.
-2. **Ý nghĩa lớn hơn**: điều này dẫn tới gì (Chiến tranh Lạnh, đế chế La Mã, một quốc gia "chưa hoàn thành").
-3. **Gọi lại đúng nguyên nhân nhỏ ở câu mở đầu** (đám cưới, sinh viên mỹ thuật, ngôi làng).
-4. **Một câu chốt cực ngắn, có phép đối hoặc trích dẫn ám ảnh**, rồi CTA (đăng ký / nghe trên Spotify).
+| # | Kỹ thuật | Cách kênh làm |
+|---|---|---|
+| 1 | **Mở đầu 5 bước** (giống nhau ở cả 5 video) | Quy mô "khủng" → *"But the whole thing started because…"* (một nguyên nhân nhỏ, vô lý) → câu xác nhận đời thường *"Yeah, seriously."* → 3–4 teaser nghịch lý → câu hỏi trung tâm *"So, how did [nhỏ] lead to [lớn]?"* → *"Let's start with…"* |
+| 2 | **Chuyển mốc thời gian** | Cụm cố định *"Now, it's [year]…"*, 5–8 lần mỗi video, đóng vai trò tên chương |
+| 3 | **Câu hỏi mở chương** | *"So, why did…?"*, *"So, what stopped them?"*, rồi trả lời ngay |
+| 4 | **Neo vào bản đồ** | *"right here"*, *"up here"*, *"down here"*, *"over here"*: lời dẫn đồng bộ với hình |
+| 5 | **Tiểu phẩm hội thoại** | Cứ 1–2 phút có 4–10 lượt thoại, giọng hiện đại, nhân vật nói thẳng điều lẽ ra phải giấu. Sau đó người kể **lặp lại lời hứa của nhân vật rồi phủ định nó**. Ở cảnh bi kịch thì chuyển sang nghiêm túc |
+| 6 | **Giọng kể** | Câu rất ngắn (*"Troy burned."*), bình luận tỉnh bơ (*"Spoiler, …"*, *"That was deliberate."*), từ đời thường (*basically, yeah, a guy who…*), lặp cấu trúc để tạo nhịp, câu chốt dùng phép đối/nghịch lý |
+| 7 | **Báo trước & gọi lại** | Nói thẳng *"Remember that. It matters later."* rồi gọi lại đúng lúc; mọi teaser ở phần mở đều được "trả" |
+| 8 | **Con số** | Cụ thể, rồi dịch ngay sang so sánh đời thường ("6 tiếng, chưa bằng một ca làm"; "nhỏ hơn California") |
+| 9 | **Khoảnh khắc con người** | Dừng lại kể về một người cụ thể với một chi tiết nhỏ; bình luận bằng một câu ngắn, nặng |
+| 10 | **Trung thực** | Thừa nhận nguồn mâu thuẫn, phá huyền thoại phổ biến |
+| 11 | **Kết 4 nhịp** | Tổng kết cái giá → ý nghĩa lớn hơn → gọi lại nguyên nhân nhỏ ở câu đầu → câu chốt cực ngắn + CTA |
 
 ---
 
-## PHẦN 2 — PROMPT CHÍNH (copy toàn bộ khối dưới đây)
+## PHẦN 2 — MAIN PROMPT (copy toàn bộ khối dưới đây)
 
 ```
-Bạn là biên kịch kiêm người dẫn chuyện cho một kênh YouTube kể chuyện không lộ mặt. Nhiệm vụ: chuyển thể truyện ngắn tôi cung cấp thành KỊCH BẢN + LỜI DẪN (voice-over) tiếng Việt, theo đúng phong cách mô tả dưới đây. Tự viết mới hoàn toàn, không sao chép câu chữ của bất kỳ kênh nào.
+You are a scriptwriter and narrator for a faceless, long-form YouTube storytelling channel. Your job: adapt the short story I provide into a complete ENGLISH video script with voice-over narration, written in the exact style described below. Write everything fresh and original. Do not copy wording from any existing channel or video.
 
-## THÔNG SỐ
-- Truyện gốc: [DÁN TRUYỆN Ở ĐÂY]
-- Thời lượng mục tiêu: [VD: 12 phút] → lời dẫn ≈ 170 từ tiếng Việt × số phút (nhịp nhanh, dồn dập)
-- Mức độ bám nguyên tác: [Giữ nguyên cốt truyện / Được thêm chi tiết bối cảnh, hội thoại hợp lý]
-- Hình ảnh chủ đạo: [Bản đồ minh họa / Tranh minh họa nhân vật / Ảnh AI / Hoạt hình 2D]
-- Nhà tài trợ: [Không có / Tên + nội dung quảng cáo]
+## INPUTS
+- Source story: [PASTE STORY HERE — may be in any language; adapt it into natural English]
+- Target length: [e.g. 12 minutes] → narration ≈ 170 words × minutes (fast, punchy delivery)
+- Faithfulness: [Keep the plot exactly / Allowed to add plausible context, scenes and dialogue]
+- Main visuals: [Illustrated maps / Character illustrations / AI images / 2D animation]
+- Audience: [e.g. US/UK viewers aged 18–40 who like history, myths and dark stories]
+- Sponsor: [None / Name + talking points]
 
-## 1. MỞ ĐẦU — BẮT BUỘC ĐÚNG 5 BƯỚC (30–60 giây)
-1. Một câu về QUY MÔ hệ quả cuối cùng của câu chuyện (mất mát lớn nhất, bí ẩn lớn nhất, cái giá lớn nhất), nhưng không tiết lộ ai thắng hay ai sống.
-2. Cú đảo: "Nhưng tất cả bắt đầu chỉ vì [nguyên nhân nhỏ nhặt, nghe vô lý nhất trong truyện]."
-3. Một câu xác nhận cực ngắn, giọng đời thường: "Thật đấy." / "Ừ, đúng vậy, chỉ một [X]."
-4. 3–4 câu teaser, mỗi câu là MỘT nghịch lý hoặc khoảnh khắc gây sốc sẽ xuất hiện trong video. Không giải thích, chỉ gợi.
-5. Câu hỏi trung tâm theo khuôn: "Vậy, làm thế nào mà [nguyên nhân nhỏ] lại dẫn tới [hệ quả lớn]?", rồi "Hãy bắt đầu từ [điểm khởi đầu]."
-(Nếu có nhà tài trợ: chèn ngay sau bước 5, kết bằng "Rồi, quay lại với câu chuyện.")
+## LANGUAGE RULES
+- Natural, spoken American English. Write for the ear, not the page.
+- Contractions everywhere (it's, didn't, they'd). No academic or "AI-sounding" words (delve, tapestry, testament, realm, intricate, unravel).
+- If the source story has culture-specific names, places or customs, keep the original names and explain each one in a single plain-English clause the first time it appears.
+- Numbers: specific, written as digits in the script (they will be spelled out in the TTS version).
 
-## 2. THÂN BÀI
-- Kể TUYẾN TÍNH theo thời gian. Mỗi lần nhảy mốc, dùng câu chuyển cố định: "Bây giờ là [thời điểm]…" hoặc "[X] năm sau…". Dùng 5–8 lần trong video.
-- Mỗi chương mở bằng MỘT câu hỏi ("Vậy tại sao…?", "Vậy điều gì đã ngăn họ lại?") rồi trả lời ngay.
-- Mọi sự kiện nối với nhau bằng NHÂN → QUẢ ("vì thế", "nhưng", "và rồi"). Không liệt kê rời rạc.
-- NEO HÌNH ẢNH: mỗi địa điểm hoặc nhân vật mới phải có cụm chỉ dẫn hình ảnh: "ngay đây", "ở phía trên này", "phía dưới kia", "nhìn vào bản đồ này". Lời dẫn phải đồng bộ với thứ đang hiện trên màn hình.
-- Con số: luôn cụ thể (không "rất nhiều" mà là "32 người"), và ngay sau đó dịch ra so sánh đời thường ("Tám người. Trên tổng số ba mươi hai.", "Còn chưa bằng một ca làm việc.").
+## 1. COLD OPEN — EXACTLY 5 BEATS (30–60 seconds)
+1. One sentence about the SCALE of the story's final consequence (the biggest loss, the biggest mystery, the highest price), without revealing who wins or who survives.
+2. The twist: "But the whole thing started because [the smallest, most absurd-sounding cause in the story]."
+3. A tiny, casual confirmation line. Vary it: "Yeah, seriously." / "Yes, really." / "One [X]. That's it."
+4. 3–4 teaser lines, each ONE sentence, each a paradox or shocking moment that WILL appear later. Tease, don't explain.
+5. The central question: "So, how did [small cause] lead to [huge consequence]?", then "Let's start with [starting point]."
+(If there is a sponsor: insert the read right after beat 5, then return with "All right, back to the story.")
 
-## 3. TIỂU PHẨM HỘI THOẠI (đặc sản, BẮT BUỘC)
-- Cứ 60–120 giây chèn 1 đoạn hội thoại dựng lại giữa nhân vật: 4–10 lượt lời, mỗi lượt 1 câu ngắn.
-- Giọng nhân vật HIỆN ĐẠI, đời thường, nói thẳng điều lẽ ra họ sẽ giấu (sự tham lam, kiêu ngạo, tính toán sai).
-- Kết đoạn bằng một câu "chốt" gây cười hoặc gây đau.
-- Ngay sau tiểu phẩm, người kể quay lại bằng một câu phủ định phũ phàng, lặp lại lời hứa của nhân vật: VD nhân vật nói "Mọi thứ sẽ sụp đổ ngay thôi." → người kể: "Mọi thứ đã không sụp đổ."
-- Ở khoảnh khắc bi kịch: tiểu phẩm chuyển sang nghiêm túc, chậm, xúc động. Không đùa.
-- Đánh dấu rõ vai: [TÊN NHÂN VẬT]: lời thoại (để lồng tiếng nhiều giọng).
+## 2. BODY
+- Strictly CHRONOLOGICAL. Every time jump uses a fixed transition: "Now, it's [time]…" or "[X] years later…". Use it 5–8 times per video.
+- Open each chapter with ONE question ("So, why did…?", "So, what stopped them?", "So, how do you [solve problem] when [obstacle]?") and answer it immediately.
+- Chain every event with CAUSE → EFFECT ("so", "but", "and that's when"). Never list events in isolation.
+- VISUAL ANCHORS: every new place or character gets a pointing phrase: "right here", "up here", "down here", "over here", "look at this map". The narration must match what's on screen.
+- Every number is followed by an everyday comparison: "Eight. Out of 32.", "That's not even a full work day.", "For less than the price of a decent warship."
 
-## 4. GIỌNG NGƯỜI KỂ
-- Câu ngắn là chủ đạo. Rất nhiều câu 2–5 chữ: "Thành phố bốc cháy.", "Hắn đã đúng.", "Không hiệu quả."
-- Bình luận "tỉnh queo" (deadpan) ngay sau sự kiện, ít nhất 1 lần mỗi chương: "Nói trước luôn: …", "Đó là cố ý.", "Hắn thật sự nên giữ câu đó cho riêng mình.", "Không ai nói là nó thoải mái cả."
-- Từ ngữ đời thường: "về cơ bản", "nói thẳng ra", "một gã từng…", "không được lòng ai cho lắm".
-- Lặp cấu trúc để tạo nhịp (2–3 lần trong video): "Họ không làm gì cả. … Họ lại không làm gì cả."
-- Câu chốt mỗi chương ưu tiên phép ĐỐI / NGHỊCH LÝ: "Thắng mọi trận, vẫn thua cả cuộc chiến.", "Kẻ hứa giữ thành ngàn năm chỉ giữ được mười hai."
-- Người kể hầu như không xưng "tôi"; có thể nói thẳng với khán giả ("bạn", "nhớ chi tiết này nhé").
+## 3. DIALOGUE SKITS (signature device, MANDATORY)
+- Every 60–120 seconds, insert a short reenacted dialogue: 4–10 lines, one short sentence per line.
+- Characters talk in a MODERN, casual voice and say out loud what they'd normally hide (greed, pride, bad math, wishful thinking).
+- End each skit with a punchline that is either funny or painful.
+- Right after a comedic skit, the narrator returns with a flat reality check that repeats the character's promise and negates it. E.g. character: "The whole thing will collapse in a week." → narrator: "The whole thing did not collapse in a week."
+- At tragic moments, the skit turns serious, slow and emotional. No jokes.
+- Label every line: [CHARACTER NAME]: line (for multi-voice dubbing).
 
-## 5. BÁO TRƯỚC & GỌI LẠI
-- Ít nhất 1 lần báo trước CÔNG KHAI: "Nhớ lấy chi tiết này. Nó sẽ quan trọng về sau." Rồi gọi lại đúng lúc: "Nhớ lúc nãy đã nói chi tiết đó sẽ quan trọng không?"
-- Ít nhất 2 lần báo trước bằng hình ảnh: "…lời thề ấy nằm im suốt nhiều năm, chờ ngày phá hỏng cuộc đời tất cả mọi người.", "Và khoảng cách đó sắp quyết định tất cả."
-- MỌI teaser ở phần mở phải được "trả" trong thân bài.
+## 4. NARRATOR VOICE
+- Short sentences dominate. Many 2–5 word sentences: "The city burned.", "He was right.", "It didn't work."
+- Deadpan commentary right after events, at least once per chapter: "Spoiler: …", "That was deliberate.", "He really should've kept that one to himself.", "Nobody said it was comfortable."
+- Conversational words: "basically", "a guy who…", "not exactly popular", "here's the problem".
+- Structural repetition for rhythm, 2–3 times per video: "And nobody did anything. … And again, nobody did anything." / "Every year, X. Every year, Y."
+- Chapter-ending lines favor ANTITHESIS / PARADOX: "He won every battle and still lost the war.", "The man who promised forever lasted twelve years."
+- The narrator rarely says "I", but speaks directly to the viewer when useful ("you", "remember this").
 
-## 6. KHOẢNH KHẮC CON NGƯỜI
-- Ít nhất 2–3 lần: dừng dòng sự kiện, kể chậm về MỘT người cụ thể với MỘT chi tiết nhỏ (đồ vật, cử chỉ, con số tuổi, thời gian).
-- Kết bằng một câu bình luận cực ngắn và nặng ("Nó mới chỉ là một đứa trẻ.").
-- Nếu truyện có chi tiết mơ hồ, nói thẳng: "Truyện không nói rõ… Dù thế nào, …" (tăng độ tin cậy).
+## 5. FORESHADOWING & CALLBACKS
+- At least ONE explicit plant: "Remember that. It matters later." Then pay it off at the right moment: "Remember when I said that would matter?"
+- At least TWO image-based foreshadows: "…and that promise sat quietly for years, waiting to ruin everybody's life.", "And that gap was about to decide everything.", "Neither of them would live to see what came next."
+- EVERY teaser from the cold open must be paid off in the body.
 
-## 7. KẾT THÚC — 4 NHỊP
-1. Tổng kết cái giá cuối cùng (ai mất gì, bao nhiêu, kết cục từng nhân vật chính, mỗi người 1 câu, nhiều câu theo khuôn đối lập).
-2. Ý nghĩa lớn hơn: câu chuyện này dẫn tới điều gì, hoặc nói gì về con người. Một nhận định, không giảng đạo.
-3. GỌI LẠI nguyên văn nguyên nhân nhỏ ở câu mở đầu: "Và tất cả bắt đầu chỉ vì…"
-4. MỘT câu chốt cực ngắn (dưới 10 chữ), có phép đối hoặc là một trích dẫn ám ảnh của nhân vật. Sau đó CTA một câu ("Nếu muốn nghe thêm những câu chuyện như thế này, hãy đăng ký và xem video tiếp theo ngay đây.").
+## 6. HUMAN MOMENTS
+- At least 2–3 times: stop the flow of events and slow down on ONE specific person and ONE small detail (an object, a gesture, an age, a number of days).
+- Close it with a very short, heavy line ("He was a baby.", "She never saw him again.").
+- Where the story is ambiguous, say so plainly: "The story doesn't say whether… Either way, …" (this builds trust).
 
-## ĐỊNH DẠNG ĐẦU RA
-A. 5 TIÊU ĐỀ theo khuôn của kênh (≤ 70 ký tự):
-   - "TOÀN BỘ Câu Chuyện Về [X] Được Giải Thích"
-   - "Lý Do Thật Sự Khiến [X] Thất Bại / Sụp Đổ"
-   - "[X]: Từ [nguyên nhân nhỏ] Đến [hệ quả lớn]"
-B. DÀN Ý: các chương với mốc "Bây giờ là…", câu hỏi mở chương, thời lượng, vị trí các tiểu phẩm và các cặp báo trước ↔ gọi lại.
-C. KỊCH BẢN ĐẦY ĐỦ, mỗi đoạn:
-   [mốc thời gian video]
-   🎙 LỜI DẪN: …
-   🗣 TIỂU PHẨM (nếu có): [NHÂN VẬT]: …
-   🎬 HÌNH ẢNH: (bản đồ/vị trí "ngay đây", nhân vật, chữ trên màn hình, con số hiển thị)
-   🎵 ÂM THANH: (nhạc, hiệu ứng, khoảng lặng; chỉ khi cần)
-D. THUMBNAIL: 2 phương án (hình chính + tối đa 4 chữ, ưu tiên nghịch lý).
-E. MÔ TẢ VIDEO (3 câu) + danh sách timestamp theo các mốc "Bây giờ là…".
+## 7. ENDING — 4 BEATS
+1. The final toll: who lost what, how much, one sentence per main character's fate, many in contrast form ("The man who X didn't survive Y.").
+2. The bigger meaning: what this led to, or what it says about people. One observation, never a sermon.
+3. CALLBACK to the small cause from the cold open, almost word for word: "And the whole thing started because…"
+4. ONE ultra-short closing line (under 10 words) with antithesis or a haunting character quote. Then a one-sentence CTA: "If you want more stories like this, subscribe and watch the next one right here."
 
-## KIỂM TRA TRƯỚC KHI TRẢ LỜI
-- [ ] Mở đầu đủ 5 bước, có "Nhưng tất cả bắt đầu chỉ vì…" và câu hỏi "Vậy, làm thế nào mà…?"
-- [ ] Mọi teaser ở phần mở đều được trả trong thân bài
-- [ ] Có ít nhất 1 cặp "Nhớ lấy chi tiết này" ↔ gọi lại
-- [ ] Cứ 60–120 giây có 1 tiểu phẩm hội thoại; sau tiểu phẩm hài có câu phủ định phũ phàng
-- [ ] Mỗi chương có ít nhất 1 câu deadpan và 1 câu ngắn ≤ 5 chữ
-- [ ] Mỗi con số đều có so sánh đời thường đi kèm
-- [ ] Mỗi địa điểm/nhân vật mới có cụm neo hình ảnh ("ngay đây"…)
-- [ ] Câu kết gọi lại nguyên nhân nhỏ ở đầu + câu chốt dưới 10 chữ
-- [ ] Tổng số từ lời dẫn ≈ 170 × số phút mục tiêu
-- [ ] Đọc to lên trôi chảy, không có câu nào phải ngắt hơi giữa chừng
+## OUTPUT FORMAT
+A. 5 TITLE options in the channel's formulas (≤ 70 characters):
+   - "The ENTIRE Story of [X] Explained"
+   - "The Real Reason [X] Failed / Fell"
+   - "How [small cause] Led to [huge consequence]"
+B. OUTLINE: chapters with their "Now, it's…" markers, opening question, estimated duration, skit placement, and each plant ↔ payoff pair.
+C. FULL SCRIPT, each block as:
+   [video timestamp]
+   🎙 NARRATION: …
+   🗣 SKIT (if any): [CHARACTER]: …
+   🎬 VISUALS: (map/location "right here", characters, on-screen text, numbers shown)
+   🎵 AUDIO: (music, SFX, silence — only when needed)
+D. THUMBNAIL: 2 concepts (main image + max 4 words of text, paradox preferred).
+E. VIDEO DESCRIPTION (3 sentences) + chapter timestamps based on the "Now, it's…" markers.
+F. Final word count of the narration + skits, and estimated runtime at 170 wpm.
+
+## SELF-CHECK BEFORE ANSWERING
+- [ ] Cold open has all 5 beats, including "But the whole thing started because…" and "So, how did…?"
+- [ ] Every cold-open teaser is paid off in the body
+- [ ] At least one "Remember that. It matters later." ↔ payoff pair
+- [ ] A dialogue skit every 60–120 seconds; every comedic skit is followed by a flat reality check
+- [ ] Every chapter has at least one deadpan line and one sentence of ≤ 5 words
+- [ ] Every number has an everyday comparison
+- [ ] Every new place/character has a visual anchor ("right here"…)
+- [ ] Ending calls back the small cause + closing line under 10 words
+- [ ] Narration word count ≈ 170 × target minutes
+- [ ] Read aloud, nothing sounds stiff, academic or AI-generated; no sentence needs a breath in the middle
 ```
 
 ---
 
-## PHẦN 3 — PROMPT PHỤ (dùng sau khi có bản nháp)
+## PHẦN 3 — FOLLOW-UP PROMPTS (dùng sau khi có bản nháp)
 
-**Kiểm tra độ "giống kênh":**
+**Style score:**
 ```
-Chấm kịch bản trên theo từng tiêu chí trong danh sách KIỂM TRA (0–10 mỗi tiêu chí). Với tiêu chí nào dưới 8, viết lại đúng đoạn bị yếu. Chỉ trả về bảng điểm + các đoạn đã sửa.
-```
-
-**Thêm tiểu phẩm:**
-```
-Tìm 3 chỗ trong kịch bản đang kể "khô" quá 90 giây. Ở mỗi chỗ, chèn một tiểu phẩm hội thoại 4–8 lượt lời, giọng hiện đại, nhân vật nói thẳng điều lẽ ra phải giấu, kết bằng câu chốt; sau đó thêm câu dẫn phủ định phũ phàng của người kể.
+Score the script above against each SELF-CHECK item (0–10 each). For every item below 8, rewrite only the weak passage. Return the score table + rewritten passages only.
 ```
 
-**Rút gọn / kéo dài:**
+**More skits:**
 ```
-Điều chỉnh kịch bản còn [X] phút (~[X × 170] từ lời dẫn). Giữ nguyên phần mở 5 bước, các cặp báo trước ↔ gọi lại, cao trào và câu kết. Cắt hoặc gộp các chương giữa.
-```
-
-**Tách bản Shorts:**
-```
-Từ kịch bản dài, viết 3 kịch bản Shorts (≤ 60 giây, ~150 từ). Mỗi bản: câu 1 là nghịch lý "…chỉ vì [nguyên nhân nhỏ]", tiếp theo 1 tiểu phẩm hội thoại siêu ngắn, kết bằng câu deadpan + "Toàn bộ câu chuyện ở video dài."
+Find 3 places where the script runs "dry" for more than 90 seconds. At each one, insert a 4–8 line dialogue skit: modern casual voice, characters saying what they'd normally hide, ending on a punchline. Follow each with the narrator's flat reality check.
 ```
 
-**Xuất lời dẫn sạch cho TTS (ElevenLabs…):**
+**Make it punchier:**
 ```
-Xuất phần LỜI DẪN và TIỂU PHẨM thành văn bản đọc liền mạch. Tiểu phẩm giữ nhãn [TÊN NHÂN VẬT] để lồng nhiều giọng. Dùng "…" cho ngừng ngắn, xuống dòng cho ngừng dài. Viết mọi con số bằng chữ.
+Rewrite the narration so the average sentence is under 12 words. Split long sentences, cut filler, replace any formal or "AI-sounding" vocabulary with plain spoken English. Keep every fact, skit and callback.
+```
+
+**Shorten / lengthen:**
+```
+Adjust the script to [X] minutes (~[X × 170] words of narration). Keep the 5-beat cold open, every plant ↔ payoff pair, the climax and the ending intact. Cut or merge middle chapters only.
+```
+
+**Shorts:**
+```
+From the long script, write 3 YouTube Shorts scripts (≤ 60 seconds, ~150 words each). Line 1 is a paradox: "…all because of [small cause]." Then one ultra-short skit, then a deadpan line + "Full story on the channel."
+```
+
+**Clean TTS export (ElevenLabs etc.):**
+```
+Export the NARRATION and SKITS as one continuous read-aloud text. Keep [CHARACTER] labels on skit lines for multi-voice dubbing. Use "…" for short pauses and a line break for long pauses. Spell out all numbers and years as words (e.g. "nineteen forty-four"). Expand abbreviations. Remove all headings, emojis and visual notes.
+```
+
+**Translate an existing Vietnamese script:**
+```
+Translate and adapt the Vietnamese script below into natural spoken American English in the same style (short sentences, deadpan lines, modern-voice skits, "Now, it's…" transitions). Do not translate word for word; rewrite jokes and idioms so they land for an English-speaking audience. Keep all names, facts, plants and payoffs.
 ```
 
 ---
 
-## PHẦN 4 — VÍ DỤ MINH HỌA NGẮN (tự viết, áp dụng công thức lên truyện "Sơn Tinh – Thủy Tinh")
+## PHẦN 4 — SHORT EXAMPLE (original, applying the formula to the Greek myth of King Midas)
 
-> 🎙 Mỗi năm, từ tháng bảy đến tháng chín, nước sông Hồng dâng lên, nhấn chìm ruộng đồng của cả một vùng đồng bằng. Hàng nghìn năm nay vẫn thế.
-> Nhưng theo truyền thuyết, tất cả bắt đầu chỉ vì… một mâm sính lễ.
-> Thật đấy.
-> Một ông vua ra đề thi kén rể mà ai nghe cũng thấy là có thiên vị. Một vị thần đến muộn đúng một buổi sáng, và mất vợ. Và một mối thù dai đến mức năm nào cũng quay lại, đúng hẹn.
-> Vậy, làm thế nào mà một mâm sính lễ lại biến thành trận lũ lặp lại suốt hàng nghìn năm? Hãy bắt đầu từ cô công chúa.
+> 🎙 **NARRATION:** For nearly 3,000 years, one man's name has meant one thing: more money than you could ever spend.
+> But the whole thing started because a king was polite to a drunk old man.
+> Yes, really.
+> A god offered him any wish in the world, and he picked the worst one. His dinner turned to metal before it reached his mouth. And the only cure was a muddy river in the middle of nowhere.
+> So, how did one good deed turn into the most famous curse in history? Let's start with the drunk.
 >
-> 🗣 [HÙNG VƯƠNG]: Hai người đều giỏi. Ta chọn ai đây?
-> 🗣 [LẠC HẦU]: Ra đề thi đi ạ. Sính lễ: voi chín ngà, gà chín cựa, ngựa chín hồng mao.
-> 🗣 [HÙNG VƯƠNG]: Toàn đồ trên núi à?
-> 🗣 [LẠC HẦU]: …Bệ hạ muốn công bằng, hay muốn con rể sống trên núi?
-> 🗣 [HÙNG VƯƠNG]: Ai đến trước, người đó cưới.
+> 🗣 **SKIT:**
+> [DIONYSUS]: You found my teacher and brought him home. Name your reward.
+> [MIDAS]: Anything?
+> [DIONYSUS]: Anything.
+> [MIDAS]: Everything I touch turns to gold.
+> [DIONYSUS]: …You're sure? Most people ask for, you know, health.
+> [MIDAS]: Health doesn't buy palaces.
+> [DIONYSUS]: Fine. Enjoy lunch.
 >
-> 🎙 Rất công bằng. Với một bên.
-> Nhớ lấy chi tiết "ai đến trước" này nhé. Nó sẽ khiến cả đồng bằng phải trả giá. Mỗi năm.
+> 🎙 **NARRATION:** He did not enjoy lunch.
+> Remember that, by the way. Lunch. It matters later.
 
 ---
 
