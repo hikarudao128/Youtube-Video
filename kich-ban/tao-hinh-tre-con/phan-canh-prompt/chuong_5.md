@@ -46,7 +46,7 @@ Slow-motion feel: the round wooden tray is being lowered by cái Gái's white ov
 Lời dẫn: Empty bowls.
 Tham chiếu: không
 ```text
-Top-down overhead shot looking straight down at the round wooden tray resting on the straw-covered dirt floor of the kitchen. The tray is a solid flat wooden tray with a plain, clean, smooth wooden surface (no marks, no scratches, no scribbles, no symbols). On the tray: several empty, used clay bowls, scraped clean, a few pairs of bamboo chopsticks lying scattered, and two or three tiny irregular broken scraps of bone, small and plain like pebbles (NOT the classic cartoon bone icon with knobs on both ends). No food left at all, no meat, no animal shape. No people in this shot. Cold, dim, desaturated light; the tray fills the center of the frame.
+Top-down overhead shot looking straight down at the round wooden tray resting on the straw-covered dirt floor of the kitchen. The tray is a solid flat wooden tray with a plain, clean, smooth wooden surface (no marks, no scratches, no scribbles, no symbols). On the tray: several empty, used clay bowls, scraped clean, a few pairs of bamboo chopsticks lying scattered, and a couple of faint brown smears of dried broth inside the bowls. NO bones of any kind, no food left at all, no meat, no animal shape. No people in this shot. Cold, dim, desaturated light; the tray fills the center of the frame.
 ```
 
 #### CẢNH 5.8 · 7:33–7:37
