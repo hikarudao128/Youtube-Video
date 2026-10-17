@@ -23,7 +23,8 @@ INK = (40, 34, 28)
 RED = (179, 38, 30)
 GREY = (110, 100, 90)
 CELL_W, CELL_H = 960, 540
-CAP_H = 130
+CAP_H = 160
+MAX_LINES = 4
 GAP = 30
 MARGIN = 40
 HEADER = 80
@@ -41,7 +42,10 @@ def clean(s):
     s = re.sub(r"\*\([^)]*\)\*", " ", s)          # ghi chú diễn xuất *(ngừng…)*
     s = re.sub(r"\*+", "", s)
     s = s.replace('"', "")
-    return re.sub(r"\s{2,}", " ", s).strip()
+    s = re.sub(r"\s{2,}", " ", s).strip()
+    # bỏ lượt thoại rỗng như "· [CHÍ]:" còn lại sau khi xóa ghi chú diễn xuất
+    s = re.sub(r"\s*·?\s*\[[^\]]+\]:\s*(?=·|$)", "", s).strip(" ·")
+    return s
 
 
 def load_shotlist():
@@ -54,13 +58,29 @@ def load_shotlist():
             continue
         tag, body = "", ""
         for prefix, name in (("- 🎙 ", "Lời dẫn: "), ("- 🗣 ", "Thoại: "), ("- 🔤 ", "Chữ: "),
-                             ("- **Hình:** ", ""), ("- **Hình theo nhịp:**", "")):
+                             ("- **Hình:** ", "Hình: "), ("- **Hình theo nhịp:**", "Hình: ")):
             hit = next((l for l in p.split("\n") if l.startswith(prefix)), None)
-            if hit:
+            if hit and clean(hit[len(prefix):]):
                 tag, body = name, hit[len(prefix):]
                 break
         info[m.group(1)] = {"time": m.group(2), "tag": tag, "text": clean(body)}
     return info
+
+
+def wrap_px(d, text, font, max_w):
+    """Ngắt dòng theo độ rộng pixel thật của chữ."""
+    lines, cur = [], ""
+    for word in text.split():
+        trial = f"{cur} {word}".strip()
+        if d.textlength(trial, font=font) <= max_w:
+            cur = trial
+        else:
+            if cur:
+                lines.append(cur)
+            cur = word
+    if cur:
+        lines.append(cur)
+    return lines
 
 
 def fit(img):
@@ -108,12 +128,16 @@ def main():
             d.rectangle((x, y, x + CELL_W, y + CELL_H), outline=INK, width=3)
             meta = info[sid]
             cy = y + CELL_H + 12
-            d.text((x, cy), f"CẢNH {sid}", font=f_id, fill=RED)
-            d.text((x + 175, cy + 5), meta["time"], font=f_time, fill=GREY)
-            wrapped = textwrap.wrap(meta["tag"] + meta["text"], width=82)
-            lines = wrapped[:3]
-            if len(wrapped) > 3:
-                lines[-1] = lines[-1].rstrip(" .,") + "…"
+            label = f"CẢNH {sid}"
+            d.text((x, cy), label, font=f_id, fill=RED)
+            d.text((x + d.textlength(label, font=f_id) + 18, cy + 5), meta["time"], font=f_time, fill=GREY)
+            wrapped = wrap_px(d, meta["tag"] + meta["text"], f_txt, CELL_W - 10)
+            lines = wrapped[:MAX_LINES]
+            if len(wrapped) > MAX_LINES:
+                last = lines[-1].rstrip(" .,")
+                while d.textlength(last + "…", font=f_txt) > CELL_W - 10:
+                    last = last.rsplit(" ", 1)[0]
+                lines[-1] = last + "…"
             for li, l in enumerate(lines):
                 d.text((x, cy + 42 + li * 27), l, font=f_txt, fill=INK)
         im.save(os.path.join(OUT_DIR, f"storyboard_{pi:02d}.jpg"), quality=90)

@@ -1,0 +1,96 @@
+# Lời người kể cho video Chí Phèo — chỉ một giọng đọc từ đầu đến cuối.
+# Định dạng: <số cảnh>|<lời kể>. Dấu " / " = ngừng ngắn (~0,7 giây). Dòng bắt đầu bằng # bị bỏ qua.
+0.1|Một buổi chiều, ở một ngôi làng Bắc Bộ,
+0.2|hai người đàn ông chết cùng lúc. Một người là kẻ giàu và quyền thế nhất làng. Người kia là kẻ cả làng sợ nhất.
+0.3|Nhưng tất cả bắt đầu chỉ vì... / một nồi cháo hành.
+0.4|Thật đấy. Một nồi cháo.
+0.5|Một đứa trẻ được nhặt về từ cái lò gạch bỏ hoang.
+0.6|Một gã đàn ông tự rạch mặt mình, chỉ để đòi được một đồng bạc.
+0.7|Một người đàn bà xấu nhất làng làm cho hắn điều mà suốt bốn mươi năm chưa ai làm.
+0.8|Và một kẻ ngày nào cũng chửi cả làng, mà không một ai chửi lại.
+0.9|Vậy, làm thế nào mà một nồi cháo hành lại dẫn tới hai cái xác? / Hãy bắt đầu từ tiếng chửi.
+1.1|Bây giờ là một buổi sáng ở làng Vũ Đại.
+1.2|Một gã đàn ông vừa đi vừa chửi. Hắn chửi trời. Hắn chửi đời.
+1.3|Hắn chửi cả làng Vũ Đại. Rồi hắn chửi luôn đứa nào đã đẻ ra hắn.
+1.4|Không ai đáp lại. Không phải vì họ không nghe thấy. Mà vì với cả làng, hắn không đáng để chửi lại.
+1.5|Vậy, Chí Phèo là ai?
+1.6|Về cơ bản, hắn không có ai cả. Một anh đi thả ống lươn nhặt được hắn khi hắn còn là đứa bé trần truồng, xám ngắt, trong một cái lò gạch cũ bỏ không.
+1.7|Ở rìa làng, xa nhà cửa, vắng người qua lại. / Nhớ lấy cái lò gạch này. Nó sẽ quan trọng về sau.
+1.8|Đứa bé được cho một bà góa mù. Bà bán nó cho một bác phó cối không con. Bác phó cối chết. Thằng bé bơ vơ, đi ở hết nhà này đến nhà khác.
+1.9|Năm hai mươi tuổi, nó làm canh điền cho nhà Lý Kiến. Sau này người ta gọi ông ta là Bá Kiến. Ngôi nhà to nhất làng.
+1.10|Lúc ấy, Chí là một anh trai cày hiền lành. Hiền như đất. / Rồi bà Ba gọi anh vào bóp chân.
+1.11|Bà Ba nằm trên sập, phe phẩy quạt: Chí, vào đây bóp chân cho bà. / Chí lí nhí thưa, ngoài đồng còn chưa cày xong. / Bà bảo vào là vào.
+1.12|Bá Kiến thì để ý hết. Ông ta nhấp chén trà, hỏi con trai: thằng canh điền nhà mình dạo này hay ra vào buồng trong nhỉ? / Lý Cường hỏi có đuổi nó không. / Bá Kiến cười: đuổi thì nhẹ quá. Trên huyện đang cần người đi tù.
+1.13|Không ai hỏi Chí đã làm gì. Hắn chẳng làm gì cả. Truyện chỉ nói người ta bảo Bá Kiến ghen. Dù thế nào, kết quả vẫn vậy: một anh trai cày hai mươi tuổi bị giải lên huyện, rồi đi tù. / Lý do: một ông bá hộ không vui.
+2.1|Bảy, tám năm sau, Chí trở về.
+2.2|Không ai nhận ra hắn.
+2.3|Đầu trọc lốc. Răng cạo trắng hớn. Mặt đen mà cơng cơng. Hai mắt gườm gườm. Ngực phanh ra, đầy những nét chạm trổ rồng phượng, với một ông tướng cầm chùy.
+2.4|Bảy, tám năm. Gần bằng thời gian một đứa trẻ học hết tiểu học. Đủ để biến một anh canh điền hiền như đất thành một thứ khác hẳn.
+2.5|Vậy nhà tù đã làm gì với hắn? Câu trả lời đến ngay ngày đầu tiên hắn về làng. / Hắn uống rượu.
+2.6|Rồi hắn đi thẳng đến cổng nhà Bá Kiến, và đứng giữa cổng mà chửi.
+2.7|Hắn gọi thẳng tên Bá Kiến ra mà chửi: ông bỏ tù tao, giờ tao về rồi đây.
+2.8|Lý Cường xắn tay áo, bảo người nhà ra đánh cho thằng say một trận.
+2.9|Chí đập vỡ chai rượu. / Và cầm mảnh chai, rạch lên chính mặt mình.
+2.10|Rồi hắn lăn ra đất, gào lên: Ối làng nước ôi! Cứu tôi với! Bố con thằng Kiến đâm chết tôi rồi!
+2.11|Dân làng kéo đến, nhưng đứng xa. Người ta bảo nhau: thôi, kệ nó. Nhà ai nấy biết, đừng có dây vào.
+2.12|Đúng lúc ấy, Bá Kiến bước ra, giọng ngọt như mật: Anh Chí đấy à? Sao không vào nhà mà chơi? Đứa nào nó làm gì anh? / Chí ngồi đó, thở dốc, không nói được câu nào.
+2.13|Người trong nhà cả, Bá Kiến bảo. Thôi, anh cầm đồng bạc này về uống nước.
+2.14|Một đồng bạc. Một khuôn mặt tự rạch chảy máu, đổi lấy một đồng bạc. Và Chí cầm lấy. / Đó chính là điều Bá Kiến cần biết. Một thằng chửi mình thì nguy hiểm. Một thằng chửi mình rồi cầm tiền của mình, thì là một con dao. Chỉ cần biết cầm đằng chuôi.
+2.15|Nhớ cả những vết mảnh chai ấy nữa. Chúng sẽ theo hắn đến tận cuối đời. Theo đúng nghĩa đen.
+3.1|Những năm sau đó. Vậy tại sao cả làng lại sợ hắn? Vì Bá Kiến đã tìm cho hắn một việc làm.
+3.2|Bá Kiến không phải người tốt. Nhưng ông ta là người khôn. Ông ta biết dân làng này sợ nhất những thằng không còn gì để mất. Và giờ trong tay ông ta có đúng một thằng như thế.
+3.3|Bá Kiến sai Chí đi đòi nợ đội Tảo. Chí hỏi, nó không trả thì sao? / Thì anh cứ làm theo cách của anh. / Ông không sợ tôi đâm nó à? / Bá Kiến ngẩng lên, cười: tôi chỉ sợ anh không dám.
+3.4|Lý Cường lo: nuôi một thằng như thế, không sợ có ngày nó cắn lại à? / Bá Kiến lật sổ nợ, thản nhiên: chó thì phải có xích. Cho nó miếng đất là xong.
+3.5|Bá Kiến cho hắn năm sào vườn ngoài bãi. Năm sào, gần bằng một sân bóng bảy người. Đó là tài sản duy nhất Chí Phèo từng có trong đời.
+3.6|Hắn không biết mảnh vườn ấy là sợi xích. Và sẽ có một ngày, hắn phải nhìn thấy nó đúng như thế.
+3.7|Từ đó, Chí thành tay sai. Hắn đâm thuê, chém mướn. Hắn đập nát bao nhiêu cơ nghiệp, phá tan bao nhiêu cảnh yên vui, làm chảy máu và nước mắt của bao nhiêu người lương thiện.
+3.8|Hắn say triền miên. Ăn trong lúc say, ngủ trong lúc say, đâm chém người trong lúc say. Hắn không còn nhớ mình bao nhiêu tuổi.
+3.9|Dân làng gọi hắn là con quỷ dữ của làng Vũ Đại.
+3.10|Nói thẳng ra, cái tên ấy không sai. Chỉ là người ta quên mất, ai đã nuôi con quỷ đó.
+4.1|Bây giờ là một đêm trăng.
+4.2|Vậy người đàn bà nào dám lại gần hắn? / Thị Nở.
+4.3|Nam Cao tả thị không chút nương tay: xấu đến ma chê quỷ hờn, nghèo, dở hơi, lại thuộc dòng giống mả hủi. Không ai trong làng muốn đến gần thị. Cũng như không ai muốn đến gần Chí Phèo.
+4.4|Hai con người bị cả làng gạt ra ngoài. Và đêm nay, họ chỉ cách nhau một bờ chuối.
+4.5|Thị Nở ra sông gánh nước, chỗ vườn chuối nhà Chí. Trời oi. Gió sông mát. Thị ngồi xuống gốc chuối nghỉ một lát.
+4.6|Rồi ngủ quên.
+4.7|Chí Phèo say rượu, ra vườn. Và hắn nhìn thấy thị.
+4.8|Truyện kể đoạn này rất nhanh. Sáng hôm sau, mọi thứ đã khác. / Nhưng không theo cách mà ai cũng nghĩ.
+5.1|Bây giờ là sáng hôm sau. Vậy điều gì đã thay đổi?
+5.2|Đêm qua, Chí Phèo bị cảm. Hắn nôn mửa. Và sáng nay, lần đầu tiên sau rất nhiều năm, hắn tỉnh rượu.
+5.3|Hắn nghe thấy tiếng chim hót ngoài kia.
+5.4|Tiếng những người đi chợ cười nói.
+5.5|Tiếng anh thuyền chài gõ mái chèo đuổi cá.
+5.6|Những âm thanh ấy ngày nào cũng có. Chỉ là hôm nay hắn mới nghe thấy.
+5.7|Và hắn chợt nhớ ra một điều đã quên từ lâu. Hồi còn trẻ, hắn từng mơ một giấc mơ rất nhỏ: một gia đình nho nhỏ. Chồng cuốc mướn cày thuê, vợ dệt vải. Nuôi một con lợn làm vốn. Khá lên thì mua dăm ba sào ruộng.
+5.8|Thế thôi. Đó là cả giấc mơ. Giờ hắn đã ngoài bốn mươi. Đã sang cái dốc bên kia của cuộc đời. Và hắn vẫn chỉ có một mình.
+5.9|Rồi Thị Nở bước vào. Trên tay là một nồi cháo hành nóng.
+5.10|Thị bảo, đêm qua thấy anh ốm, nên về nấu ít cháo. / Cho tôi à, Chí hỏi. / Ăn đi lúc còn nóng. Ốm phải ăn cháo hành cho ra mồ hôi. / Chí im lặng rất lâu. Rồi hắn nói, chưa ai nấu cho tôi bao giờ.
+5.11|Đó là sự thật. Bốn mươi năm. Chưa từng có bàn tay đàn bà nào cho hắn thứ gì. Muốn có gì, hắn phải dọa. Phải cướp. Phải rạch mặt. Lần này, hắn chẳng phải làm gì cả. / Mắt hắn hình như ươn ướt. Và hắn thấy cháo hành ăn rất ngon.
+5.12|Nam Cao tả hắn lúc ấy bằng một câu rất ngắn: hắn thèm lương thiện. Hắn muốn làm hòa với mọi người. Và hắn tin Thị Nở sẽ mở đường cho hắn.
+5.13|Năm ngày sau đó, họ sống với nhau như vợ chồng. / Lần đầu tiên trong đời, con quỷ dữ của làng Vũ Đại không muốn uống rượu.
+6.1|Năm ngày sau. Thị Nở chợt nhớ ra mình còn một bà cô. Thị nghĩ phải về hỏi cô đã.
+6.2|Vậy ai đã chặn cánh cửa đó? Không phải Bá Kiến. Không phải quan huyện. Mà là một bà già, cách vườn chuối vài con ngõ.
+6.3|Thị Nở thưa, con định lấy anh Chí. / Bà cô trợn mắt: cái thằng chỉ có một nghề là rạch mặt ra ăn vạ ấy à? / Thị bảo, anh ấy hiền lắm rồi. / Hiền? Cả làng này đã ai thấy nó hiền bao giờ chưa? Mày mà lấy nó, thì cả làng nó cười cho thối mặt.
+6.4|Anh ấy đã hiền thật. Chỉ là không ai trong làng kịp thấy. Và cũng chẳng ai định chờ để thấy. Cả làng sẽ cười. Đó là toàn bộ lý lẽ của bà cô. Và thế là đủ.
+6.5|Thị Nở chạy về, đem nguyên lời bà cô ra mắng Chí. Rồi thị bỏ đi.
+6.6|Chí đuổi theo, nắm lấy tay thị. Thị gạt ra, đẩy hắn ngã chúi.
+6.7|Năm ngày. Đó là toàn bộ quãng đời lương thiện của Chí Phèo. / Bằng đúng một tuần làm việc. Chưa tính cuối tuần.
+7.1|Bây giờ là buổi chiều hôm ấy. Chí Phèo lại uống. Nhưng lạ thay, càng uống hắn càng tỉnh.
+7.2|Hắn ngửi thấy hơi cháo hành. Hắn ôm mặt khóc rưng rức.
+7.3|Rồi hắn giắt dao vào lưng, và đi ra.
+7.4|Vậy hắn định đâm ai? Hắn vừa đi vừa lẩm bẩm: phải đâm chết con khọm già nhà nó. Tức là bà cô Thị Nở.
+7.5|Nhưng chân hắn không đi về nhà bà cô. Chân hắn đi thẳng tới cổng nhà Bá Kiến. Đúng con đường hắn đã đi vào ngày đầu tiên ra tù.
+7.6|Bá Kiến không thèm ngẩng lên: anh Chí lại say rồi đấy à? Lại hết tiền chứ gì? / Chí bảo, tao không đến xin tiền. Tao muốn làm người lương thiện. / Bá Kiến cười khẩy, được thôi, tôi cho anh...
+7.7|Không được! Chí gào lên. Ai cho tao lương thiện? Làm thế nào cho mất được những vết mảnh chai trên mặt này? Tao không thể là người lương thiện nữa. / Chỉ còn một cách.
+7.8|Hắn vung dao.
+7.9|Bá Kiến chết ngay tại chỗ. / Rồi Chí Phèo đưa dao lên cổ chính mình.
+7.10|Nhớ những vết mảnh chai ngày đầu tiên chứ? Bá Kiến đã mua chúng bằng một đồng bạc. Đã đổi chúng lấy năm sào vườn. Nhưng trong cái nhà này, không có thứ gì mua lại được chúng. Người duy nhất mở cho Chí một con đường quay về đã đóng cửa sau năm ngày. Còn người đầu tiên đẩy hắn ra khỏi con đường ấy, thì đang ngồi ngay trước mặt hắn. / Hắn đã không đi nhầm đường.
+8.1|Một buổi chiều. Hai cái xác. Bá Kiến chết bởi chính con dao ông ta đã mài suốt bao nhiêu năm. Chí Phèo chết vì muốn trở lại làm con người mà hắn đã từng là.
+8.2|Thị Nở giữ được thể diện với bà cô. Và mất người đàn ông duy nhất từng khóc vì một bát cháo của thị.
+8.3|Còn làng Vũ Đại? Cuối cùng thì cả làng cũng lên tiếng. Họ bảo nhau: đáng đời.
+8.4|Câu chuyện này không nói rằng người xấu sinh ra đã xấu. Nó nói một người hiền có thể bị biến thành quỷ như thế nào. Và khi con quỷ muốn làm người trở lại, cả một ngôi làng đóng sập cửa ra sao.
+8.5|Nam Cao viết truyện này năm một chín bốn mốt. Cái tên đầu tiên ông đặt là: Cái lò gạch cũ. Nhà xuất bản tự đổi thành: Đôi lứa xứng đôi. Phải đến năm một chín bốn sáu, nó mới mang cái tên ta biết ngày nay: Chí Phèo.
+8.6|Và cái tên đầu tiên ấy không phải đặt bừa. Vì khi nghe tin Chí Phèo chết, Thị Nở nhìn nhanh xuống bụng mình.
+8.7|Rồi thị nghĩ đến một cái lò gạch cũ bỏ không. Xa nhà cửa. Vắng người qua lại. / Nhớ lúc nãy đã nói, cái lò gạch sẽ quan trọng không?
+8.8|Tất cả bắt đầu chỉ vì một nồi cháo hành. Và có lẽ, nó sẽ lại bắt đầu. / Ở đúng chỗ cũ.
+8.9|Nếu muốn nghe thêm những câu chuyện như thế này, hãy đăng ký kênh, và xem video tiếp theo.

@@ -179,7 +179,7 @@ Interior of the mansion's main hall: Bá Kiến sits cross-legged on a dark wood
 #### CẢNH 1.13 · 1:59–2:10
 Tham chiếu: 01
 ```text
-Wide shot on top of a high grassy river dike under a grey overcast sky. Young Chí Phèo, hands tied behind his back with rope, is led away by two colonial-era village militiamen in flat conical hats and dark tunics holding wooden batons. Chí looks back over his shoulder toward the village. Below the dike, a small group of villagers watch silently. Cold grey-blue palette, desolate.
+Wide shot on top of a high grassy river dike under a grey overcast sky. Young Chí Phèo, hands tied behind his back with rope, is led away by two colonial-era village militiamen in flat conical hats and dark tunics holding wooden batons. Both of Chí's hands are clearly behind his back, tied with a visible rope held by one militiaman; Chí turns his head back over his shoulder toward the village with a sad, frightened face. Down below the dike, a small group of villagers watch silently. Cold grey-blue palette, desolate.
 ```
 
 ---
@@ -189,7 +189,7 @@ Wide shot on top of a high grassy river dike under a grey overcast sky. Young Ch
 #### CẢNH 2.1 · 2:10–2:15
 Tham chiếu: 02
 ```text
-Wide shot of an old brick village gate beside a huge banyan tree at dusk. Chí Phèo walks toward the camera, backlit by a pale orange sky, his figure mostly a dark silhouette with a bald round head, a long shadow stretching toward the viewer. Grey-blue palette, ominous.
+Wide shot of an old brick village gate beside a huge banyan tree at dusk. Chí Phèo walks toward the camera, backlit by a pale orange sky, his figure mostly a dark silhouette with a bald round head, a long shadow stretching toward the viewer. No smile: grim blank expression, mouth closed, face barely visible in shadow, only faint tattoo detail. Grey-blue palette, ominous.
 ```
 
 #### CẢNH 2.2 · 2:15–2:18
@@ -383,7 +383,7 @@ Close-up of Thị Nở asleep, fully clothed, head tilted against the banana tru
 #### CẢNH 4.7 · 6:18–6:26
 Tham chiếu: 02, 06
 ```text
-Over-the-shoulder shot from behind Chí Phèo as he stumbles out of his thatched hut into the banana garden holding his bottle, then stops. Ahead of him, in a patch of moonlight, Thị Nở sleeps under the banana tree, small in the distance. Quiet, still moment. Nothing intimate shown.
+Over-the-shoulder shot from behind Chí Phèo as he stumbles out of his thatched hut into the banana garden holding his bottle, then stops. Ahead of him, in a patch of moonlight, Thị Nở sleeps SITTING UPRIGHT, back and head leaning against a banana tree trunk, her two water buckets beside her, small in the distance; she is not lying down and there is no bowl. Quiet, still moment. Nothing intimate shown.
 ```
 
 #### CẢNH 4.8 · 6:26–6:40
@@ -471,7 +471,7 @@ From behind: Chí Phèo sits on the threshold of his hut holding the bowl, looki
 #### CẢNH 5.13 · 8:22–8:40
 Tham chiếu: 02, 06
 ```text
-Five-panel horizontal strip, warm tones, each panel a different day: (1) Chí Phèo and Thị Nở eating porridge together, both laughing shyly; (2) Chí repairing the thatched roof while Thị Nở hands up straw; (3) Chí taking the water shoulder pole from Thị Nở to carry it for her; (4) the two sitting silently at the hut door watching the river at dusk; (5) a dusty liquor bottle lying untouched in a corner of the hut.
+Five-panel horizontal strip, warm tones, each panel a different day: (1) Chí Phèo and Thị Nở eating porridge together, both laughing shyly; (2) Chí repairing the thatched roof while Thị Nở hands up straw; (3) Chí taking the water shoulder pole from Thị Nở to carry it for her; (4) the two sitting silently at the hut door watching the river at dusk; (5) a dusty liquor bottle lying untouched in a corner of the hut. In every panel Chí Phèo has soft, relaxed, slightly raised eyebrows and a shy gentle closed-mouth smile, never a grin, smirk or angry brows; warm and tender.
 ```
 
 ---
@@ -499,7 +499,7 @@ In the aunt's yard: the old aunt, seen from a slightly low angle so she looks do
 #### CẢNH 6.4 · 9:10–9:18
 Tham chiếu: 02
 ```text
-Wide shot: Chí Phèo sits waiting on the threshold of his hut, a freshly washed shirt drying on the fence beside him, looking toward the end of the lane. No bottle in his hands. Quiet, hopeful, harsh afternoon light.
+Wide shot: Chí Phèo sits waiting on the threshold of his hut, a freshly washed shirt drying on the fence beside him, looking toward the end of the lane. No bottle in his hands. His face is calm and hopeful: gentle eyes, relaxed soft eyebrows, small closed mouth, not smirking, not angry. Quiet, hopeful, harsh afternoon light.
 ```
 
 #### CẢNH 6.5 · 9:18–9:28
@@ -569,7 +569,7 @@ Extreme close-up of Chí Phèo's face filling the frame, red light: several glas
 #### CẢNH 7.8 · 10:52–10:56
 Tham chiếu: 02
 ```text
-Dark silhouette of Chí Phèo's raised arm holding a short farm knife high, the blade glinting red, the whole image washing out toward bright white at the edges as if into a white flash. No other person in frame, no contact shown.
+Dark silhouette of Chí Phèo's raised arm holding a short farm knife high, a clean grey steel blade only reflecting orange sunset light (absolutely no red on the blade, no blood), the whole image washing out toward bright white at the edges as if into a white flash. No other person in frame, no contact shown.
 ```
 
 #### CẢNH 7.9 · 10:56–11:00
