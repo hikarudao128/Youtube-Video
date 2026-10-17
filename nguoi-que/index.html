@@ -111,7 +111,7 @@
     Bấm vào sân khấu để nhân vật đi tới chỗ đó.
   </p>
 </div>
-
+<script src="sprites.js"></script>
 <script>
 (() => {
   const cv = document.getElementById('cv');
@@ -122,17 +122,26 @@
   const GREEN = params.get('bg') === 'green';   // phông xanh để tách nền khi dựng video
   if (RENDER) document.documentElement.classList.add('render');
 
-  // Bảng màu lấy theo tạo hình Neoptolemus
   const PAL = {
-    bg: GREEN ? '#00b140' : '#eee7d7', ground: '#3b3431', groundSoft: '#c2b6a0', shadow: 'rgba(70,50,30,0.16)',
-    ink: '#1d1a19', skin: '#fbf8f1', hair: '#4b3326', hairHi: '#6f4d37',
-    cape: '#8b3a50', capeDk: '#6a283b', tunic: '#f4efe1', tunicSh: '#ddd3bd',
-    belt: '#4a3a31', buckle: '#2c231f', bronze: '#bb8341', bronzeDk: '#87582a', gold: '#c99645', title: '#1f4e6e',
+    bg: GREEN ? '#00b140' : '#ede6d6', ground: '#3b3431', groundSoft: '#c9bda6', shadow: 'rgba(70,50,30,0.16)',
+    limb: '#19130e', outline: '#1b1614', white: '#f3ecdc', title: '#1f4e6e',
   };
 
-  // Chiều dài các đoạn xương (đơn vị thế giới; sân khấu cao 370)
-  const L = { torso: 64, head: 34, upperArm: 36, foreArm: 34, thigh: 46, shin: 46 };
-  const STAND = L.thigh + L.shin + 8; // tới đáy bàn chân
+  // ---------- Sprite cắt từ bản thiết kế ----------
+  // Đơn vị thế giới = 1 pixel của ảnh thiết kế. Sân khấu cao 1000.
+  const RIG = window.NEO_RIG;
+  const IMG = {};
+  const ready = Promise.all(Object.entries(window.NEO_SPRITES).map(([k, url]) => {
+    const im = new Image(); im.src = url; IMG[k] = im;
+    return im.decode().catch(() => {});
+  }));
+  // Hướng mặt trong ảnh gốc: nghiêng quay trái, ba phần tư quay phải
+  const FACES = { side: -1, tq: 1, front: 0 };
+
+  const L = { thigh: 126, shin: 126, upperArm: 75, foreArm: 72, hand: 26 };
+  const FOOT = { dx: 14, dy: 13, rx: 27, ry: 14 };
+  const STAND = L.thigh + L.shin + FOOT.dy + FOOT.ry; // từ hông tới đáy bàn chân
+  const K = 2.7; // hệ số đổi vận tốc, trọng lực sang đơn vị thế giới
 
   // Tư thế = tập hợp góc (radian), tính từ phương thẳng đứng hướng xuống.
   // Nhìn nghiêng: dương = về phía trước mặt. Nhìn chính diện: dương = dang ra ngoài.
@@ -146,7 +155,6 @@
     mode: 'idle', action: null, actionT: 0, landT: 0,
     phase: 0, goto: null,
     front: true, tw: 1,   // tw: 0 = nhìn nghiêng, 1 = nhìn chính diện
-    trail: 0,             // áo choàng bay theo tốc độ
   };
   const title = { on: false, a: 0 };
 
@@ -154,68 +162,67 @@
     dance: 'Đang nhảy múa', kick: 'Đá chân!', bow: 'Cúi chào', jump: 'Bật nhảy!' };
 
   const S = Math.sin, C = Math.cos, pos = v => Math.max(0, v);
-  const lerp = (a, b, k) => a + (b - a) * k;
 
   // ---------- Động tác nhìn nghiêng ----------
   function walk(p) {
-    return { lean: 0.06, headTilt: 0.02 * S(p * 2),
-      lThigh: 0.42 * S(p), lKnee: 0.08 + 0.85 * pos(C(p)),
-      rThigh: -0.42 * S(p), rKnee: 0.08 + 0.85 * pos(-C(p)),
-      lArm: -0.38 * S(p), lElbow: 0.25 + 0.15 * pos(-S(p)),
-      rArm: 0.38 * S(p), rElbow: 0.25 + 0.15 * pos(S(p)) };
+    return { lean: 0.04, headTilt: 0.02 * S(p * 2),
+      lThigh: 0.4 * S(p), lKnee: 0.08 + 0.8 * pos(C(p)),
+      rThigh: -0.4 * S(p), rKnee: 0.08 + 0.8 * pos(-C(p)),
+      lArm: -0.35 * S(p), lElbow: 0.2 + 0.15 * pos(-S(p)),
+      rArm: 0.35 * S(p), rElbow: 0.2 + 0.15 * pos(S(p)) };
   }
   function run(p) {
-    return { lean: 0.24, headTilt: -0.12,
-      lThigh: 0.78 * S(p) + 0.15, lKnee: 0.25 + 1.5 * pos(C(p)),
-      rThigh: -0.78 * S(p) + 0.15, rKnee: 0.25 + 1.5 * pos(-C(p)),
-      lArm: -0.85 * S(p), lElbow: 1.4,
-      rArm: 0.85 * S(p), rElbow: 1.4 };
+    return { lean: 0.18, headTilt: -0.06,
+      lThigh: 0.72 * S(p) + 0.12, lKnee: 0.25 + 1.4 * pos(C(p)),
+      rThigh: -0.72 * S(p) + 0.12, rKnee: 0.25 + 1.4 * pos(-C(p)),
+      lArm: -0.8 * S(p), lElbow: 1.3,
+      rArm: 0.8 * S(p), rElbow: 1.3 };
   }
   function idleSide(t) {
     const b = S(t * 2);
-    return { lean: 0.02 * b, headTilt: 0.03 * b, lThigh: 0.06, lKnee: 0.06, rThigh: -0.06, rKnee: 0.06,
-      lArm: 0.1 + 0.03 * b, lElbow: 0.15, rArm: -0.08 - 0.03 * b, rElbow: 0.15 };
+    return { lean: 0.01 * b, headTilt: 0.02 * b, lThigh: 0.03, lKnee: 0.03, rThigh: -0.03, rKnee: 0.03,
+      lArm: -0.1 + 0.02 * b, lElbow: 0.05, rArm: -0.14 - 0.02 * b, rElbow: 0.05 };
   }
   function kick(k) { // k: tiến độ 0..1
     const up = S(Math.min(1, k * 1.25) * Math.PI);
     const snap = pos(S((k - 0.25) * Math.PI * 1.6));
-    return { lean: -0.25 * up, headTilt: -0.05,
+    return { lean: -0.2 * up, headTilt: -0.05,
       lThigh: -0.1 * up, lKnee: 0.15 * up,
-      rThigh: 1.7 * up, rKnee: 1.5 * up * (1 - snap),
-      lArm: 0.9 * up, lElbow: 1.0, rArm: -0.7 * up, rElbow: 0.4 };
+      rThigh: 1.5 * up, rKnee: 1.4 * up * (1 - snap),
+      lArm: 0.8 * up, lElbow: 0.9, rArm: -0.6 * up, rElbow: 0.4 };
   }
   function bow(k, t) {
     const b = S(k * Math.PI);
-    return { ...idleSide(t), lean: 0.95 * b, headTilt: 0.25 * b,
-      lThigh: -0.15 * b, rThigh: -0.25 * b, lKnee: 0.06, rKnee: 0.06,
-      lArm: 0.15 + 0.5 * b, lElbow: 0.2, rArm: 1.2 * b, rElbow: 1.3 * b };
+    return { ...idleSide(t), lean: 0.75 * b, headTilt: 0.2 * b,
+      lThigh: -0.1 * b, rThigh: -0.18 * b, lKnee: 0.04, rKnee: 0.04,
+      lArm: 0.1 + 0.5 * b, lElbow: 0.2, rArm: 1.1 * b, rElbow: 1.2 * b };
   }
   function airSide() {
     const rising = fig.vy > 0;
-    return { lean: 0.1, headTilt: rising ? -0.15 : 0.1,
-      lThigh: 0.75, lKnee: 1.55, rThigh: 0.35, rKnee: 1.15,
-      lArm: rising ? 2.4 : 1.6, lElbow: 0.5, rArm: rising ? 2.1 : 1.3, rElbow: 0.5 };
+    return { lean: 0.06, headTilt: rising ? -0.1 : 0.06,
+      lThigh: 0.7, lKnee: 1.45, rThigh: 0.3, rKnee: 1.05,
+      lArm: rising ? 2.3 : 1.5, lElbow: 0.4, rArm: rising ? 2.0 : 1.2, rElbow: 0.4 };
   }
 
   // ---------- Động tác nhìn chính diện ----------
   function idleFront(t) {
     const b = S(t * 2);
-    return { lean: 0, headTilt: 0.03 * b, lThigh: 0.08, lKnee: 0, rThigh: 0.08, rKnee: 0,
-      lArm: 0.14 + 0.02 * b, lElbow: 0.04, rArm: 0.14 + 0.02 * b, rElbow: 0.04 };
+    return { lean: 0, headTilt: 0.02 * b, lThigh: 0.045, lKnee: 0, rThigh: 0.045, rKnee: 0,
+      lArm: 0.22 + 0.015 * b, lElbow: 0, rArm: 0.2 + 0.015 * b, rElbow: 0 };
   }
   function waveFront(t) {
-    return { ...idleFront(t), headTilt: 0.08, rArm: 2.5, rElbow: 0.3 + 0.45 * S(t * 11) };
+    return { ...idleFront(t), headTilt: 0.06, rArm: 2.45, rElbow: 0.3 + 0.45 * S(t * 11) };
   }
   function danceFront(t) {
     const s = S(t * 4), d = Math.abs(S(t * 4));
-    return { lean: 0.08 * s, headTilt: 0.15 * S(t * 4 + 0.6),
-      lThigh: 0.12 + 0.25 * d - 0.08 * s, lKnee: 0.5 * d,
-      rThigh: 0.12 + 0.25 * d + 0.08 * s, rKnee: 0.5 * d,
-      lArm: 2.2 + 0.5 * S(t * 8), lElbow: 0.5,
-      rArm: 2.2 + 0.5 * S(t * 8 + Math.PI), rElbow: 0.5 };
+    return { lean: 0.06 * s, headTilt: 0.12 * S(t * 4 + 0.6),
+      lThigh: 0.06 + 0.2 * d - 0.06 * s, lKnee: 0.4 * d,
+      rThigh: 0.06 + 0.2 * d + 0.06 * s, rKnee: 0.4 * d,
+      lArm: 2.2 + 0.45 * S(t * 8), lElbow: 0.45,
+      rArm: 2.2 + 0.45 * S(t * 8 + Math.PI), rElbow: 0.45 };
   }
   function airFront() {
-    return { lean: 0, headTilt: 0, lThigh: 0.5, lKnee: 1.0, rThigh: 0.5, rKnee: 1.0,
+    return { lean: 0, headTilt: 0, lThigh: 0.4, lKnee: 0.9, rThigh: 0.4, rKnee: 0.9,
       lArm: 2.3, lElbow: 0.3, rArm: 2.3, rElbow: 0.3 };
   }
 
@@ -228,7 +235,7 @@
       const a = ACTIONS[fig.action];
       return a.fn(Math.min(1, fig.actionT / a.dur), t);
     }
-    const speed = Math.abs(fig.vx);
+    const speed = Math.abs(fig.vx) / K;
     let p;
     if (speed > 260) p = run(fig.phase);
     else if (speed > 20) p = walk(fig.phase);
@@ -237,36 +244,38 @@
     else p = F ? idleFront(t) : idleSide(t);
     if (fig.landT > 0) { // nhún gối khi tiếp đất
       const q = fig.landT / 0.18;
-      p = { ...p, lThigh: p.lThigh + 0.5 * q, rThigh: p.rThigh + 0.5 * q,
-        lKnee: p.lKnee + 1.0 * q, rKnee: p.rKnee + 1.0 * q, lean: p.lean + (F ? 0 : 0.3 * q) };
+      p = { ...p, lThigh: p.lThigh + 0.45 * q, rThigh: p.rThigh + 0.45 * q,
+        lKnee: p.lKnee + 0.9 * q, rKnee: p.rKnee + 0.9 * q, lean: p.lean + (F ? 0 : 0.2 * q) };
     }
     return p;
   }
 
-  // ---------- Động học thuận: góc -> toạ độ khớp ----------
+  // ---------- Khung xương: góc -> toạ độ khớp ----------
+  function viewOf(tw) { return tw < 0.35 ? 'side' : tw < 0.75 ? 'tq' : 'front'; }
   function seg(from, ang, len, f) {
     return { x: from.x + S(ang) * len * f, y: from.y + C(ang) * len };
   }
-  function skeleton(hip, p, dir, tw) {
-    // Hệ số ngang: nhìn nghiêng mọi chi theo hướng mặt, nhìn chính diện hai bên toả ra hai phía
-    const fT = lerp(dir, 1, tw), fl = lerp(dir, -1, tw), fr = lerp(dir, 1, tw);
-    let ux = S(p.lean) * fT, uy = -C(p.lean);
-    const n = Math.hypot(ux, uy) || 1; ux /= n; uy /= n;
-    const px = -uy, py = ux;
-    const P = (a, b) => ({ x: hip.x + ux * a + px * b, y: hip.y + uy * a + py * b });
-    const neck = P(L.torso, 0);
-    const hAng = p.lean + p.headTilt;
-    let hx = S(hAng) * fT, hy = -C(hAng);
-    const hn = Math.hypot(hx, hy) || 1;
-    const head = { x: neck.x + hx / hn * (L.head - 6), y: neck.y + hy / hn * (L.head - 6) };
-    const lHip = P(0, -8 * tw), rHip = P(0, 8 * tw);
-    const lSh = P(L.torso - 12, -15 * tw), rSh = P(L.torso - 12, 15 * tw);
+  function skeleton(hip, p, dir, view) {
+    const R = RIG[view], faces = FACES[view];
+    const flip = faces && faces !== dir ? -1 : 1;
+    const rot = view === 'front' ? p.lean : p.lean * dir * (view === 'tq' ? 0.6 : 1);
+    const hipRef = { x: (R.hipL[0] + R.hipR[0]) / 2, y: (R.hipL[1] + R.hipR[1]) / 2 };
+    const cr = C(rot), sr = S(rot);
+    const W = ([x, y]) => {
+      const dx = (x - hipRef.x) * flip, dy = y - hipRef.y;
+      return { x: hip.x + dx * cr - dy * sr, y: hip.y + dx * sr + dy * cr };
+    };
+    // Hệ số ngang: nhìn nghiêng mọi chi theo hướng mặt, chính diện hai bên toả ra hai phía
+    const fl = view === 'side' ? dir : view === 'tq' ? -0.6 * flip : -1;
+    const fr = view === 'side' ? dir : view === 'tq' ? 0.6 * flip : 1;
+    const lHip = W(R.hipL), rHip = W(R.hipR), lSh = W(R.shL), rSh = W(R.shR);
     const lKnee = seg(lHip, p.lThigh, L.thigh, fl), lFoot = seg(lKnee, p.lThigh - p.lKnee, L.shin, fl);
     const rKnee = seg(rHip, p.rThigh, L.thigh, fr), rFoot = seg(rKnee, p.rThigh - p.rKnee, L.shin, fr);
     const lElb = seg(lSh, p.lArm, L.upperArm, fl), lHand = seg(lElb, p.lArm + p.lElbow, L.foreArm, fl);
     const rElb = seg(rSh, p.rArm, L.upperArm, fr), rHand = seg(rElb, p.rArm + p.rElbow, L.foreArm, fr);
-    return { hip, neck, head, P, fl, fr, fT, lHip, rHip, lSh, rSh, lKnee, lFoot, rKnee, rFoot,
-      lElb, lHand, rElb, rHand, headRot: hAng * fT * 0.6 };
+    const headRot = rot + p.headTilt * (view === 'front' ? 1 : dir);
+    return { view, flip, rot, hip, hipRef, neck: W(R.neck), headRot, fl, fr,
+      lHip, rHip, lSh, rSh, lKnee, lFoot, rKnee, rFoot, lElb, lHand, rElb, rHand };
   }
 
   // ---------- Điều khiển ----------
@@ -279,7 +288,7 @@
   }
   function jump() {
     if (!fig.grounded) return;
-    fig.grounded = false; fig.vy = 460; fig.action = null; syncButtons();
+    fig.grounded = false; fig.vy = 1170; fig.action = null; syncButtons();
   }
   function syncButtons() {
     document.querySelectorAll('#controls button').forEach(b => {
@@ -326,7 +335,7 @@
   cv.addEventListener('pointerdown', e => {
     const r = cv.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width * view.w;
-    fig.goto = { x, speed: Math.abs(x - fig.x) > 220 ? 380 : 150 };
+    fig.goto = { x, speed: Math.abs(x - fig.x) > 600 ? 380 * K : 150 * K };
   });
 
   // ---------- Kịch bản diễn sẵn (dùng để quay video) ----------
@@ -334,9 +343,9 @@
   function playScript(onEnd) {
     const W = view.w, mid = W / 2;
     const steps = [
-      [0.0, () => { fig.x = -70; fig.vx = 0; fig.dir = 1; fig.h = 0; fig.vy = 0; fig.grounded = true;
+      [0.0, () => { fig.x = -200; fig.vx = 0; fig.dir = 1; fig.h = 0; fig.vy = 0; fig.grounded = true;
                     fig.action = null; fig.front = false; fig.tw = 0;
-                    setMode('idle'); fig.goto = { x: mid, speed: 150 }; title.on = true; }],
+                    setMode('idle'); fig.goto = { x: mid, speed: 150 * K }; title.on = true; }],
       [3.4, () => { title.on = false; }],
       [3.6, () => setMode('wave')],
       [6.2, () => setMode('idle')],
@@ -345,7 +354,7 @@
       [10.5, () => jump()],
       [11.8, () => doAction('kick')],
       [12.9, () => doAction('bow')],
-      [14.6, () => { fig.goto = { x: W + 140, speed: 380 }; }],
+      [14.6, () => { fig.goto = { x: W + 320, speed: 380 * K }; }],
       [16.6, () => { script = null; setMode('idle'); fig.x = mid; fig.vx = 0; if (onEnd) onEnd(); NQ.done = true; }],
     ];
     NQ.done = false;
@@ -376,15 +385,15 @@
   });
 
   // ---------- Canvas ----------
-  const view = { w: 658, h: 370, dpr: 1, scale: 1 };
+  const view = { w: 1778, h: 1000, dpr: 1, scale: 1 };
   function resize() {
     const r = cv.getBoundingClientRect();
     if (!r.width) return;
     view.dpr = Math.min(2, devicePixelRatio || 1);
     cv.width = Math.round(r.width * view.dpr);
     cv.height = Math.round(r.height * view.dpr);
-    view.scale = r.height / 370;
-    view.w = r.width / view.scale; view.h = 370;
+    view.scale = r.height / 1000;
+    view.w = r.width / view.scale; view.h = 1000;
     if (!fig.x) fig.x = view.w / 2;
   }
   new ResizeObserver(resize).observe(cv);
@@ -400,28 +409,28 @@
     }
 
     let want = 0;
-    if (keys.left !== keys.right) want = (keys.right ? 1 : -1) * (keys.shift || fig.mode === 'run' ? 380 : 150);
+    if (keys.left !== keys.right) want = (keys.right ? 1 : -1) * (keys.shift || fig.mode === 'run' ? 380 : 150) * K;
     else if (fig.goto) {
       const d = fig.goto.x - fig.x;
-      if (Math.abs(d) < 6) fig.goto = null;
+      if (Math.abs(d) < 16) fig.goto = null;
       else want = Math.sign(d) * fig.goto.speed;
-    } else if (fig.mode === 'walk') want = fig.dir * 150;
-    else if (fig.mode === 'run') want = fig.dir * 380;
+    } else if (fig.mode === 'walk') want = fig.dir * 150 * K;
+    else if (fig.mode === 'run') want = fig.dir * 380 * K;
     if (fig.action) want = 0;
 
     fig.vx += (want - fig.vx) * (1 - Math.exp(-dt * (fig.grounded ? 10 : 2)));
     if (want) fig.dir = Math.sign(want);
     fig.x += fig.vx * dt;
     if (!fig.goto) { // ra khỏi mép này thì vào lại từ mép kia
-      if (fig.x < -60) fig.x = view.w + 60;
-      if (fig.x > view.w + 60) fig.x = -60;
+      if (fig.x < -200) fig.x = view.w + 200;
+      if (fig.x > view.w + 200) fig.x = -200;
     }
 
-    const speed = Math.abs(fig.vx);
+    const speed = Math.abs(fig.vx) / K;
     fig.phase += dt * speed / (speed > 260 ? 30 : 24);
 
     if (!fig.grounded) {
-      fig.vy -= 1500 * dt; fig.h += fig.vy * dt;
+      fig.vy -= 1500 * K * dt; fig.h += fig.vy * dt;
       if (fig.h <= 0) { fig.h = 0; fig.vy = 0; fig.grounded = true; fig.landT = 0.18; }
     }
     fig.landT = Math.max(0, fig.landT - dt);
@@ -437,7 +446,6 @@
         ['idle', 'wave', 'dance'].includes(fig.mode);
     }
     fig.tw += ((fig.front ? 1 : 0) - fig.tw) * (1 - Math.exp(-dt * 9));
-    fig.trail += (Math.min(1, speed / 380) - fig.trail) * (1 - Math.exp(-dt * 5));
     title.a += ((title.on ? 1 : 0) - title.a) * (1 - Math.exp(-dt * 4));
 
     const tp = targetPose(t);
@@ -445,8 +453,8 @@
     for (const j of JOINTS) pose[j] += (tp[j] - pose[j]) * k;
 
     // Đặt hông sao cho bàn chân thấp nhất luôn chạm đất
-    const probe = skeleton({ x: 0, y: 0 }, pose, 1, fig.tw);
-    const footReach = fig.grounded ? Math.max(probe.lFoot.y, probe.rFoot.y) + 8 : STAND;
+    const probe = skeleton({ x: 0, y: 0 }, pose, 1, viewOf(fig.tw));
+    const footReach = fig.grounded ? Math.max(probe.lFoot.y, probe.rFoot.y) + FOOT.dy + FOOT.ry : STAND;
     fig.reach += (footReach - fig.reach) * (1 - Math.exp(-dt * 30));
 
     const label = !fig.grounded ? 'jump' : fig.action || (speed > 260 ? 'run' : speed > 20 ? 'walk' : fig.mode);
@@ -454,246 +462,89 @@
   }
 
   // ---------- Vẽ ----------
-  const pt = (p) => [p.x, p.y];
-  function path(points, close) {
-    ctx.beginPath(); ctx.moveTo(...pt(points[0]));
-    for (const q of points.slice(1)) ctx.lineTo(...pt(q));
-    if (close) ctx.closePath();
+  function sprite(name, sk, pivotRef, pivotW, rot) {
+    const im = IMG[name];
+    if (!im || !im.complete || !im.naturalWidth) return;
+    const part = name.split('_')[1], o = RIG[sk.view][part === 'front' ? 'body' : part];
+    ctx.save();
+    ctx.translate(pivotW.x, pivotW.y);
+    ctx.rotate(rot);
+    ctx.scale(sk.flip, 1);
+    ctx.drawImage(im, o[0] - pivotRef.x, o[1] - pivotRef.y);
+    ctx.restore();
   }
-  function fillStroke(fill, lw = 2.5) {
-    ctx.fillStyle = fill; ctx.fill();
-    ctx.strokeStyle = PAL.ink; ctx.lineWidth = lw; ctx.stroke();
+  function body(sk, layer) {
+    sprite(`${sk.view}_${layer}`, sk, sk.hipRef, sk.hip, sk.rot);
   }
-  function stick(...pts) {
-    ctx.strokeStyle = PAL.ink; ctx.lineWidth = 5.5; path(pts); ctx.stroke();
+  function head(sk) {
+    const n = RIG[sk.view].neck;
+    sprite(`${sk.view}_head`, sk, { x: n[0], y: n[1] }, sk.neck, sk.headRot);
   }
-  function hand(elb, h) {
-    const a = Math.atan2(h.y - elb.y, h.x - elb.x);
-    ctx.beginPath();
-    ctx.ellipse(h.x + Math.cos(a) * 6, h.y + Math.sin(a) * 6, 11, 9, a, 0, Math.PI * 2);
-    fillStroke(PAL.skin);
+  function stick(w, ...pts) {
+    ctx.strokeStyle = PAL.limb; ctx.lineWidth = w; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.beginPath(); ctx.moveTo(pts[0].x, pts[0].y);
+    for (const q of pts.slice(1)) ctx.lineTo(q.x, q.y);
+    ctx.stroke();
   }
-  function foot(f, side) {
-    ctx.beginPath(); ctx.ellipse(f.x + side * 7, f.y + 1, 13, 7, 0, 0, Math.PI * 2);
-    fillStroke(PAL.skin);
+  function oval(x, y, rx, ry, a) {
+    ctx.beginPath(); ctx.ellipse(x, y, rx, ry, a, 0, Math.PI * 2);
+    ctx.fillStyle = PAL.white; ctx.fill();
+    ctx.strokeStyle = PAL.outline; ctx.lineWidth = 4.5; ctx.stroke();
   }
   function arm(sk, s) {
-    stick(sk[s + 'Sh'], sk[s + 'Elb'], sk[s + 'Hand']);
-    hand(sk[s + 'Elb'], sk[s + 'Hand']);
+    const sh = sk[s + 'Sh'], el = sk[s + 'Elb'], h = sk[s + 'Hand'];
+    stick(9.5, sh, el, h);
+    const a = Math.atan2(h.y - el.y, h.x - el.x);
+    oval(h.x + Math.cos(a) * L.hand, h.y + Math.sin(a) * L.hand, 25, 17, a);
   }
   function leg(sk, s) {
-    stick(sk[s + 'Hip'], sk[s + 'Knee'], sk[s + 'Foot']);
-    foot(sk[s + 'Foot'], s === 'l' ? sk.fl : sk.fr);
-  }
-
-  function drawCape(sk, dir, tw) {
-    const k = fig.trail;
-    const lift = Math.max(-10, Math.min(40, -fig.vy * 0.05)) * (fig.grounded ? 0 : 1);
-    const sw = S(t * 2.2) * 3;
-    // Toạ độ so với cổ: [nhìn nghiêng (mặt hướng +x), nhìn chính diện]
-    const pts = {
-      T1: [[3, 2], [18, 4]],
-      M1: [[-4 - 30 * k, 60 - 12 * k], [32, 60]],
-      BF: [[-6 - 70 * k, 118 - 40 * k - lift], [44 + sw, 120 - lift]],
-      BB: [[-32 - 80 * k, 122 - 55 * k - lift], [-48 + sw, 122 - lift]],
-      M2: [[-24 - 40 * k, 60 - 10 * k], [-36, 60]],
-      T2: [[-8, 0], [-18, 4]],
-    };
-    const n = sk.neck, P = {};
-    for (const key in pts) {
-      const [s, f] = pts[key];
-      P[key] = { x: n.x + lerp(s[0] * dir, f[0], tw), y: n.y + lerp(s[1], f[1], tw) };
-    }
-    const mid = (a, b) => ({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
-    ctx.beginPath();
-    ctx.moveTo(P.T1.x, P.T1.y);
-    ctx.quadraticCurveTo(P.M1.x, P.M1.y, ...pt(mid(P.M1, P.BF)));
-    ctx.lineTo(P.BF.x, P.BF.y);
-    for (let i = 1; i <= 4; i++) { // gấu áo lượn sóng
-      const a = { x: lerp(P.BF.x, P.BB.x, (i - 0.5) / 4), y: lerp(P.BF.y, P.BB.y, (i - 0.5) / 4) + (i % 2 ? 7 : -3) + sw * 0.5 };
-      const b = { x: lerp(P.BF.x, P.BB.x, i / 4), y: lerp(P.BF.y, P.BB.y, i / 4) };
-      ctx.quadraticCurveTo(a.x, a.y, b.x, b.y);
-    }
-    ctx.quadraticCurveTo(P.M2.x, P.M2.y, ...pt(mid(P.M2, P.T2)));
-    ctx.lineTo(P.T2.x, P.T2.y);
-    ctx.closePath();
-    fillStroke(PAL.cape);
-    // Nếp gấp
-    ctx.strokeStyle = PAL.capeDk; ctx.lineWidth = 2;
-    for (const f of [0.3, 0.62]) {
-      const top = { x: lerp(P.T1.x, P.T2.x, f), y: lerp(P.T1.y, P.T2.y, f) + 18 };
-      const bot = { x: lerp(P.BF.x, P.BB.x, f), y: lerp(P.BF.y, P.BB.y, f) - 6 };
-      ctx.beginPath(); ctx.moveTo(top.x, top.y);
-      ctx.quadraticCurveTo(lerp(top.x, bot.x, 0.5) + 5, lerp(top.y, bot.y, 0.5), bot.x, bot.y); ctx.stroke();
-    }
-  }
-
-  function drawTunic(sk, dir, tw) {
-    const { P } = sk, top = L.torso - 4, bot = -22;
-    const hwT = lerp(14, 17, tw), hwB = lerp(21, 27, tw);
-    const hwAt = a => lerp(hwB, hwT, (a - bot) / (top - bot)) + 1;
-    ctx.beginPath();
-    ctx.moveTo(...pt(P(top - 8, -hwT)));
-    ctx.quadraticCurveTo(...pt(P(top, -hwT + 1)), ...pt(P(top, 0)));
-    ctx.quadraticCurveTo(...pt(P(top, hwT - 1)), ...pt(P(top - 8, hwT)));
-    ctx.lineTo(...pt(P(bot + 2, hwB)));
-    for (let i = 1; i <= 6; i++) ctx.lineTo(...pt(P(bot + (i % 2 ? -3 : 2), hwB - 2 * hwB * i / 6)));
-    ctx.closePath();
-    fillStroke(PAL.tunic);
-    // Nếp vải
-    ctx.strokeStyle = PAL.tunicSh; ctx.lineWidth = 2;
-    path([P(4, -hwB * 0.35), P(bot + 4, -hwB * 0.45)]); ctx.stroke();
-    path([P(2, hwB * 0.25), P(bot + 4, hwB * 0.3)]); ctx.stroke();
-
-    // Thắt lưng
-    path([P(17, -hwAt(17)), P(17, hwAt(17)), P(8, hwAt(8)), P(8, -hwAt(8))], true);
-    fillStroke(PAL.belt, 2);
-    const bb = lerp(dir * hwB * 0.5, -5, tw);
-    path([P(17, bb - 5), P(17, bb + 5), P(8, bb + 5), P(8, bb - 5)], true);
-    fillStroke(PAL.buckle, 1.5);
-    ctx.strokeStyle = PAL.groundSoft; ctx.lineWidth = 1.5;
-    path([P(14.5, bb - 2), P(14.5, bb + 2), P(10.5, bb + 2), P(10.5, bb - 2)], true); ctx.stroke();
-    return hwT;
-  }
-
-  function drawSword(sk, dir, tw) {
-    const S0 = sk.P(12, lerp(dir * 3, 16, tw));
-    // Kiếm treo gần thẳng theo trọng lực, chỉ nghiêng nhẹ theo thân
-    const r = lerp(dir * 0.45, 0.28, tw) - pose.lean * sk.fT * 0.4;
-    const d = { x: -Math.sin(r), y: Math.cos(r) }, e = { x: -d.y, y: d.x };
-    const at = (a, b) => ({ x: S0.x + d.x * a + e.x * b, y: S0.y + d.y * a + e.y * b });
-    // Bao kiếm
-    path([at(3, -4.5), at(3, 4.5), at(54, 3), at(62, 0), at(54, -3)], true);
-    fillStroke(PAL.bronze, 2);
-    ctx.strokeStyle = PAL.bronzeDk; ctx.lineWidth = 1.5;
-    path([at(48, -3.4), at(48, 3.4)]); ctx.stroke();
-    // Chuôi
-    ctx.lineCap = 'round';
-    ctx.strokeStyle = PAL.ink; ctx.lineWidth = 8; path([at(0, 0), at(-13, 0)]); ctx.stroke();
-    ctx.strokeStyle = PAL.bronzeDk; ctx.lineWidth = 4.5; path([at(0, 0), at(-13, 0)]); ctx.stroke();
-    ctx.strokeStyle = PAL.ink; ctx.lineWidth = 8; path([at(0, -10), at(0, 10)]); ctx.stroke();
-    ctx.strokeStyle = PAL.bronze; ctx.lineWidth = 4.5; path([at(0, -10), at(0, 10)]); ctx.stroke();
-    const pm = at(-16, 0);
-    ctx.beginPath(); ctx.arc(pm.x, pm.y, 4.5, 0, Math.PI * 2); fillStroke(PAL.bronze, 2);
-  }
-
-  function drawCollar(sk, dir, tw, hwT) {
-    const { P } = sk, top = L.torso - 4;
-    const hw = lerp(12, hwT + 8, tw);
-    ctx.beginPath();
-    ctx.moveTo(...pt(P(top + 1, -hw)));
-    ctx.quadraticCurveTo(...pt(P(top + 7, 0)), ...pt(P(top + 1, hw)));
-    ctx.quadraticCurveTo(...pt(P(top - 26, hw * 0.2)), ...pt(P(top + 1, -hw)));
-    ctx.closePath();
-    fillStroke(PAL.cape);
-    ctx.strokeStyle = PAL.capeDk; ctx.lineWidth = 2;
-    ctx.beginPath(); ctx.moveTo(...pt(P(top - 2, -hw * 0.55)));
-    ctx.quadraticCurveTo(...pt(P(top - 13, 0)), ...pt(P(top - 2, hw * 0.55))); ctx.stroke();
-    const b = P(top - 4, lerp(dir * 5, -hw * 0.62, tw));
-    ctx.beginPath(); ctx.arc(b.x, b.y, 6, 0, Math.PI * 2); fillStroke(PAL.gold, 2);
-    ctx.fillStyle = PAL.bronzeDk; ctx.beginPath(); ctx.arc(b.x, b.y, 2, 0, Math.PI * 2); ctx.fill();
-  }
-
-  // Tóc xoăn: các cụm tròn hợp lại, viền ngoài chung một nét
-  const HF = [155, 180, 205, 230, 255, 280, 305, 330, 355, 25];
-  const HS = [100, 125, 150, 175, 200, 225, 250, 275, 300, 322];
-  const HR = [11, 13, 14, 15, 14, 15, 14, 13, 12, 11];
-  const TUFT = [ // [nghiêng x, y, chính diện x, y, bán kính]
-    [16, -27, -12, -26, 8], [24, -20, 9, -28, 7], [-8, -36, -3, -37, 6], [6, -37, 14, -35, 5],
-  ];
-  function hairBlobs(dir, tw) {
-    const out = [];
-    HF.forEach((af, i) => {
-      const as = HS[i] * Math.PI / 180, a2 = af * Math.PI / 180;
-      out.push([lerp(Math.cos(as) * 32 * dir, Math.cos(a2) * 33, tw), lerp(Math.sin(as) * 32, Math.sin(a2) * 33, tw), HR[i]]);
-    });
-    for (const [sx, sy, fx, fy, r] of TUFT) out.push([lerp(sx * dir, fx, tw), lerp(sy, fy, tw), r]);
-    return out;
-  }
-
-  function drawHead(sk, dir, tw) {
-    const R = L.head;
-    ctx.save();
-    ctx.translate(sk.head.x, sk.head.y);
-    ctx.rotate(sk.headRot);
-    ctx.beginPath(); ctx.arc(0, 0, R, 0, Math.PI * 2); fillStroke(PAL.skin, 3);
-
-    // Mắt: khi nhìn nghiêng hai mắt chồng lên nhau thành một
-    ctx.fillStyle = PAL.ink;
-    for (const ex of [lerp(dir * 17, -12, tw), lerp(dir * 17, 12, tw)]) {
-      ctx.beginPath(); ctx.ellipse(ex, 4, 4, 5.4, 0, 0, Math.PI * 2); ctx.fill();
-    }
-    // Lông mày cau có
-    ctx.strokeStyle = PAL.ink; ctx.lineWidth = 3; ctx.lineCap = 'round';
-    for (const s of [-1, 1]) {
-      ctx.beginPath();
-      ctx.moveTo(lerp(dir * 9, 19 * s, tw), lerp(-9, -8, tw));
-      ctx.lineTo(lerp(dir * 24, 6 * s, tw), lerp(-3, -2, tw));
-      ctx.stroke();
-    }
-    // Miệng
-    const smile = fig.mode === 'dance' && fig.front;
-    ctx.lineWidth = 2.5;
-    ctx.beginPath();
-    const mx = lerp(dir * 21, 0, tw);
-    if (smile) ctx.arc(mx, 13, 5, 0.15 * Math.PI, 0.85 * Math.PI);
-    else { ctx.moveTo(mx - 4, 17); ctx.lineTo(mx + 4, 16); }
-    ctx.stroke();
-
-    // Tóc
-    const blobs = hairBlobs(dir, tw);
-    ctx.beginPath();
-    for (const [x, y, r] of blobs) { ctx.moveTo(x + r, y); ctx.arc(x, y, r, 0, Math.PI * 2); }
-    ctx.strokeStyle = PAL.ink; ctx.lineWidth = 6; ctx.stroke();
-    ctx.fillStyle = PAL.hair; ctx.fill();
-    ctx.strokeStyle = PAL.hairHi; ctx.lineWidth = 2;
-    blobs.forEach(([x, y, r], i) => {
-      if (i % 2) return;
-      ctx.beginPath(); ctx.arc(x + 2, y + 1, r * 0.5, 3.6 + i, 5.2 + i); ctx.stroke();
-    });
-    ctx.restore();
+    const f = sk[s + 'Foot'];
+    stick(11.5, sk[s + 'Hip'], sk[s + 'Knee'], f);
+    oval(f.x + (s === 'l' ? sk.fl : sk.fr) * FOOT.dx, f.y + FOOT.dy, FOOT.rx, FOOT.ry, 0);
   }
 
   function draw() {
     const { w, h, dpr, scale } = view;
     ctx.setTransform(dpr * scale, 0, 0, dpr * scale, 0, 0);
-    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
     ctx.fillStyle = PAL.bg; ctx.fillRect(0, 0, w, h);
-    const ground = h - 40;
+    const ground = h - 95;
 
     if (!GREEN) {
-      ctx.strokeStyle = PAL.ground; ctx.lineWidth = 3;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = PAL.ground; ctx.lineWidth = 6;
       ctx.beginPath(); ctx.moveTo(0, ground); ctx.lineTo(w, ground); ctx.stroke();
-      ctx.strokeStyle = PAL.groundSoft; ctx.lineWidth = 1.5;
+      ctx.strokeStyle = PAL.groundSoft; ctx.lineWidth = 4;
       ctx.beginPath();
-      for (let x = 6; x < w; x += 40) { ctx.moveTo(x, ground + 10); ctx.lineTo(x + 14, ground + 10); }
+      for (let x = 16; x < w; x += 110) { ctx.moveTo(x, ground + 28); ctx.lineTo(x + 40, ground + 28); }
       ctx.stroke();
-      const sh = Math.max(0.3, 1 - fig.h / 260);
+      const sh = Math.max(0.3, 1 - fig.h / 700);
       ctx.fillStyle = PAL.shadow;
-      ctx.beginPath(); ctx.ellipse(fig.x, ground + 2, 44 * sh, 7 * sh, 0, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(fig.x, ground + 2, 130 * sh, 18 * sh, 0, 0, Math.PI * 2); ctx.fill();
     }
 
-    const dir = fig.dir, tw = fig.tw;
-    const sk = skeleton({ x: fig.x, y: ground - fig.reach - fig.h }, pose, dir, tw);
-    const side = tw < 0.5;
-
-    drawCape(sk, dir, tw);
-    if (side) arm(sk, 'l');      // tay phía xa nằm sau thân
-    leg(sk, 'l'); leg(sk, 'r');
-    const hwT = drawTunic(sk, dir, tw);
-    drawSword(sk, dir, tw);
-    if (!side) arm(sk, 'l');
-    arm(sk, 'r');
-    drawCollar(sk, dir, tw, hwT);
-    drawHead(sk, dir, tw);
+    const sk = skeleton({ x: fig.x, y: ground - fig.reach - fig.h }, pose, fig.dir, viewOf(fig.tw));
+    if (sk.view === 'side') {
+      arm(sk, 'l');                    // tay phía xa nằm sau thân
+      body(sk, 'body');
+      leg(sk, 'l'); leg(sk, 'r');      // chân nằm trước áo choàng
+      body(sk, 'front');               // gấu áo và kiếm che phần hông
+      arm(sk, 'r');
+      head(sk);
+    } else {
+      body(sk, 'body');
+      leg(sk, 'l'); leg(sk, 'r');
+      body(sk, 'front');
+      arm(sk, 'l'); arm(sk, 'r');
+      head(sk);
+    }
 
     if (title.a > 0.01 && !GREEN) {
       ctx.globalAlpha = title.a;
       ctx.fillStyle = PAL.title;
-      ctx.font = '800 34px "Be Vietnam Pro", system-ui, sans-serif';
+      ctx.font = '800 84px "Be Vietnam Pro", system-ui, sans-serif';
       ctx.textAlign = 'center';
-      if ('letterSpacing' in ctx) ctx.letterSpacing = '2px';
-      ctx.fillText('NEOPTOLEMUS', w / 2, h - 12);
+      if ('letterSpacing' in ctx) ctx.letterSpacing = '4px';
+      ctx.fillText('NEOPTOLEMUS', w / 2, h - 18);
       ctx.globalAlpha = 1;
     }
   }
@@ -701,6 +552,7 @@
   // API cho script xuất video: bước thời gian cố định, không phụ thuộc tốc độ máy
   const NQ = window.NQ = {
     done: false,
+    ready,
     play: () => playScript(),
     step(dt) { update(dt); draw(); },
   };
@@ -715,7 +567,7 @@
     };
     requestAnimationFrame(loop);
   } else {
-    draw();
+    ready.then(draw);
   }
 })();
 </script>

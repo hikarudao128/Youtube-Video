@@ -25,7 +25,7 @@ const browser = await chromium.launch({
 async function render(query, outFile) {
   const tab = await browser.newPage({ viewport: { width: 960, height: 540 }, deviceScaleFactor: 2 });
   await tab.goto(`${page}?${query}`);
-  await tab.evaluate(() => document.fonts.ready);
+  await tab.evaluate(() => Promise.all([document.fonts.ready, window.NQ.ready]));
   await tab.evaluate(() => window.NQ.play());
 
   const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(FPS), '-i', '-',
