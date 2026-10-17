@@ -14,6 +14,8 @@ import argparse
 import asyncio
 import difflib
 import glob
+import json
+import math
 import os
 import re
 import ssl
@@ -29,7 +31,7 @@ OUT = os.path.join(HERE, "out")
 NAME = "TreConKhongDuocAnThitCho_EN"
 
 FPS = 30
-XF = 1.0            # hòa tan giữa các cảnh (giây)
+XF = 0.5            # hòa tan giữa các cảnh (giây); có cảnh chỉ dài 1–2 giây
 LEAD = 0.6          # lặng đầu video
 CH_GAP = 0.9        # lặng giữa hai chương
 LINE_GAP = 0.25     # lặng giữa hai lượt thoại
@@ -141,11 +143,19 @@ def run_audio(k, spk, chunks):
     speak = [to_speech(t).split() for _, t in chunks]
     flat = [w for ws in speak for w in ws]
     mp3, wav = os.path.join(WORK, "tts", f"r{k:03d}.mp3"), os.path.join(WORK, "tts", f"r{k:03d}.wav")
+    cache = mp3[:-4] + ".json"
+    key = [" ".join(flat), list(VOICES.get(spk, VOICES["NARRATOR"]))]
+    words = None
+    if os.path.exists(cache) and os.path.exists(mp3):
+        data = json.load(open(cache, encoding="utf-8"))
+        if data["key"] == key:
+            words = [tuple(w) for w in data["words"]]
     for attempt in range(4):
+        if words:
+            break
         try:
             words = asyncio.run(_tts(" ".join(flat), VOICES.get(spk, VOICES["NARRATOR"]), mp3))
-            if words:
-                break
+            json.dump({"key": key, "words": words}, open(cache, "w", encoding="utf-8"))
         except Exception:
             if attempt == 3:
                 raise
@@ -230,16 +240,24 @@ def xfade_chain(files, lengths, kinds, out):
     return acc
 
 
+def split_words(w, max_words):
+    """Chia đôi dần câu dài, ưu tiên ngắt sau dấu phẩy gần giữa câu."""
+    if len(w) <= max_words:
+        return [w]
+    mid = len(w) / 2
+    commas = [i + 1 for i in range(len(w) - 1) if w[i][-1] in ",;:" and abs(i + 1 - mid) <= 3]
+    cut = min(commas, key=lambda i: abs(i - mid)) if commas else math.ceil(mid)
+    return split_words(w[:cut], max_words) + split_words(w[cut:], max_words)
+
+
 def cues(text, s, e, max_words=9):
-    """Chia một đoạn chữ thành cụm phụ đề, chia thời gian theo số ký tự."""
-    words, groups, cur = text.split(), [], []
-    for w in words:
-        cur.append(w)
-        if w[-1] in ".?!" or len(cur) >= max_words or (w[-1] in ",:;" and len(cur) >= 5):
-            groups.append(cur)
-            cur = []
-    if cur:
-        groups.append(cur)
+    """Chia một đoạn chữ thành cụm phụ đề: theo câu, câu dài thì chia đều; thời gian theo số ký tự."""
+    groups = []
+    for sent in re.findall(r"[^.?!]+[.?!]*", text):
+        w = sent.split()
+        if not w:
+            continue
+        groups += split_words(w, max_words)
     total = sum(len(" ".join(g)) for g in groups) or 1
     out, t = [], s
     for g in groups:
@@ -340,7 +358,8 @@ def main():
     srt = os.path.join(OUT, f"{NAME}.srt")
     with open(srt, "w", encoding="utf-8") as f:
         for i, (text, s, e) in enumerate(subs, 1):
-            f.write(f"{i}\n{srt_time(s + shift)} --> {srt_time(e + shift + 0.15)}\n{text}\n\n")
+            e = e + 0.15 if i == len(subs) else min(e + 0.15, subs[i][1] - 0.02)
+            f.write(f"{i}\n{srt_time(s + shift)} --> {srt_time(e + shift)}\n{text}\n\n")
 
     final = os.path.join(OUT, f"{NAME}.mp4")
     style = ("FontName=DejaVu Sans,FontSize=19,Bold=1,PrimaryColour=&H00FFFFFF,"
