@@ -37,6 +37,27 @@ GAP = 0.7         # khoảng ngừng cho dấu " / "
 SR = 48000
 FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 CA_BUNDLE = "/root/.ccr/ca-bundle.crt"
+SUFFIX = ""
+PHONETIC = {}
+
+LANGS = {
+    "vi": dict(narration="LOI_KE.txt", voice="vi-VN-NamMinhNeural", rate="-4%",
+               work="work", suffix="", phonetic={}),
+    # Bản tiếng Anh: giọng Mỹ, tên tiếng Việt đọc theo phiên âm (phụ đề vẫn giữ chữ gốc).
+    "en": dict(narration="LOI_KE_EN.txt", voice="en-US-AndrewNeural", rate="+0%",
+               work="work_en", suffix="_EN", phonetic={
+                   "Chí Phèo": "Chee Feh-oh", "Chí": "Chee", "Bá Kiến": "Bah Kee-en",
+                   "Kiến": "Kee-en", "Bà Ba": "Bah Bah", "Bá": "Bah", "Lý Cường": "Lee Kuh-ung",
+                   "Thị Nở": "Tee Nuh", "Vũ Đại": "Voo Dye", "Nam Cao": "Nahm Cow",
+                   "Tảo": "Tao", "sào": "sow"}),
+}
+
+
+def to_speech(text):
+    """Thay tên riêng bằng phiên âm trước khi đưa cho giọng đọc (khóa dài thay trước)."""
+    for k in sorted(PHONETIC, key=len, reverse=True):
+        text = re.sub(rf"(?<!\w){re.escape(k)}(?!\w)", PHONETIC[k], text)
+    return text
 
 
 def sh(cmd):
@@ -84,7 +105,7 @@ async def _tts(text, path):
     # edge-tts tự gắn certifi; ở môi trường này phải tin CA của proxy (không tắt xác minh TLS)
     if os.path.exists(CA_BUNDLE):
         comm._SSL_CTX = ssl.create_default_context(cafile=CA_BUNDLE)
-    c = edge_tts.Communicate(text, VOICE, rate=RATE, proxy=os.environ.get("HTTPS_PROXY"))
+    c = edge_tts.Communicate(to_speech(text), VOICE, rate=RATE, proxy=os.environ.get("HTTPS_PROXY"))
     await c.save(path)
 
 
@@ -217,7 +238,13 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--chi-am", action="store_true")
     ap.add_argument("-j", type=int, default=4)
+    ap.add_argument("--lang", choices=sorted(LANGS), default="vi")
     a = ap.parse_args()
+    global NARRATION, WORK, VOICE, RATE, SUFFIX, PHONETIC
+    cfg = LANGS[a.lang]
+    NARRATION = os.path.join(HERE, cfg["narration"])
+    WORK = os.path.join(HERE, cfg["work"])
+    VOICE, RATE, SUFFIX, PHONETIC = cfg["voice"], cfg["rate"], cfg["suffix"], cfg["phonetic"]
     for d in ("voice", "clips", "chunks"):
         os.makedirs(os.path.join(WORK, d), exist_ok=True)
     os.makedirs(OUT, exist_ok=True)
@@ -270,12 +297,12 @@ def main():
     audio = os.path.join(WORK, "narration.wav")
     sh(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", audio])
 
-    srt = os.path.join(OUT, "ChiPheo.srt")
+    srt = os.path.join(OUT, f"ChiPheo{SUFFIX}.srt")
     with open(srt, "w", encoding="utf-8") as f:
         for i, (text, s, e) in enumerate(cues, 1):
             f.write(f"{i}\n{srt_time(s)} --> {srt_time(e)}\n{text}\n\n")
 
-    final = os.path.join(OUT, "ChiPheo.mp4")
+    final = os.path.join(OUT, f"ChiPheo{SUFFIX}.mp4")
     style = ("FontName=DejaVu Sans,FontSize=20,Bold=1,PrimaryColour=&H00FFFFFF,"
              "OutlineColour=&H00000000,BorderStyle=1,Outline=2,Shadow=0,MarginV=36")
     sh(["ffmpeg", "-y", "-i", video, "-i", audio,
