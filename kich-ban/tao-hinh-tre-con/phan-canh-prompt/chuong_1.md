@@ -74,7 +74,7 @@ Medium-wide shot of the nearly empty main room of the hut: bare walls, an empty 
 Lời dẫn: [FATHER]: Mụ Vụ! Ten young banana trees. Two đồng. Today only. · [MỤ VỤ]: Ten? They're healthy?
 Tham chiếu: 01, 07
 ```text
-Medium-wide shot at the low bamboo fence of the yard. On the left, the father (exactly as on his sheet: messy black hair, stubble, open patched dark grey-blue shirt, round belly, barefoot) gestures grandly like a market seller toward a row of exactly ten young banana saplings growing along the fence, beaming. On the right, on the other side of the fence, stands mụ Vụ (exactly as on her sheet: sturdy woman, stern frowning face, black headscarf, low bun, brown long-sleeved jacket over a beige top, long black skirt, barefoot, holding a small cloth coin pouch), squinting suspiciously at the saplings with one eyebrow raised. Bright daylight, light comedic mood.
+Medium-wide shot at the low bamboo fence of the yard. On the left, the father (exactly as on his sheet: messy black hair, stubble, open patched dark grey-blue shirt, round belly, barefoot) gestures grandly like a market seller toward a row of exactly ten young banana saplings (count them: ten, no more, no less) growing along the fence, with a smug salesman grin and the same droopy half-closed eyelids and messy hair as on his sheet (not spiky, not wide-eyed). On the right, on the other side of the fence, stands mụ Vụ (exactly as on her sheet: sturdy woman, stern frowning face, black headscarf, low bun, brown long-sleeved jacket over a beige top, long black skirt, barefoot, holding a small cloth coin pouch), squinting suspiciously at the saplings with one eyebrow raised. Bright daylight, light comedic mood.
 ```
 
 #### CẢNH 1.12 · 1:34–1:38
@@ -102,7 +102,7 @@ Wide shot by the bamboo fence and the row of young banana saplings. Standing on 
 Lời dẫn: The two đồng, the old Vietnamese money, went straight into xóc đĩa.
 Tham chiếu: 01
 ```text
-Dynamic close-up, slightly low angle: the father's hand (white cartoon glove-like hand, sleeve of his patched dark grey-blue shirt) flings exactly two small round copper coins with square holes through the air, with little motion lines, toward a straw mat on the ground where an upturned small ceramic bowl sits on a white plate. In the blurred background, the father's eager, wide-eyed, grinning face. Dim, smoky light of a gambling corner under a thatched eave. Comedic but reckless energy.
+Dynamic medium close-up, slightly low angle: the father (exactly as on his sheet: messy black hair, stubble, droopy eyes, rosy cheeks, open patched dark grey-blue shirt) leans forward and flicks exactly two small round copper coins with square holes from ONE normal-sized white oval cartoon hand on a thin black stick arm; his anatomy is simple and correct: exactly two arms, two hands of normal size, no extra hands, no oversized hand. The two coins fly through the air with little motion lines toward a straw mat on the ground where an upturned small ceramic bowl sits on a white plate. His face is eager and grinning. In the blurred background, a few gamblers' silhouettes. Dim, smoky light of a gambling corner under a thatched eave. Comedic but reckless energy.
 ```
 
 #### CẢNH 1.16 · 1:51–1:56

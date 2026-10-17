@@ -76,7 +76,7 @@ Closer, slightly low eye-level group shot of the five in the kitchen corner, sit
 Lời dẫn: They can hear the cups. They can smell the meat. They can't see any of it.
 Tham chiếu: 02, 03, 04, 05, 06
 ```text
-Shot from behind and slightly to the side of the five in the kitchen: the mother (sheet 02) and the four children (sheets 03, 04, 05, 06, recognizable by their hair and clothes) all turn their heads toward the partition wall on the right, listening. A thin strip of warm light and wisps of steam leak through the narrow gap in the wall, but nothing of the main room can be seen through it. Cu Con lifts his nose to sniff, cu Nhỡ holds his finger at his mouth, cu Nhớn presses his ear toward the wall, cái Gái swallows. All five are SITTING on the straw floor (not standing). Five faces turned toward the wall in warm firelight. Exactly five people. No market basket and no wooden tray anywhere; the only prop is cu Con's small empty clay bowl. Hungry, quiet longing.
+Shot from behind and slightly to the side of the five in the kitchen: the mother (sheet 02) and the four children (sheets 03, 04, 05, 06, recognizable by their hair and clothes) all turn their heads toward the partition wall on the right, listening. A thin strip of warm light and wisps of steam leak through the narrow gap in the wall, but nothing of the main room can be seen through it. Cu Con lifts his nose to sniff, cu Nhỡ holds his finger at his mouth, cu Nhớn presses his ear toward the wall, cái Gái swallows. All five are SITTING on the straw floor (not standing). Five faces turned toward the wall in warm firelight. Exactly five people. No market basket and no wooden tray anywhere; the only prop is cu Con's small empty clay bowl. Hungry, quiet longing. IMPORTANT: draw all five exactly in the simple flat cartoon style of the sheets — big round heads, solid black oval eyes, big round pink-orange bulb noses (the mother too), thin black stick arms and legs, white oval cartoon hands, thick black outlines, flat colors; no anime style, no soft painterly shading, no realistic hands or limbs.
 ```
 
 #### CẢNH 4.12 · 6:10–6:13
@@ -125,7 +125,7 @@ Medium shot back in the bright main room, early afternoon: the four men around t
 Lời dẫn: One o'clock. Two o'clock. The men are red in the face and loud.
 Tham chiếu: 01, 09
 ```text
-Same framing of the four men at the bamboo table, later in the afternoon: the sunlight from the doorway now comes in low and slanted, long orange shadows stretch across the floor and the table, showing the hours passing (no clock, no numbers anywhere). All four men (the father, sheet 01; the three guests, sheet 09) are now bright red in the face, shirts more open, slouching, mouths wide open shouting and laughing loudly, cups raised. More empty liquor bottles lie on the table and on the mat. Rowdy, sweaty, tipsy mood.
+Same framing of the four men at the bamboo table, later in the afternoon: the sunlight from the doorway now comes in low and slanted, long orange shadows stretch across the floor and the table, showing the hours passing (no clock, no numbers anywhere). All four men (the father, sheet 01; the three guests, sheet 09) are now bright red in the face, shirts more open, slouching, mouths wide open shouting and laughing loudly, cups raised. Several empty small round brown CLAY liquor jars (same as the father's clay bottle on his sheet) lie tipped over on the table and on the mat; absolutely no glass bottles, no beer bottles. Rowdy, sweaty, tipsy mood.
 ```
 
 #### CẢNH 4.19 · 6:44–6:49

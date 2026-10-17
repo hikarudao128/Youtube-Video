@@ -32,7 +32,7 @@ Recap vignette framed like a soft memory card with rounded corners and a plain c
 Lời dẫn: The kids helped kill their own dog, and didn't get a single bite of it.
 Tham chiếu: 03, 04, 05, 06
 ```text
-The four children sit in a row on the straw floor of the dark kitchen, each holding an empty clay bowl in their lap and staring down at it with sad, tired faces: cái Gái (sheet 03), cu Nhớn (sheet 04), cu Nhỡ (sheet 05) and the smallest, cu Con (sheet 06). Exactly four children, child-sized, matching their sheets. Behind them, through the small kitchen doorway, the yard and the low bamboo fence are visible, with a loose empty rope hanging from one fence post. No dog, no violence. Muted cold colors.
+The four children sit in a row on the straw floor of the dark kitchen, each holding an empty clay bowl in their lap and staring down at it with sad, tired faces: cái Gái (sheet 03), cu Nhớn (sheet 04), cu Nhỡ (sheet 05) and the smallest, cu Con (sheet 06). Exactly four children, child-sized, matching their sheets. Behind them, through the small kitchen doorway, the sunny yard and the low, knee-high bamboo fence are visible, with a short loose straw rope lying coiled on the dirt at the foot of the fence (nothing tall, no posts with ropes hanging, no loops, nothing that looks like a gallows or noose). No dog, no violence. Muted cold colors inside.
 ```
 
 #### CẢNH 6.6 · 8:37–8:42

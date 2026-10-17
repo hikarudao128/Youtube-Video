@@ -67,7 +67,7 @@ Medium-wide shot: the father (sheet 01): messy black hair, stubble, red cheeks, 
 Lời dẫn: But he's already decided. He just needed the speech so he could feel like a guy who thinks things through.
 Tham chiếu: 01
 ```text
-Medium close-up of the father (sheet 01): messy black hair, stubble, red cheeks, smug half-lidded eyes, open patched dark indigo-grey shirt over a small pot belly, rolled dark brown patched trousers, barefoot nodding slowly to himself with closed smug eyes, rubbing his two white oval hands together, a small clay liquor bottle tucked under his arm. Background: the hut wall and banana leaves, slightly darker, the light a little cooler than before.
+Medium close-up of the father (sheet 01): messy black hair, stubble, red cheeks, smug half-lidded eyes, open patched dark indigo-grey shirt over a small pot belly, rolled dark brown patched trousers, barefoot standing, nodding slowly to himself with closed smug eyes and a satisfied grin. Simple clear pose with exactly two arms: his left hand rests on his pot belly, his right hand holds his small brown clay liquor bottle loosely at his side. Arms do not cross or tangle; thin black stick arms, white oval hands. Background: the hut wall and banana leaves, slightly darker, the light a little cooler than before.
 ```
 
 #### CẢNH 2.11 · 3:17–3:22

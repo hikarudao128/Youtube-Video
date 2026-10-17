@@ -60,7 +60,7 @@ Reverse shot from the floor looking up past the edge of the round wooden tray (e
 Lời dẫn: Remember half a month of rice?
 Tham chiếu: không
 ```text
-A memory image: fifteen small clay bowls, each filled with a white mound of cooked rice, standing in one neat long row on a woven straw mat, drawn in soft faded warm sepia tones like an old memory. The row recedes slightly into the distance. Simple, symbolic composition with plenty of empty space above. No people, no text, no numbers.
+A memory image: exactly fifteen small clay bowls (three groups of five bowls with small gaps between the groups; count carefully, no more and no fewer than fifteen), each filled with a white mound of cooked rice, standing in one neat long row on a woven straw mat, drawn in soft faded warm sepia tones like an old memory. The row recedes slightly into the distance. Simple, symbolic composition with plenty of empty space above. No people, no text, no numbers.
 ```
 
 #### CẢNH 5.10 · 7:41–7:46
@@ -109,5 +109,5 @@ In the dark kitchen corner, the mother (sheet 02) sits on the straw floor and he
 Lời dẫn: Five people. One kitchen. And out front, four men who aren't hungry anymore.
 Tham chiếu: 01, 02, 03, 04, 05, 06, 09
 ```text
-Wide pull-back shot of the inside of the hut, cut in two by a mud wall. On the left, the small dark smoky kitchen corner: five small figures huddled together on the straw floor, the mother (sheet 02) and her four children (sheets 03, 04, 05, 06), crying, the empty tray beside them, lit only by a weak stove glow in cold blue-grey tones. In the mud wall there is a ragged gap; through it, on the right, the main room in warm amber light where the father (sheet 01) and the three guests (sheet 09) sit slumped and drowsy around the low bamboo table with empty cups, bellies full. Strong cold-versus-warm contrast, cinematic, melancholy.
+Wide pull-back shot from inside the dark kitchen. The left two-thirds of the image is the small dark smoky kitchen corner: FIVE figures huddled together on the straw floor, the mother (sheet 02) and EXACTLY FOUR children, each clearly visible and different: cái Gái (sheet 03, girl with black hair and tan shirt), cu Nhớn (sheet 04, open ragged blue vest), cu Nhỡ (sheet 05, long ragged brown shirt) and the smallest, cu Con (sheet 06, red-brown shirt, round belly, one curled tuft) in her lap. They are crying quietly, the empty wooden tray with empty bowls beside them, lit only by a weak stove glow in cold blue-grey tones. The right third is a thick solid mud wall with one small ragged hole broken through it; seen only through that small hole, far away in warm amber light, the father (sheet 01) and the three guests (sheet 09) sit slumped, sleepy and motionless around the low bamboo table, heads drooping, bellies full, the table covered with empty bowls and empty cups, no steam, no food. Strong cold-versus-warm contrast, cinematic, quiet and melancholy.
 ```
