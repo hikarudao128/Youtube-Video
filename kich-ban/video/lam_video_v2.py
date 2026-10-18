@@ -154,6 +154,8 @@ def cues_from_tokens(tokens, max_words=8, max_len=3.4):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("-j", type=int, default=6)
+    ap.add_argument("--khong-phu-de", action="store_true",
+                    help="không in phụ đề vào hình (vẫn xuất file .srt riêng)")
     a = ap.parse_args()
     os.makedirs(os.path.join(WORK, "clips"), exist_ok=True)
     os.makedirs(os.path.join(WORK, "chunks"), exist_ok=True)
@@ -231,8 +233,8 @@ def main():
     final = os.path.join(OUT, f"{NAME}.mp4")
     style = ("FontName=DejaVu Sans,FontSize=19,Bold=1,PrimaryColour=&H00FFFFFF,"
              "OutlineColour=&H00000000,BorderStyle=1,Outline=2,Shadow=0,MarginV=34")
-    L.sh(["ffmpeg", "-y", "-i", video, "-i", audio,
-          "-vf", f"subtitles={srt}:force_style='{style}'",
+    vf = [] if a.khong_phu_de else ["-vf", f"subtitles={srt}:force_style='{style}'"]
+    L.sh(["ffmpeg", "-y", "-i", video, "-i", audio, *vf,
           "-c:v", "libx264", "-preset", "medium", "-crf", "23", "-pix_fmt", "yuv420p",
           "-c:a", "aac", "-b:a", "192k", "-af", "loudnorm=I=-15:TP=-1.5:LRA=11",
           "-shortest", "-movflags", "+faststart", final])

@@ -1,6 +1,6 @@
 # YouTube metadata — Chí Phèo (English v2)
 
-For `video/out/ChiPheo_EN_v2.mp4` (11:06). Chapter times are taken from `video/out/ChiPheo_EN_v2.srt`.
+For `video/out/ChiPheo_EN_v2_no_subs.mp4` (11:06, no burned-in subtitles; `ChiPheo_EN_v2.mp4` is the same video with subtitles burned in). Chapter times are taken from `video/out/ChiPheo_EN_v2.srt`.
 
 ## Title (pick one)
 
@@ -60,5 +60,5 @@ Chi Pheo, Chí Phèo, Nam Cao, Chi Pheo explained, Chi Pheo story, Chi Pheo summ
 - **Category:** Education (or Film & Animation)
 - **Audience:** Not made for kids (death and violence are referenced, even though nothing graphic is shown)
 - **Altered or synthetic content:** No. The visuals are clearly stylised cartoons and do not realistically depict real people or events, so YouTube's disclosure toggle should not apply. The description still mentions the AI visuals and voice.
-- **Subtitles:** upload `video/out/ChiPheo_EN_v2.srt` as English captions (the video also has them burned in).
+- **Subtitles:** upload `video/out/ChiPheo_EN_v2.srt` as English captions. The final video has no burned-in subtitles, so this file is the only way viewers get captions (YouTube lets them switch captions on or off).
 - **Thumbnail ideas:** see section D of `CHI_PHEO_EN.md` ("ONE POT. TWO BODIES." or "FROM GENTLE TO DEMON").
