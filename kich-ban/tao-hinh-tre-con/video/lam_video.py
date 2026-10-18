@@ -7,8 +7,8 @@
 - Chuyển động Ken Burns đều, hòa tan giữa các cảnh, mờ qua màn đen khi sang chương mới.
 - Chữ trên màn hình (tên phim, con số) vẽ bằng ffmpeg, không nhờ AI vẽ chữ.
 
-Chạy:  python3 lam_video.py [-j 4]
-Kết quả: out/TreConKhongDuocAnThitCho_EN.mp4 và .srt
+Chạy:  python3 lam_video.py [-j 4] [--phu-de]   (--chi-ghep: chỉ ghép lại từ work/)
+Kết quả: out/TreConKhongDuocAnThitCho_EN.mp4 (không phụ đề) và .srt
 """
 import argparse
 import asyncio
@@ -271,7 +271,15 @@ def cues(text, s, e, max_words=9):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("-j", type=int, default=4)
+    ap.add_argument("--phu-de", action="store_true", help="gắn cứng phụ đề vào hình")
+    ap.add_argument("--chi-ghep", action="store_true",
+                    help="chỉ ghép lại hình + tiếng từ work/ (không dựng lại)")
     a = ap.parse_args()
+    if a.chi_ghep:
+        final = finish(os.path.join(WORK, "video_noaudio.mp4"), os.path.join(WORK, "narration.wav"),
+                       os.path.join(OUT, f"{NAME}.srt"), a.phu_de)
+        print(f"Xong: {final}")
+        return
     for d in ("tts", "clips", "chunks"):
         os.makedirs(os.path.join(WORK, d), exist_ok=True)
     os.makedirs(OUT, exist_ok=True)
@@ -361,15 +369,23 @@ def main():
             e = e + 0.15 if i == len(subs) else min(e + 0.15, subs[i][1] - 0.02)
             f.write(f"{i}\n{srt_time(s + shift)} --> {srt_time(e + shift)}\n{text}\n\n")
 
+    final = finish(video, audio, srt, a.phu_de)
+    print(f"Xong: {final} ({vlen / 60:.1f} phút)")
+
+
+def finish(video, audio, srt, burn_subs=False):
+    """Ghép hình + tiếng. Mặc định không gắn phụ đề vào hình (dùng file .srt riêng trên YouTube)."""
     final = os.path.join(OUT, f"{NAME}.mp4")
-    style = ("FontName=DejaVu Sans,FontSize=19,Bold=1,PrimaryColour=&H00FFFFFF,"
-             "OutlineColour=&H00000000,BorderStyle=1,Outline=2,Shadow=0,MarginV=34")
-    sh(["ffmpeg", "-y", "-i", video, "-i", audio,
-        "-vf", f"subtitles={srt}:force_style='{style}'",
+    vf = []
+    if burn_subs:
+        style = ("FontName=DejaVu Sans,FontSize=19,Bold=1,PrimaryColour=&H00FFFFFF,"
+                 "OutlineColour=&H00000000,BorderStyle=1,Outline=2,Shadow=0,MarginV=34")
+        vf = ["-vf", f"subtitles={srt}:force_style='{style}'"]
+    sh(["ffmpeg", "-y", "-i", video, "-i", audio, *vf,
         "-c:v", "libx264", "-preset", "medium", "-crf", "23", "-pix_fmt", "yuv420p",
         "-c:a", "aac", "-b:a", "192k", "-af", "loudnorm=I=-15:TP=-1.5:LRA=11",
         "-shortest", "-movflags", "+faststart", final])
-    print(f"Xong: {final} ({vlen / 60:.1f} phút)")
+    return final
 
 
 if __name__ == "__main__":
